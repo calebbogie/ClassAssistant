@@ -13,6 +13,8 @@
 		05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */; };
 		05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */; };
 		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
+		057EC8B51B30EAB600BF0F0B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057EC8B41B30EAB600BF0F0B /* LoginViewController.m */; };
+		057EC8B81B30ECDC00BF0F0B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057EC8B71B30ECDC00BF0F0B /* SignUpViewController.m */; };
 		063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */; };
 		066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066C2A5519A53A9E002982C4 /* EditGradeViewController.m */; };
 		068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068260ED1952828200C072C2 /* ViewClassViewController.m */; };
@@ -55,6 +57,10 @@
 		05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCalendarEventViewController.m; sourceTree = "<group>"; };
 		056F29701B22910E001AE97C /* GradeIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeIndicatorView.h; sourceTree = "<group>"; };
 		056F29711B22910E001AE97C /* GradeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeIndicatorView.m; sourceTree = "<group>"; };
+		057EC8B31B30EAB600BF0F0B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		057EC8B41B30EAB600BF0F0B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		057EC8B61B30ECDC00BF0F0B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		057EC8B71B30ECDC00BF0F0B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTabBarController.h; sourceTree = "<group>"; };
 		063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTabBarController.m; sourceTree = "<group>"; };
 		066C2A5419A53A9E002982C4 /* EditGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGradeViewController.h; sourceTree = "<group>"; };
@@ -214,6 +220,8 @@
 		06DF496D1B1C30C50053011D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				057EC8B31B30EAB600BF0F0B /* LoginViewController.h */,
+				057EC8B41B30EAB600BF0F0B /* LoginViewController.m */,
 				05529D651B27B1680055ADAB /* ViewCalendarEventViewController.h */,
 				05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */,
 				05529D621B2737DF0055ADAB /* CalendarEventsTableViewController.h */,
@@ -238,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				06A43EB3194F95AA00A78D29 /* Main.storyboard */,
+				057EC8B61B30ECDC00BF0F0B /* SignUpViewController.h */,
+				057EC8B71B30ECDC00BF0F0B /* SignUpViewController.m */,
 				056F29701B22910E001AE97C /* GradeIndicatorView.h */,
 				056F29711B22910E001AE97C /* GradeIndicatorView.m */,
 			);
@@ -343,6 +353,7 @@
 			files = (
 				063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */,
 				068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */,
+				057EC8B51B30EAB600BF0F0B /* LoginViewController.m in Sources */,
 				056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */,
 				06A43EBA194F98FD00A78D29 /* TableViewController.m in Sources */,
 				066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */,
@@ -352,6 +363,7 @@
 				0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */,
 				05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */,
 				05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */,
+				057EC8B81B30ECDC00BF0F0B /* SignUpViewController.m in Sources */,
 				06A43E91194F952E00A78D29 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
