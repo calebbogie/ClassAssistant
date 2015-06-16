@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543BCC71B23FFFF006A49C5 /* AddCalendarEventViewController.m */; };
+		0543BCCB1B241F4B006A49C5 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0543BCCA1B241F4B006A49C5 /* calendar.png */; };
+		05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05529D601B272F060055ADAB /* MessageUI.framework */; };
+		05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */; };
+		05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */; };
+		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
+		063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */; };
+		066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066C2A5519A53A9E002982C4 /* EditGradeViewController.m */; };
+		068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068260ED1952828200C072C2 /* ViewClassViewController.m */; };
 		06A43E85194F952E00A78D29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A43E84194F952E00A78D29 /* Foundation.framework */; };
 		06A43E87194F952E00A78D29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A43E86194F952E00A78D29 /* CoreGraphics.framework */; };
 		06A43E89194F952E00A78D29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A43E88194F952E00A78D29 /* UIKit.framework */; };
@@ -19,6 +28,10 @@
 		06A43EA0194F952E00A78D29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A43E88194F952E00A78D29 /* UIKit.framework */; };
 		06A43EA8194F952E00A78D29 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06A43EA6194F952E00A78D29 /* InfoPlist.strings */; };
 		06A43EAA194F952E00A78D29 /* ClassAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A43EA9194F952E00A78D29 /* ClassAssistantTests.m */; };
+		06A43EB4194F95AA00A78D29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A43EB3194F95AA00A78D29 /* Main.storyboard */; };
+		06A43EB7194F989600A78D29 /* AddClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A43EB6194F989600A78D29 /* AddClassViewController.m */; };
+		06A43EBA194F98FD00A78D29 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A43EB9194F98FD00A78D29 /* TableViewController.m */; };
+		06A43EBD194F9C5700A78D29 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A43EBC194F9C5700A78D29 /* Course.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +45,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0543BCC61B23FFFF006A49C5 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCalendarEventViewController.h; sourceTree = "<group>"; };
+		0543BCC71B23FFFF006A49C5 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCalendarEventViewController.m; sourceTree = "<group>"; };
+		0543BCCA1B241F4B006A49C5 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		05529D601B272F060055ADAB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		05529D621B2737DF0055ADAB /* CalendarEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventsTableViewController.h; sourceTree = "<group>"; };
+		05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventsTableViewController.m; sourceTree = "<group>"; };
+		05529D651B27B1680055ADAB /* ViewCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCalendarEventViewController.h; sourceTree = "<group>"; };
+		05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCalendarEventViewController.m; sourceTree = "<group>"; };
+		056F29701B22910E001AE97C /* GradeIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeIndicatorView.h; sourceTree = "<group>"; };
+		056F29711B22910E001AE97C /* GradeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeIndicatorView.m; sourceTree = "<group>"; };
+		063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTabBarController.h; sourceTree = "<group>"; };
+		063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTabBarController.m; sourceTree = "<group>"; };
+		066C2A5419A53A9E002982C4 /* EditGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGradeViewController.h; sourceTree = "<group>"; };
+		066C2A5519A53A9E002982C4 /* EditGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditGradeViewController.m; sourceTree = "<group>"; };
+		068260EC1952828100C072C2 /* ViewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewClassViewController.h; sourceTree = "<group>"; };
+		068260ED1952828200C072C2 /* ViewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewClassViewController.m; sourceTree = "<group>"; };
 		06A43E81194F952E00A78D29 /* ClassAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06A43E84194F952E00A78D29 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06A43E86194F952E00A78D29 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +77,13 @@
 		06A43EA5194F952E00A78D29 /* ClassAssistantTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClassAssistantTests-Info.plist"; sourceTree = "<group>"; };
 		06A43EA7194F952E00A78D29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		06A43EA9194F952E00A78D29 /* ClassAssistantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassAssistantTests.m; sourceTree = "<group>"; };
+		06A43EB3194F95AA00A78D29 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		06A43EB5194F989600A78D29 /* AddClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClassViewController.h; sourceTree = "<group>"; };
+		06A43EB6194F989600A78D29 /* AddClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClassViewController.m; sourceTree = "<group>"; };
+		06A43EB8194F98FD00A78D29 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		06A43EB9194F98FD00A78D29 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		06A43EBB194F9C5700A78D29 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		06A43EBC194F9C5700A78D29 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */,
 				06A43E87194F952E00A78D29 /* CoreGraphics.framework in Frameworks */,
 				06A43E89194F952E00A78D29 /* UIKit.framework in Frameworks */,
 				06A43E85194F952E00A78D29 /* Foundation.framework in Frameworks */,
@@ -74,6 +111,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0543BCC91B241F4B006A49C5 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				0543BCCA1B241F4B006A49C5 /* calendar.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		0651C80E195A65C100B33D05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06A43EBC194F9C5700A78D29 /* Course.m */,
+				06A43EBB194F9C5700A78D29 /* Course.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0651C80F195A65D900B33D05 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				06A43E94194F952E00A78D29 /* AppDelegate.m */,
+				06A43E93194F952E00A78D29 /* AppDelegate.h */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		06A43E78194F952E00A78D29 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +159,7 @@
 		06A43E83194F952E00A78D29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05529D601B272F060055ADAB /* MessageUI.framework */,
 				06A43E84194F952E00A78D29 /* Foundation.framework */,
 				06A43E86194F952E00A78D29 /* CoreGraphics.framework */,
 				06A43E88194F952E00A78D29 /* UIKit.framework */,
@@ -107,8 +171,11 @@
 		06A43E8A194F952E00A78D29 /* ClassAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				06A43E93194F952E00A78D29 /* AppDelegate.h */,
-				06A43E94194F952E00A78D29 /* AppDelegate.m */,
+				0543BCC91B241F4B006A49C5 /* img */,
+				06DF496E1B1C30E80053011D /* View */,
+				06DF496D1B1C30C50053011D /* Controller */,
+				0651C80F195A65D900B33D05 /* Other */,
+				0651C80E195A65C100B33D05 /* Model */,
 				06A43E96194F952E00A78D29 /* Images.xcassets */,
 				06A43E8B194F952E00A78D29 /* Supporting Files */,
 			);
@@ -142,6 +209,39 @@
 				06A43EA6194F952E00A78D29 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06DF496D1B1C30C50053011D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05529D651B27B1680055ADAB /* ViewCalendarEventViewController.h */,
+				05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */,
+				05529D621B2737DF0055ADAB /* CalendarEventsTableViewController.h */,
+				05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */,
+				0543BCC61B23FFFF006A49C5 /* AddCalendarEventViewController.h */,
+				0543BCC71B23FFFF006A49C5 /* AddCalendarEventViewController.m */,
+				068260ED1952828200C072C2 /* ViewClassViewController.m */,
+				068260EC1952828100C072C2 /* ViewClassViewController.h */,
+				06A43EB6194F989600A78D29 /* AddClassViewController.m */,
+				06A43EB5194F989600A78D29 /* AddClassViewController.h */,
+				06A43EB9194F98FD00A78D29 /* TableViewController.m */,
+				06A43EB8194F98FD00A78D29 /* TableViewController.h */,
+				063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */,
+				063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */,
+				066C2A5519A53A9E002982C4 /* EditGradeViewController.m */,
+				066C2A5419A53A9E002982C4 /* EditGradeViewController.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		06DF496E1B1C30E80053011D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06A43EB3194F95AA00A78D29 /* Main.storyboard */,
+				056F29701B22910E001AE97C /* GradeIndicatorView.h */,
+				056F29711B22910E001AE97C /* GradeIndicatorView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A43EB4194F95AA00A78D29 /* Main.storyboard in Resources */,
+				0543BCCB1B241F4B006A49C5 /* calendar.png in Resources */,
 				06A43E8F194F952E00A78D29 /* InfoPlist.strings in Resources */,
 				06A43E97194F952E00A78D29 /* Images.xcassets in Resources */,
 			);
@@ -239,7 +341,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */,
+				068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */,
+				056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */,
+				06A43EBA194F98FD00A78D29 /* TableViewController.m in Sources */,
+				066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */,
 				06A43E95194F952E00A78D29 /* AppDelegate.m in Sources */,
+				06A43EB7194F989600A78D29 /* AddClassViewController.m in Sources */,
+				06A43EBD194F9C5700A78D29 /* Course.m in Sources */,
+				0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */,
+				05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */,
+				05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */,
 				06A43E91194F952E00A78D29 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +549,7 @@
 				06A43EAF194F952E00A78D29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06A43EB0194F952E00A78D29 /* Build configuration list for PBXNativeTarget "ClassAssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +558,7 @@
 				06A43EB2194F952E00A78D29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
