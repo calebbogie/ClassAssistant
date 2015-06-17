@@ -319,28 +319,40 @@
                     <navigationItem key="navigationItem" id="K2U-NN-9O2">
                         <barButtonItem key="rightBarButtonItem" title="Login" id="wET-Nu-pyv">
                             <connections>
-                                <segue destination="Sr1-xK-AT1" kind="popover" popoverAnchorBarButtonItem="wET-Nu-pyv" id="yQt-Dk-FGa">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="Sr1-xK-AT1" kind="push" id="yQt-Dk-FGa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="passwordField" destination="HtG-Wp-yav" id="sPo-eg-q0O"/>
-                        <outlet property="usernameField" destination="Zu5-86-trp" id="LQP-o2-dfQ"/>
+                        <outlet property="passwordTextField" destination="HtG-Wp-yav" id="ZaF-vM-r4e"/>
+                        <outlet property="usernameTextField" destination="Zu5-86-trp" id="TNF-Ff-2cP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSJ-hJ-IO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="fnv-Tq-5Sn">
             <objects>
-                <viewController id="9ZK-0K-wCd" sceneMemberID="viewController">
+                <viewController id="9ZK-0K-wCd" customClass="SignUpViewController" customModule="ClassAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yzs-ET-1GI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="zbC-Uh-8Xq">
+                                <rect key="frame" x="112" y="127" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="66N-ah-ZbI">
+                                <rect key="frame" x="112" y="206" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fwf-qY-Wxk">
@@ -350,6 +362,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passwordTextField" destination="66N-ah-ZbI" id="rtM-M5-DED"/>
+                        <outlet property="usernameTextField" destination="zbC-Uh-8Xq" id="ZL4-Kh-8Pg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJg-E4-byM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -799,6 +815,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zmO-v4-Yko"/>
+        <segue reference="yQt-Dk-FGa"/>
     </inferredMetricsTieBreakers>
 </document>
