@@ -272,7 +272,7 @@
         <!--Login View Controller-->
         <scene sceneID="fnw-3O-fZX">
             <objects>
-                <viewController id="KyT-2K-qYA" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="KyT-2K-qYA" customClass="LoginViewController" customModule="ClassAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="66u-up-WGb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
