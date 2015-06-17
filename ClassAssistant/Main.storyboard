@@ -269,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="-46" y="72"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Welcome-->
         <scene sceneID="fnw-3O-fZX">
             <objects>
                 <viewController id="KyT-2K-qYA" customClass="LoginViewController" customModule="ClassAssistant" customModuleProvider="target" sceneMemberID="viewController">
@@ -316,16 +316,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K2U-NN-9O2">
+                    <navigationItem key="navigationItem" title="Welcome" id="K2U-NN-9O2">
                         <barButtonItem key="rightBarButtonItem" title="Login" id="wET-Nu-pyv">
                             <connections>
-                                <segue destination="Sr1-xK-AT1" kind="push" id="yQt-Dk-FGa"/>
+                                <action selector="logInPressed:" destination="KyT-2K-qYA" id="kAe-mu-aKz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="HtG-Wp-yav" id="ZaF-vM-r4e"/>
                         <outlet property="usernameTextField" destination="Zu5-86-trp" id="TNF-Ff-2cP"/>
+                        <segue destination="Sr1-xK-AT1" kind="push" identifier="LoginSuccessful" id="2d6-OT-oHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSJ-hJ-IO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -358,13 +359,14 @@
                     <navigationItem key="navigationItem" id="Fwf-qY-Wxk">
                         <barButtonItem key="rightBarButtonItem" title="Sign Up" id="SVt-pY-tkV">
                             <connections>
-                                <segue destination="Sr1-xK-AT1" kind="push" id="zmO-v4-Yko"/>
+                                <action selector="signUpPressed:" destination="9ZK-0K-wCd" id="2FT-HV-F6M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="66N-ah-ZbI" id="rtM-M5-DED"/>
                         <outlet property="usernameTextField" destination="zbC-Uh-8Xq" id="ZL4-Kh-8Pg"/>
+                        <segue destination="Sr1-xK-AT1" kind="push" identifier="SignUpSuccessful" id="VsN-Xb-u28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJg-E4-byM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -815,6 +817,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yQt-Dk-FGa"/>
+        <segue reference="VsN-Xb-u28"/>
     </inferredMetricsTieBreakers>
 </document>

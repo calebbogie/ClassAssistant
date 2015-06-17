@@ -15,6 +15,19 @@
 		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
 		0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC461B313DF900522EEA /* LoginViewController.swift */; };
 		0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC481B313E0B00522EEA /* SignUpViewController.swift */; };
+		0592CC4B1B3142F700522EEA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4A1B3142F700522EEA /* Parse.framework */; };
+		0592CC4D1B3142FE00522EEA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4C1B3142FE00522EEA /* Bolts.framework */; };
+		0592CC4F1B31430500522EEA /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4E1B31430500522EEA /* ParseUI.framework */; };
+		0592CC511B31432F00522EEA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC501B31432F00522EEA /* AudioToolbox.framework */; };
+		0592CC531B31433600522EEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC521B31433600522EEA /* CFNetwork.framework */; };
+		0592CC551B31434300522EEA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC541B31434300522EEA /* CoreLocation.framework */; };
+		0592CC571B31434A00522EEA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC561B31434A00522EEA /* MobileCoreServices.framework */; };
+		0592CC591B31435100522EEA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC581B31435100522EEA /* QuartzCore.framework */; };
+		0592CC5B1B31435600522EEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC5A1B31435600522EEA /* Security.framework */; };
+		0592CC5D1B31435C00522EEA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC5C1B31435B00522EEA /* StoreKit.framework */; };
+		0592CC5F1B31436300522EEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC5E1B31436300522EEA /* SystemConfiguration.framework */; };
+		0592CC611B31436E00522EEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC601B31436E00522EEA /* libz.dylib */; };
+		0592CC631B31437600522EEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC621B31437600522EEA /* libsqlite3.dylib */; };
 		063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */; };
 		066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066C2A5519A53A9E002982C4 /* EditGradeViewController.m */; };
 		068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068260ED1952828200C072C2 /* ViewClassViewController.m */; };
@@ -60,6 +73,19 @@
 		0592CC451B313DF900522EEA /* ClassAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		0592CC461B313DF900522EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		0592CC481B313E0B00522EEA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
+		0592CC4A1B3142F700522EEA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		0592CC4C1B3142FE00522EEA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		0592CC4E1B31430500522EEA /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0592CC501B31432F00522EEA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0592CC521B31433600522EEA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0592CC541B31434300522EEA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0592CC561B31434A00522EEA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0592CC581B31435100522EEA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0592CC5A1B31435600522EEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0592CC5C1B31435B00522EEA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0592CC5E1B31436300522EEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0592CC601B31436E00522EEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0592CC621B31437600522EEA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTabBarController.h; sourceTree = "<group>"; };
 		063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTabBarController.m; sourceTree = "<group>"; };
 		066C2A5419A53A9E002982C4 /* EditGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGradeViewController.h; sourceTree = "<group>"; };
@@ -96,10 +122,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */,
+				0592CC631B31437600522EEA /* libsqlite3.dylib in Frameworks */,
+				0592CC611B31436E00522EEA /* libz.dylib in Frameworks */,
+				0592CC5F1B31436300522EEA /* SystemConfiguration.framework in Frameworks */,
+				0592CC5D1B31435C00522EEA /* StoreKit.framework in Frameworks */,
+				0592CC5B1B31435600522EEA /* Security.framework in Frameworks */,
+				0592CC591B31435100522EEA /* QuartzCore.framework in Frameworks */,
+				0592CC571B31434A00522EEA /* MobileCoreServices.framework in Frameworks */,
+				0592CC551B31434300522EEA /* CoreLocation.framework in Frameworks */,
 				06A43E87194F952E00A78D29 /* CoreGraphics.framework in Frameworks */,
+				0592CC531B31433600522EEA /* CFNetwork.framework in Frameworks */,
+				0592CC511B31432F00522EEA /* AudioToolbox.framework in Frameworks */,
+				05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */,
+				0592CC4F1B31430500522EEA /* ParseUI.framework in Frameworks */,
 				06A43E89194F952E00A78D29 /* UIKit.framework in Frameworks */,
+				0592CC4D1B3142FE00522EEA /* Bolts.framework in Frameworks */,
 				06A43E85194F952E00A78D29 /* Foundation.framework in Frameworks */,
+				0592CC4B1B3142F700522EEA /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +204,19 @@
 		06A43E83194F952E00A78D29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0592CC621B31437600522EEA /* libsqlite3.dylib */,
+				0592CC601B31436E00522EEA /* libz.dylib */,
+				0592CC5E1B31436300522EEA /* SystemConfiguration.framework */,
+				0592CC5C1B31435B00522EEA /* StoreKit.framework */,
+				0592CC5A1B31435600522EEA /* Security.framework */,
+				0592CC581B31435100522EEA /* QuartzCore.framework */,
+				0592CC561B31434A00522EEA /* MobileCoreServices.framework */,
+				0592CC541B31434300522EEA /* CoreLocation.framework */,
+				0592CC521B31433600522EEA /* CFNetwork.framework */,
+				0592CC501B31432F00522EEA /* AudioToolbox.framework */,
+				0592CC4E1B31430500522EEA /* ParseUI.framework */,
+				0592CC4C1B3142FE00522EEA /* Bolts.framework */,
+				0592CC4A1B3142F700522EEA /* Parse.framework */,
 				05529D601B272F060055ADAB /* MessageUI.framework */,
 				06A43E84194F952E00A78D29 /* Foundation.framework */,
 				06A43E86194F952E00A78D29 /* CoreGraphics.framework */,
@@ -480,6 +532,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClassAssistant/ClassAssistant-Prefix.pch";
 				INFOPLIST_FILE = "ClassAssistant/ClassAssistant-Info.plist";
@@ -497,6 +553,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClassAssistant/ClassAssistant-Prefix.pch";
 				INFOPLIST_FILE = "ClassAssistant/ClassAssistant-Info.plist";

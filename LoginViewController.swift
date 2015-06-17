@@ -14,4 +14,16 @@ class LoginViewController : UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let scrollViewWallSegue = "LoginSuccessful"
+    
+    @IBAction func logInPressed(sender: AnyObject) {
+        PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) { user, error in
+            if user != nil {
+                println("Logged in!")
+                self.performSegueWithIdentifier(self.scrollViewWallSegue, sender: nil)
+            } else if let error = error {
+                //self.showErrorView(error)
+            }
+        }
+    }
 }
