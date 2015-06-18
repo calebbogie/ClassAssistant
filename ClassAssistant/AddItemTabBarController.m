@@ -32,9 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    NSLog(@"Course Name: %@", _courseToEdit.courseName);
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,7 +47,7 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 100; // Numbers of rows
+    return 5; // Numbers of rows
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component

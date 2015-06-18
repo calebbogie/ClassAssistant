@@ -12,7 +12,7 @@
 
 //General Properties
 @property NSString *courseName;
-@property double creditHours;
+@property NSNumber *creditHours;
 @property NSString *currentGrade;
 
 //Professor Properties
@@ -22,9 +22,11 @@
 
 //Grade Properties
 @property NSMutableArray* examWeights;
-@property double quizWeight;
-@property double homeworkWeight;
-@property int numberOfExams;
+@property NSNumber *quizWeight;
+@property NSNumber *homeworkWeight;
+
+//Changed from int to NSNumber
+@property NSNumber *numberOfExams;
 @property NSMutableArray *examGrades;
 @property NSMutableArray *quizGrades;
 @property NSMutableArray *homeworkGrades;

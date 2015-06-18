@@ -8,6 +8,7 @@
 
 #import "AddClassViewController.h"
 #import "GradeSetupViewController.h"
+#import <Parse/Parse.h>
 
 //Constants for animation
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
@@ -31,7 +32,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         self.courseToAdd = [[Course alloc] init];
         self.courseToAdd.courseName = self.courseNameField.text;
-        self.courseToAdd.creditHours = [[self.creditHoursField text] doubleValue];
+        self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursField text] integerValue]];
         self.courseToAdd.currentGrade = @"No data";
         
         self.courseToAdd.professorName = [self.professorName text];
@@ -40,16 +41,39 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         // ************************* Handle case where weights will be passed as percentages **************************
         
-        self.courseToAdd.numberOfExams = [[self.numberOfExams text] doubleValue];
-        self.courseToAdd.homeworkWeight = [[self.homeworkWeight text] doubleValue];
-        self.courseToAdd.quizWeight = [[self.quizWeight text] doubleValue];
+        self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExams text] integerValue]];
+        self.courseToAdd.homeworkWeight = [NSNumber numberWithInt:[[self.homeworkWeight text] doubleValue]];
+        self.courseToAdd.quizWeight = [NSNumber numberWithInt:[[self.quizWeight text] doubleValue]];
         
         // ************************* Handle case where weights will be passed as percentages **************************
         
         //Add all exam weights to Course object
-        for (NSNumber *i in self.examWeightTextFields) {
-            [self.courseToAdd.examWeights addObject:i];
+        for (int i = 0; i < self.examWeightTextFields.count; i++) {
+            UITextField *field = [self.examWeightTextFields objectAtIndex:i];
+            //Get number from exam weight text field and add it to the examWeights array
+            [self.courseToAdd.examWeights addObject:[NSNumber numberWithDouble:[[field text] doubleValue]]];
         }
+        
+        ////////////////////////// ADD COURSE DATA TO PARSE DATABASE /////////////////////////////////////
+        
+        PFObject *course = [PFObject objectWithClassName:@"Course"];
+        [course setObject:@"Test User" forKey:@"User"];
+        [course setObject:self.courseToAdd.courseName forKey:@"CourseName"];
+        [course setObject:self.courseToAdd.creditHours forKey:@"CreditHours"];
+        [course setObject:self.courseToAdd.professorName forKey:@"ProfessorName"];
+        [course setObject:self.courseToAdd.professorEmailAddress forKey:@"ProfessorEmailAddress"];
+        [course setObject:self.courseToAdd.professorOfficeLocation forKey:@"ProfessorOfficeLocation"];
+        [course setObject:self.courseToAdd.numberOfExams forKey:@"NumberOfExams"];
+        [course addObjectsFromArray:self.courseToAdd.examWeights forKey:@"ExamWeights"];
+        [course setObject:self.courseToAdd.homeworkWeight forKey:@"HomeworkWeight"];
+        [course setObject:self.courseToAdd.quizWeight forKey:@"QuizWeight"];
+        [course addObjectsFromArray:self.courseToAdd.examGrades forKey:@"ExamGrades"];
+        [course addObjectsFromArray:self.courseToAdd.quizGrades forKey:@"QuizGrades"];
+        [course addObjectsFromArray:self.courseToAdd.homeworkGrades forKey:@"HomeworkGrades"];
+        
+        [course saveInBackground];
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////////
         
         return;
     }

@@ -85,7 +85,7 @@
         examWeight += [[_examWeights objectAtIndex:i] doubleValue];
     
     //Add exam calculation later
-    return ( ([self calculateAverageForType:@"homework"] * _homeworkWeight) + ([self calculateAverageForType:@"quiz"] * _quizWeight) + ([self calculateAverageForType:@"exam"] * examWeight) );
+    return ( ([self calculateAverageForType:@"homework"] * [_homeworkWeight doubleValue]) + ([self calculateAverageForType:@"quiz"] * [_quizWeight doubleValue]) + ([self calculateAverageForType:@"exam"] * examWeight ) );
     return 0;
 }
 

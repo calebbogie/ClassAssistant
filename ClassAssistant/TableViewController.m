@@ -11,6 +11,7 @@
 #import "Course.h"
 #import "CustomTableCell.h"
 #import "ViewClassViewController.h"
+#import <Parse/Parse.h>
 
 @interface TableViewController ()
 
@@ -20,6 +21,11 @@
 @end
 
 @implementation TableViewController
+
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
+}
 
 - (IBAction)backToTableViewFromClassView:(UIStoryboardSegue *) segue {
     ViewClassViewController *source = [segue sourceViewController];
@@ -92,29 +98,68 @@
     //Add course 1
     Course* course1 = [[Course alloc] init];
     course1.courseName = @"MATH 151";
-    course1.creditHours = 4.0;
+    course1.creditHours = [NSNumber numberWithInt:4];
     course1.currentGrade = @"-";
     [self.studentCourses addObject:course1];
-    course1.quizWeight = .2;
-    course1.homeworkWeight = .2;
-    course1.numberOfExams = 3;
+    course1.quizWeight = [NSNumber numberWithDouble:.2];
+    course1.homeworkWeight = [NSNumber numberWithDouble:.2];
+    course1.numberOfExams = [NSNumber numberWithInt:3];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     
     //Add course 2
     Course* course2 = [[Course alloc] init];
-    course2.courseName = @"CHEM 107";
-    course2.creditHours = 3.0;
-    course2.currentGrade = @"-";
-    [self.studentCourses addObject:course2];
+    //course2.courseName = @"CHEM 107";
+    //course2.creditHours = [NSNumber numberWithInt:3];
+    //course2.currentGrade = @"-";
+    //[self.studentCourses addObject:course2];
+    
+    //Move this closure to viewDidLoad and add for-loop to retrieve all classes
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"User" equalTo:@"Test User"];
+    [query whereKey:@"CourseName" equalTo:@"csce 121"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //NSLog(@"Successfully retrieved: %@", objects);
+            
+            NSLog(@"Course name: %@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]);
+            //retrievedObjects = [[NSArray alloc] initWithArray:objects];
+            course2.courseName = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]];
+            course2.creditHours = [NSNumber numberWithInteger:[[[objects objectAtIndex:0] objectForKey:@"CreditHours"] integerValue]];
+            
+            NSLog(@"Credit hours: %@", course2.creditHours);
+            
+            NSLog(@"%@", [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]]);
+            
+            course2.currentGrade = @"-";
+            
+            [self.studentCourses addObject:course2];
+            [self.tableView reloadData];
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
     
     //Add course 3
     Course* course3 = [[Course alloc] init];
     course3.courseName = @"ENGR 112";
-    course3.creditHours = 2.0;
+    course3.creditHours = [NSNumber numberWithInt:2];
     course3.currentGrade = @"-";
     [self.studentCourses addObject:course3];
+    
+    /*PFObject *course = [PFObject objectWithClassName:@"Course"];
+    [course setObject:@"Test User" forKey:@"User"];
+    [course setObject:course1.courseName forKey:@"CourseName"];
+    [course setObject:course1.creditHours forKey:@"CreditHours"];
+    [course setObject:course1.numberOfExams forKey:@"NumberOfExams"];
+    [course addObjectsFromArray:course1.examWeights forKey:@"ExamWeights"];
+    [course addObjectsFromArray:course1.examGrades forKey:@"ExamGrades"];
+    
+    [course saveInBackground];
+     */
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -129,6 +174,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     self.studentCourses = [[NSMutableArray alloc] init];
     

@@ -39,24 +39,18 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     if([self.title isEqualToString:@"Add Exam"]) {
         //[self setupExamView];
         [self setupView:@"exam"];
-        
-        NSLog(@"Set up exam view");
         self.title = @"Add Exam";
     }
     
     else if ([self.title isEqualToString:@"Add Homework"]) {
         //[self setupHomeworkView];
         [self setupView:@"homework"];
-        
-        NSLog(@"Set up homework view");
         self.title = @"Add Homework";
     }
     
     else if ([self.title isEqualToString:@"Add Quiz"]) {
         //[self setupQuizView];
         [self setupView:@"quiz"];
-        
-        NSLog(@"Set up quiz view");
         self.title = @"Add Quiz";
     }
     
@@ -76,14 +70,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
     [parentController.doneButton setEnabled:YES];
-    
-    NSLog(@"Editing...");
-    
-    /*UIButton *end = [[UIButton alloc] initWithFrame:(CGRectMake(textField.frame.origin.x + 50, textField.frame.origin.y, textField.frame.size.width, textField.frame.size.height))];
-    
-    [self.scroller addSubview:end];
-    
-    textField = [textField initWithFrame:(CGRectMake(textField.frame.origin.x, textField.frame.origin.y, textField.frame.size.width - 50, textField.frame.size.height))];*/
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -229,11 +215,12 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     //RESOLVE NAME OF TWO ABOVE VARIABLES
     
     if ([type isEqualToString:@"exam"]) {
-        gradeCount = parentController.courseToEdit.numberOfExams;
+        gradeCount = [parentController.courseToEdit.numberOfExams intValue];
         arraySize = (int)parentController.courseToEdit.examGrades.count;
         gradeArray = parentController.courseToEdit.examGrades;
     } else if ([type isEqualToString:@"quiz"]) {
         gradeCount = (int)parentController.courseToEdit.quizGrades.count + 1;
+        NSLog(@"Grade count: %d", gradeCount);
         arraySize = gradeCount - 1;
         gradeArray = parentController.courseToEdit.quizGrades;
     } else if ([type isEqualToString:@"homework"]) {
@@ -312,7 +299,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     //UILabel *gradeAverageLabel;
     
     if ([type isEqualToString:@"exam"]) {
-        _gradeAverageLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, (parentController.courseToEdit.numberOfExams + 1) * SIZE_OF_EXAM_BLOCK + 70, 280, 100)];
+        _gradeAverageLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, ([parentController.courseToEdit.numberOfExams intValue]) * SIZE_OF_EXAM_BLOCK + 70, 280, 100)];
         _gradeAverageLabel.text = @"Exam Average";
     }
     else if ([type isEqualToString:@"quiz"]) {
@@ -330,7 +317,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     
     //Create exam average label
     if ([type isEqualToString:@"exam"]) {
-        _examAvg = [[UILabel alloc] initWithFrame:CGRectMake(145, (parentController.courseToEdit.numberOfExams + 1) * SIZE_OF_EXAM_BLOCK + 130, 280, 100)];
+        _examAvg = [[UILabel alloc] initWithFrame:CGRectMake(145, ([parentController.courseToEdit.numberOfExams intValue]) * SIZE_OF_EXAM_BLOCK + 130, 280, 100)];
         [self computeAverage:@"exam"];
         
         //Change exam average font

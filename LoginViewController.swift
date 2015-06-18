@@ -16,6 +16,15 @@ class LoginViewController : UIViewController {
     
     let scrollViewWallSegue = "LoginSuccessful"
     
+    override func viewDidLoad() {
+        if let user = PFUser.currentUser() {
+            //TODO: Always returns true...
+            if user.isAuthenticated() {
+                self.performSegueWithIdentifier(self.scrollViewWallSegue, sender: nil)
+            }
+        }
+    }
+    
     @IBAction func logInPressed(sender: AnyObject) {
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) { user, error in
             if user != nil {
@@ -25,5 +34,13 @@ class LoginViewController : UIViewController {
                 //self.showErrorView(error)
             }
         }
+        
+        //Clear fields
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+    @IBAction func backToLoginView(segue:UIStoryboardSegue) {
+        
     }
 }
