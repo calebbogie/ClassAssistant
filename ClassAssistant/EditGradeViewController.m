@@ -728,15 +728,11 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
                 }
                 //If object doesn't exist, add it
                 else {
-                    NSLog(@"Adding grade...");
                     [gradeArray addObject:grade];
                 }
             }
         }
     }
-    
-    if (gradeCount > 0)
-        NSLog(@"Grade 1: %@", [gradeArray objectAtIndex:0]);
     
     //NSLog(@"Exam 1 Grade: %@", [parentController.courseToEdit.examGrades objectAtIndex:0]);
     
@@ -747,9 +743,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     int nextGradeNumber = 0;
     NSMutableArray *gradeArray = [[NSMutableArray alloc] init];
     
-    if ([type isEqualToString:@"exam"])
+    if ([type isEqualToString:@"exam"]) {
         //nextGradeNumber = parentController.courseToEdit.numberOfExams + 1;
-        NSLog(@"Shouldn't have to add an exam field...");
+    }
     
     else if ([type isEqualToString:@"quiz"]) {
         gradeArray = parentController.courseToEdit.quizGrades;

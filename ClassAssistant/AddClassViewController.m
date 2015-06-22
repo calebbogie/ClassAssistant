@@ -33,7 +33,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         self.courseToAdd = [[Course alloc] init];
         self.courseToAdd.courseName = self.courseNameField.text;
         self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursField text] integerValue]];
-        self.courseToAdd.currentGrade = @"No data";
+        self.courseToAdd.currentGrade = @"-";
         
         self.courseToAdd.professorName = [self.professorName text];
         self.courseToAdd.professorOfficeLocation = [self.professorOfficeLocation text];

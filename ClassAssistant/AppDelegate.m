@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #include <Parse/Parse.h>
+#import "TableViewController.h"
+#import "Course.h"
 
 @implementation AppDelegate
 
@@ -29,6 +31,9 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    //Create notification so that another class can handle the app entering the background to save data
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"didEnterBackground" object: nil userInfo: nil];
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

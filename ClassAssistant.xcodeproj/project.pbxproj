@@ -12,6 +12,7 @@
 		05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05529D601B272F060055ADAB /* MessageUI.framework */; };
 		05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */; };
 		05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */; };
+		055BC87C1B3884F700596CE0 /* GradeGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BC87B1B3884F700596CE0 /* GradeGraphView.swift */; };
 		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
 		0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC461B313DF900522EEA /* LoginViewController.swift */; };
 		0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC481B313E0B00522EEA /* SignUpViewController.swift */; };
@@ -68,6 +69,7 @@
 		05529D631B2737DF0055ADAB /* CalendarEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventsTableViewController.m; sourceTree = "<group>"; };
 		05529D651B27B1680055ADAB /* ViewCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCalendarEventViewController.h; sourceTree = "<group>"; };
 		05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCalendarEventViewController.m; sourceTree = "<group>"; };
+		055BC87B1B3884F700596CE0 /* GradeGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeGraphView.swift; path = ../GradeGraphView.swift; sourceTree = "<group>"; };
 		056F29701B22910E001AE97C /* GradeIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeIndicatorView.h; sourceTree = "<group>"; };
 		056F29711B22910E001AE97C /* GradeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeIndicatorView.m; sourceTree = "<group>"; };
 		0592CC451B313DF900522EEA /* ClassAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				06A43EB3194F95AA00A78D29 /* Main.storyboard */,
+				055BC87B1B3884F700596CE0 /* GradeGraphView.swift */,
 				056F29701B22910E001AE97C /* GradeIndicatorView.h */,
 				056F29711B22910E001AE97C /* GradeIndicatorView.m */,
 			);
@@ -404,6 +407,7 @@
 				063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */,
 				068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */,
 				056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */,
+				055BC87C1B3884F700596CE0 /* GradeGraphView.swift in Sources */,
 				06A43EBA194F98FD00A78D29 /* TableViewController.m in Sources */,
 				066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */,
 				06A43E95194F952E00A78D29 /* AppDelegate.m in Sources */,

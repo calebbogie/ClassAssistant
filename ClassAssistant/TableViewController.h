@@ -10,6 +10,8 @@
 
 @interface TableViewController : UITableViewController
 
+@property NSMutableArray* studentCourses;
+
 - (IBAction)backToTableView:(UIStoryboardSegue *) segue;
 - (IBAction)backToTableViewFromClassView:(UIStoryboardSegue *) segue;
 

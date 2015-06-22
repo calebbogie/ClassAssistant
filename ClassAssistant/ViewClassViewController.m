@@ -213,7 +213,6 @@
     UIViewController *tableVC = self.navigationController.topViewController;
     
     if ([TableViewController class] == [tableVC class]) {
-        NSLog(@"Table!");
         [self performSegueWithIdentifier:@"backToTableViewFromClassViewSegue" sender:self];
     }
 }
@@ -327,23 +326,35 @@
             
             //Only examining first 4 letters to avoid segmentation faults
             //Exam
-            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
-                [exams addObject:e.endDate];
+            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.classToView.courseName.length) {
+                //If event title begins with course name...
+                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                    [exams addObject:e.endDate];
+                }
             }
             
             //Quiz
             else if ([@"Quiz" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
-                [assignments addObject:e.endDate];
+                //If event title begins with course name...
+                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                    [assignments addObject:e.endDate];
+                }
             }
             
             //Homework
             else if ([@"Home" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
-                [assignments addObject:e.endDate];
+                //If event title begins with course name...
+                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                    [assignments addObject:e.endDate];
+                }
             }
             
             //Other
             else if ([@"Othe" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
-                [assignments addObject:e.endDate];
+                //If event title begins with course name...
+                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                    [assignments addObject:e.endDate];
+                }
             }
             
         }

@@ -15,7 +15,7 @@
 
 @interface TableViewController ()
 
-@property NSMutableArray* studentCourses;
+
 @property NSInteger selectedClassNumber;
 
 @end
@@ -23,7 +23,7 @@
 @implementation TableViewController
 
 - (IBAction)logout:(id)sender {
-    [PFUser logOut];
+    [PFUser logOutInBackground];
     [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
 }
 
@@ -110,38 +110,63 @@
     
     //Add course 2
     Course* course2 = [[Course alloc] init];
-    //course2.courseName = @"CHEM 107";
-    //course2.creditHours = [NSNumber numberWithInt:3];
-    //course2.currentGrade = @"-";
-    //[self.studentCourses addObject:course2];
+    course2.courseName = @"CHEM 107";
+    course2.creditHours = [NSNumber numberWithInt:3];
+    course2.currentGrade = @"-";
+    [self.studentCourses addObject:course2];
+    
+    ////////////////////// Retrieving all objects stored in database for user /////////////////////////
     
     //Move this closure to viewDidLoad and add for-loop to retrieve all classes
-    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    /*PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"User" equalTo:@"Test User"];
-    [query whereKey:@"CourseName" equalTo:@"csce 121"];
+    //[query whereKey:@"CourseName" equalTo:@"csce 121"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //NSLog(@"Successfully retrieved: %@", objects);
             
-            NSLog(@"Course name: %@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]);
-            //retrievedObjects = [[NSArray alloc] initWithArray:objects];
-            course2.courseName = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]];
-            course2.creditHours = [NSNumber numberWithInteger:[[[objects objectAtIndex:0] objectForKey:@"CreditHours"] integerValue]];
+            //NSLog(@"Course name: %@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]);
             
-            NSLog(@"Credit hours: %@", course2.creditHours);
+            NSLog(@"Number of courses: %lu", objects.count);
             
-            NSLog(@"%@", [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]]);
+            for (int i = 0; i < objects.count; i++) {
+                
+                Course *courseFromServer = [[Course alloc] init];
             
-            course2.currentGrade = @"-";
+                courseFromServer.courseName = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:i] objectForKey:@"CourseName"]];
+                courseFromServer.creditHours = [NSNumber numberWithInteger:[[[objects objectAtIndex:i] objectForKey:@"CreditHours"] integerValue]];
+                courseFromServer.examGrades = [NSMutableArray arrayWithArray:[[objects objectAtIndex:i] objectForKey:@"ExamGrades"]];
+                courseFromServer.examWeights = [NSMutableArray arrayWithArray:[[objects objectAtIndex:i] objectForKey:@"ExamWeights"]];
+                courseFromServer.homeworkGrades = [NSMutableArray arrayWithArray:[[objects objectAtIndex:i] objectForKey:@"HomeworkGrades"]];
+                
+                //FLOAT OR DOUBLE??
+                courseFromServer.homeworkWeight = [NSNumber numberWithInteger:[[[objects objectAtIndex:i] objectForKey:@"HomeworkWeight"] integerValue]];
+                courseFromServer.numberOfExams = [NSNumber numberWithInteger:[[[objects objectAtIndex:i] objectForKey:@"NumberOfExams"] integerValue]];
+                courseFromServer.professorEmailAddress = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:i] objectForKey:@"ProfessorEmailAddress"]];
+                courseFromServer.professorName = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:i] objectForKey:@"ProfessorName"]];
+                courseFromServer.professorOfficeLocation = [NSString stringWithFormat:@"%@", [[objects objectAtIndex:i] objectForKey:@"ProfessorOfficeLocation"]];
+                courseFromServer.quizGrades = [NSMutableArray arrayWithArray:[[objects objectAtIndex:i] objectForKey:@"QuizGrades"]];
+                
+                //FLOAT OR DOUBLE??
+                courseFromServer.quizWeight = [NSNumber numberWithInteger:[[[objects objectAtIndex:i] objectForKey:@"QuizWeight"] integerValue]];
             
-            [self.studentCourses addObject:course2];
-            [self.tableView reloadData];
+                NSLog(@"Credit hours: %@", courseFromServer.creditHours);
+            
+                NSLog(@"%@", [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]]);
+            
+                courseFromServer.currentGrade = @"-";
+            
+                [self.studentCourses addObject:courseFromServer];
+                [self.tableView reloadData];
+            }
+            
         } else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             NSLog(@"Error: %@", errorString);
         }
     }];
+     */
     
     //Add course 3
     Course* course3 = [[Course alloc] init];
@@ -171,11 +196,49 @@
     return self;
 }
 
+- (void)enteredBackground{
+    NSLog(@"Count: %lu", self.studentCourses.count);
+    
+    for (int i = 0; i < self.studentCourses.count; i++) {
+        Course *c = [self.studentCourses objectAtIndex:i];
+        PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+        [query whereKey:@"User" equalTo:@"Test User"];
+        [query whereKey:@"CourseName" equalTo:c.courseName];
+        
+        //Look for object in database.  If it isn't found, add it.
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (object == nil) {
+                PFObject *course = [PFObject objectWithClassName:@"Course"];
+                [course setObject:c.courseName forKey:@"CourseName"];
+                [course setObject:c.creditHours forKey:@"CreditHours"];
+                [course setObject:c.examGrades forKey:@"ExamGrades"];
+                [course setObject:c.examWeights forKey:@"ExamWeights"];
+                [course setObject:c.homeworkGrades forKey:@"HomeworkGrades"];
+                [course setObject:c.homeworkWeight forKey:@"HomeworkWeight"];
+                [course setObject:c.numberOfExams forKey:@"NumberOfExams"];
+                [course setObject:c.professorEmailAddress forKey:@"ProfessorEmailAddress"];
+                [course setObject:c.professorName forKey:@"ProfessorName"];
+                [course setObject:c.professorName forKey:@"ProfessorOfficeLocation"];
+                [course setObject:c.quizGrades forKey:@"QuizGrades"];
+                [course setObject:c.quizWeight forKey:@"QuizWeight"];
+                [course setObject:@"Test User" forKey:@"User"];
+                [course save];
+            }
+            else {
+                NSLog(@"%@ is already there", c.courseName);
+            }
+        }];
+    }
+    
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
+    //Register this class to respond to the applicationDidEnterBackground notification.  This allows data to be saved in this class when app enters background.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enteredBackground) name:@"didEnterBackground" object:nil];
     
     self.studentCourses = [[NSMutableArray alloc] init];
     
