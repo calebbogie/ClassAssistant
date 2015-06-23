@@ -8,22 +8,19 @@
 
 import Foundation
 
-class GradeGraphView : UIView {
+@objc class GradeGraphView : UIView {
     
     //1 - the properties for the gradient
     var startColor: UIColor = UIColor.grayColor()
     var endColor: UIColor = UIColor.blackColor()
-    @IBOutlet weak var zeroPercentLabel: UILabel!
-    @IBOutlet weak var twentyFivePercentLabel: UILabel!
-    @IBOutlet weak var fiftyPercentLabel: UILabel!
-    @IBOutlet weak var seventyFivePercentLabel: UILabel!
-    @IBOutlet weak var oneHundredPercentLabel: UILabel!
     
-    var graphPoints:[Int] = [80, 95, 90, 83, 97, 100]
+    
+    var graphPoints:[Int] = []
     
     override func drawRect(rect: CGRect) {
-        
+        println("DrawRect Count: \(graphPoints.count)");
         if (graphPoints.count > 0) {
+            
             let width = rect.width + 15
             let height = rect.height
         
@@ -47,7 +44,7 @@ class GradeGraphView : UIView {
             let gradient = CGGradientCreateWithColors(colorSpace,
                 colors,
                 colorLocations)
-        
+            /*
             //6 - draw the gradient
             var startPoint = CGPoint.zeroPoint
             var endPoint = CGPoint(x:0, y:self.bounds.height)
@@ -55,14 +52,22 @@ class GradeGraphView : UIView {
                 gradient,
                 startPoint,
                 endPoint,
-                0)
+                0)*/
         
             //calculate the x point
         
             let margin:CGFloat = 30.0
             var columnXPoint = { (column:Int) -> CGFloat in
                 //Calculate gap between points
-                let spacer = (width - margin*2 - 4) / CGFloat((self.graphPoints.count - 1))
+                
+                var divisor = CGFloat(1)
+                if (self.graphPoints.count == 1) {
+                    divisor = CGFloat(1)
+                }
+                else {
+                    divisor = CGFloat((self.graphPoints.count - 1))
+                }
+                let spacer = (width - margin*2 - 4) / divisor
                 var x:CGFloat = CGFloat(column) * spacer
                 x += margin + 2
                 return x
@@ -73,7 +78,7 @@ class GradeGraphView : UIView {
             let topBorder:CGFloat = 10
             let bottomBorder:CGFloat = 10
             let graphHeight = height - topBorder - bottomBorder
-            let maxValue = maxElement(graphPoints)
+            let maxValue = 100
             var columnYPoint = { (graphPoint:Int) -> CGFloat in
                 var y:CGFloat = CGFloat(graphPoint) /
                     CGFloat(maxValue) * graphHeight
@@ -134,8 +139,8 @@ class GradeGraphView : UIView {
         
             //5 - check clipping path - temporary code
             let highestYPoint = columnYPoint(maxValue)
-            startPoint = CGPoint(x:margin, y: highestYPoint)
-            endPoint = CGPoint(x:margin, y:self.bounds.height)
+            var startPoint = CGPoint(x:margin, y: highestYPoint)
+            var endPoint = CGPoint(x:margin, y:self.bounds.height)
         
             CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0)
             CGContextRestoreGState(context)

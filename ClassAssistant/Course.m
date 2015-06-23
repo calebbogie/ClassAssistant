@@ -31,6 +31,7 @@
     _quizGrades = [[NSMutableArray alloc] init];
     _homeworkGrades = [[NSMutableArray alloc] init];
     _examWeights = [[NSMutableArray alloc] init];
+    _previousGrades = [[NSMutableArray alloc] init];
     
     return self;
 }

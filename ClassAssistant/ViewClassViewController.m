@@ -10,6 +10,7 @@
 #import "AddItemTabBarController.h"
 #import "CalendarEventsTableViewController.h"
 #import "TableViewController.h"
+#import "ClassAssistant-Swift.h"
 
 @interface ViewClassViewController ()
 
@@ -34,6 +35,7 @@
     double homeworkAverage = 0;
     
     if (c != nil) {
+        
         //[self.studentCourses addObject:c];
         //[self.tableView reloadData];
         
@@ -82,6 +84,36 @@
         _homeworkGradeNumber.text = (homeworkAverage == 0) ? [NSString stringWithFormat:@"%d", 0] : [NSString stringWithFormat:@"%d", (int)homeworkAverage];
         //_homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)homeworkAverage];
         [_homeworkGrade setNeedsDisplay];
+        
+        
+        
+        
+        //Manage graph
+        if ( ![self.classToView.currentGrade isEqual: @"-"] ) {
+            NSString *temp = self.classToView.currentGrade;
+            NSNumber *tempNum = [NSNumber numberWithInt:[temp intValue]];
+            [self.classToView.previousGrades addObject:@([tempNum intValue])];
+            self.gradeGraphView.graphPoints = self.classToView.previousGrades;
+            NSLog(@"Count: %lu", self.gradeGraphView.graphPoints.count);
+        }
+        
+        //Manage grade graph view
+        if (self.classToView.previousGrades.count == 0) {
+            self.zeroPercentLabel.hidden = true;
+            self.twentyFivePercentLabel.hidden = true;
+            self.fiftyPercentLabel.hidden = true;
+            self.seventyFivePercentLabel.hidden = true;
+            self.oneHundredPercentLabel.hidden = true;
+        }
+        else {
+            self.zeroPercentLabel.hidden = false;
+            self.twentyFivePercentLabel.hidden = false;
+            self.fiftyPercentLabel.hidden = false;
+            self.seventyFivePercentLabel.hidden = false;
+            self.oneHundredPercentLabel.hidden = false;
+        }
+        [self.gradeGraphView setNeedsDisplay];
+        //End manage graph
     }
 }
 
@@ -113,7 +145,31 @@
 {
     [super viewDidLoad];
     
+    [self.view addSubview:_gradeGraphView];
+    
+    if (self.classToView.previousGrades.count > 0 ) {
+        //[self.classToView.previousGrades addObject:self.classToView.currentGrade];
+        self.gradeGraphView.graphPoints = self.classToView.previousGrades;
+    }
+    
     //self.view.backgroundColor = [UIColor grayColor];
+    
+    //Manage grade graph view
+    if (self.classToView.previousGrades.count == 0) {
+        self.zeroPercentLabel.hidden = true;
+        self.twentyFivePercentLabel.hidden = true;
+        self.fiftyPercentLabel.hidden = true;
+        self.seventyFivePercentLabel.hidden = true;
+        self.oneHundredPercentLabel.hidden = true;
+    }
+    else {
+        self.zeroPercentLabel.hidden = false;
+        self.twentyFivePercentLabel.hidden = false;
+        self.fiftyPercentLabel.hidden = false;
+        self.seventyFivePercentLabel.hidden = false;
+        self.oneHundredPercentLabel.hidden = false;
+    }
+    [self.gradeGraphView setNeedsDisplay];
     
     self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Course.h"
 #import "GradeIndicatorView.h"
+#import "ClassAssistant-Swift.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
 
@@ -17,6 +18,13 @@
 @property Course *classToView;
 
 @property (nonatomic, retain) IBOutlet UILabel *courseGrade;
+@property (nonatomic, retain) IBOutlet GradeGraphView *gradeGraphView;
+
+@property (nonatomic, retain) IBOutlet UILabel *zeroPercentLabel;
+@property (nonatomic, retain) IBOutlet UILabel *twentyFivePercentLabel;
+@property (nonatomic, retain) IBOutlet UILabel *fiftyPercentLabel;
+@property (nonatomic, retain) IBOutlet UILabel *seventyFivePercentLabel;
+@property (nonatomic, retain) IBOutlet UILabel *oneHundredPercentLabel;
 
 //NEEDED??
 @property (nonatomic, retain) IBOutlet UILabel *homeworkGradeLabel;

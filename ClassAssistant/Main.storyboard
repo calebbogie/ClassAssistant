@@ -525,13 +525,6 @@
                                 <rect key="frame" x="16" y="418" width="288" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UK3-JM-qPt">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0P9-qN-j3U">
                                         <rect key="frame" x="5" y="29" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -546,15 +539,22 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hpu-ed-agl">
-                                        <rect key="frame" x="5" y="83" width="37" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E3f-2b-dQp">
+                                        <rect key="frame" x="10" y="109" width="27" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E3f-2b-dQp">
-                                        <rect key="frame" x="10" y="109" width="27" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UK3-JM-qPt">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hpu-ed-agl">
+                                        <rect key="frame" x="5" y="83" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -585,12 +585,18 @@
                         <outlet property="courseGrade" destination="1vz-gY-M4a" id="4bQ-Av-aCj"/>
                         <outlet property="examGrade" destination="paE-Wa-UL1" id="1U4-hJ-0sm"/>
                         <outlet property="examGradeNumber" destination="eBC-RI-2Zp" id="XeZ-Xh-jjH"/>
+                        <outlet property="fiftyPercentLabel" destination="m1H-QX-wNI" id="mbY-MA-trO"/>
+                        <outlet property="gradeGraphView" destination="80k-s0-wgG" id="eL4-4P-B4V"/>
                         <outlet property="homeworkGrade" destination="PUv-UX-ssP" id="3HL-hN-na4"/>
                         <outlet property="homeworkGradeNumber" destination="rNo-5s-TcJ" id="60t-wL-Bqg"/>
                         <outlet property="nextAssignmentDueDate" destination="Wu8-QE-zvj" id="zz6-J2-gHz"/>
                         <outlet property="nextTestOnDate" destination="GKx-Ce-LWu" id="ZWA-If-Ewc"/>
+                        <outlet property="oneHundredPercentLabel" destination="UK3-JM-qPt" id="Ffc-sC-pCY"/>
                         <outlet property="quizGrade" destination="gvX-Fh-x9t" id="DG8-wz-wT0"/>
                         <outlet property="quizGradeNumber" destination="Lyc-wK-3Zb" id="rkK-4I-yzN"/>
+                        <outlet property="seventyFivePercentLabel" destination="0P9-qN-j3U" id="hgy-Xc-QxZ"/>
+                        <outlet property="twentyFivePercentLabel" destination="Hpu-ed-agl" id="Xic-qq-rMf"/>
+                        <outlet property="zeroPercentLabel" destination="E3f-2b-dQp" id="vPa-0n-Xto"/>
                         <segue destination="H8x-ae-b0v" kind="unwind" identifier="backToTableViewFromClassViewSegue" unwindAction="backToTableViewFromClassView:" id="ZiZ-9H-ueW"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,7 @@
 @property NSString *courseName;
 @property NSNumber *creditHours;
 @property NSString *currentGrade;
+@property NSMutableArray *previousGrades;
 
 //Professor Properties
 @property NSString *professorName;
