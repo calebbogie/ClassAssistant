@@ -290,6 +290,8 @@
     
     cell.textLabel.text = course.courseName;
     
+    cell.imageView.image = [UIImage imageNamed:@"calendar.png"];
+    
     NSLog(@"Grade in update: %@", course.currentGrade);
     
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Grade: %@", course.currentGrade];

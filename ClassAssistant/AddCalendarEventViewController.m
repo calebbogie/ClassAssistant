@@ -90,13 +90,10 @@
     
         NSError *err;
         [newEventStore saveEvent:eventToAdd span:EKSpanThisEvent commit:YES error:&err];
-    
-        //Unwind segue. Segue is named on LHS of storyboard under segue action
-        //[self performSegueWithIdentifier:@"backToCalendarTableView" sender:self];
     }
     
     //Perform unwind segue. Segue identifier is set in storyboard on left hand side under view controller properties
-    [self performSegueWithIdentifier:@"backToCalendarTableSegue" sender:self];
+    [self performSegueWithIdentifier:@"backToCalendarTableSegue" sender:nil];
 
 }
 
@@ -127,8 +124,15 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if ([segue.identifier isEqualToString:@"backToCalendarTableSegue"])
-        NSLog(@"going back!");
+    if ([segue.identifier isEqualToString:@"backToCalendarTableSegue"]) {
+        CalendarEventsTableViewController *dc = [segue destinationViewController];
+        
+        //Reread calendar data to find old events as well as new one
+        [dc fetchCalendarEvents];
+        
+        //Update table
+        [[dc tableView] reloadData];
+    }
 }
 
 

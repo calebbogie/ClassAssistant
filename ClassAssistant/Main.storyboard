@@ -217,6 +217,14 @@
                                             <outlet property="delegate" destination="YWW-oB-LFO" id="cnS-qy-Fvf"/>
                                         </connections>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Mom-Mn-Cc7">
+                                        <rect key="frame" x="236" y="181" width="84" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="95U-fK-dTr">
+                                        <rect key="frame" x="141" y="181" width="94" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stepper>
                                 </subviews>
                             </scrollView>
                         </subviews>

@@ -17,5 +17,6 @@
 - (IBAction)backToCalendarTableView:(UIStoryboardSegue *)segue;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+- (void)fetchCalendarEvents;
 
 @end

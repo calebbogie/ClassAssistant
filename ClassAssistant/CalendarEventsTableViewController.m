@@ -33,18 +33,7 @@
     }
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //Set up table to accept "CalenderEventsTableViewID" identifiers for cells
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CalendarEventsTableViewID"];
-    
+- (void)fetchCalendarEvents {
     EKEventStore *store = [[EKEventStore alloc] init];
     
     EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
@@ -93,11 +82,15 @@
     // Fetch all events that match the predicate
     NSArray *events = [store eventsMatchingPredicate:predicate];
     
-    _matchingEvents = [[NSMutableArray alloc] init];
+    if (_matchingEvents == nil)
+        _matchingEvents = [[NSMutableArray alloc] init];
+    else
+        [_matchingEvents removeAllObjects];
     
     NSString *courseName = self.courseForEvents.courseName;
     NSLog(@"Course Name: %@", courseName);
     
+    //Populate matchingEvents array
     for (int i = 0; i < events.count; i++) {
         EKEvent *e = [events objectAtIndex:i];
         NSString *note = [e.notes substringWithRange:NSMakeRange(0, 14)];
@@ -105,7 +98,24 @@
             [_matchingEvents addObject:e];
         }
     }
+
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Set up table to accept "CalenderEventsTableViewID" identifiers for cells
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CalendarEventsTableViewID"];
+    
+    [self fetchCalendarEvents];
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,7 +140,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"Populating table...");
     static NSString *cellIdentifier;
     
     UITableViewCell *cell;
