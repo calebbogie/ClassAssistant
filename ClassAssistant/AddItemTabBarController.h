@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property Course *courseToEdit;
+@property BOOL updateGraph;
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;

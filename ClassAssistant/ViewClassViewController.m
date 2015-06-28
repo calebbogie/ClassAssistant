@@ -86,34 +86,35 @@
         [_homeworkGrade setNeedsDisplay];
         
         
+        //If grade was entered...
+        if (source.updateGraph == TRUE) {
+            //Manage graph
+            if ( ![self.classToView.currentGrade isEqual: @"-"] ) {
+                NSString *temp = self.classToView.currentGrade;
+                NSNumber *tempNum = [NSNumber numberWithInt:[temp intValue]];
+                [self.classToView.previousGrades addObject:@([tempNum intValue])];
+                self.gradeGraphView.graphPoints = self.classToView.previousGrades;
+                NSLog(@"Count: %lu", self.gradeGraphView.graphPoints.count);
+            }
         
-        
-        //Manage graph
-        if ( ![self.classToView.currentGrade isEqual: @"-"] ) {
-            NSString *temp = self.classToView.currentGrade;
-            NSNumber *tempNum = [NSNumber numberWithInt:[temp intValue]];
-            [self.classToView.previousGrades addObject:@([tempNum intValue])];
-            self.gradeGraphView.graphPoints = self.classToView.previousGrades;
-            NSLog(@"Count: %lu", self.gradeGraphView.graphPoints.count);
+            //Manage grade graph view
+            if (self.classToView.previousGrades.count == 0) {
+                self.zeroPercentLabel.hidden = true;
+                self.twentyFivePercentLabel.hidden = true;
+                self.fiftyPercentLabel.hidden = true;
+                self.seventyFivePercentLabel.hidden = true;
+                self.oneHundredPercentLabel.hidden = true;
+            }
+            else {
+                self.zeroPercentLabel.hidden = false;
+                self.twentyFivePercentLabel.hidden = false;
+                self.fiftyPercentLabel.hidden = false;
+                self.seventyFivePercentLabel.hidden = false;
+                self.oneHundredPercentLabel.hidden = false;
+            }
+            [self.gradeGraphView setNeedsDisplay];
+            //End manage graph
         }
-        
-        //Manage grade graph view
-        if (self.classToView.previousGrades.count == 0) {
-            self.zeroPercentLabel.hidden = true;
-            self.twentyFivePercentLabel.hidden = true;
-            self.fiftyPercentLabel.hidden = true;
-            self.seventyFivePercentLabel.hidden = true;
-            self.oneHundredPercentLabel.hidden = true;
-        }
-        else {
-            self.zeroPercentLabel.hidden = false;
-            self.twentyFivePercentLabel.hidden = false;
-            self.fiftyPercentLabel.hidden = false;
-            self.seventyFivePercentLabel.hidden = false;
-            self.oneHundredPercentLabel.hidden = false;
-        }
-        [self.gradeGraphView setNeedsDisplay];
-        //End manage graph
     }
 }
 
