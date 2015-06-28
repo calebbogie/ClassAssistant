@@ -57,7 +57,6 @@
     //If done button was pressed...
     if ([sender tag] == 2) {
         NSLog(@"Adding event...");
-        //CalendarEventsTableViewController *parentController = (CalendarEventsTableViewController *)self.navigationController;
     
         NSString *courseName = self.courseName;
     

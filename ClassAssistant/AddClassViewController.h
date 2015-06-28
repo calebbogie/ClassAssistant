@@ -22,6 +22,10 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *nextButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroller;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UIButton *backwardButton;
+@property (weak, nonatomic) IBOutlet UIImageView *courseImage;
+
 @property NSMutableArray *examTitleLabels;
 @property NSMutableArray *examWeightTextFields;
 
@@ -33,5 +37,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
+- (IBAction)forwardButtonPressed:(id)sender;
+- (IBAction)backwardButtonPressed:(id)sender;
 
 @end

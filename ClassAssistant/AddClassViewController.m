@@ -79,6 +79,14 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     }
 }
 
+- (IBAction)forwardButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)backwardButtonPressed:(id)sender {
+    
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -156,14 +164,14 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         int numExams = [self.numberOfExams.text intValue];
         
         //Adjust size of scrollview
-        [self.scroller setContentSize:CGSizeMake(320, 1050+numExams*(SIZE_OF_EXAM_BLOCK))];
+        [self.scroller setContentSize:CGSizeMake(320, 1200+numExams*(SIZE_OF_EXAM_BLOCK))];
         
         //Initialize arrays
         self.examTitleLabels = [[NSMutableArray alloc] init];
         self.examWeightTextFields = [[NSMutableArray alloc] init];
         
-        //Create text for Exam Setup title
-        UILabel *examSetupTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 710, 150, 50)];
+        //Create text for Exam Setup title                                      //Was 710
+        UILabel *examSetupTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 800, 150, 50)];
         
         //Set title text
         examSetupTitle.text = @"Exam Setup";
@@ -181,7 +189,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
             NSString *examNumber = [NSString stringWithFormat:@"Exam %d Weight", i+1];
             
             //Create label
-            UILabel *examLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 750+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
+            UILabel *examLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 840+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
             
             //Set font size
             examLabel.font = [UIFont systemFontOfSize:17];
@@ -196,7 +204,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
             [self.examTitleLabels addObject:examLabel];
             
             //Create exam weight text field
-            UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 795+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
+            UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 840+45+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
+            
+            [examWeight becomeFirstResponder];
+            examWeight.delegate = self;
             
             //Setup exam weight text field
             examWeight.borderStyle = UITextBorderStyleRoundedRect;
@@ -237,7 +248,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 {
     [super viewDidLoad];
     [_scroller setScrollEnabled:YES];
-    [_scroller setContentSize:CGSizeMake(320, 1030)];
+    [_scroller setContentSize:CGSizeMake(320, 1200)];
+    
+    //[self.view addSubview:self.courseImage];
+    [self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
 }
 
 - (void)didReceiveMemoryWarning
