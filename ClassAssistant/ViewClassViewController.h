@@ -19,6 +19,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *courseGrade;
 @property (nonatomic, retain) IBOutlet GradeGraphView *gradeGraphView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 
 @property (nonatomic, retain) IBOutlet UILabel *zeroPercentLabel;
 @property (nonatomic, retain) IBOutlet UILabel *twentyFivePercentLabel;
@@ -37,6 +38,9 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *nextTestOnDate;
 @property (nonatomic, retain) IBOutlet UILabel *nextAssignmentDueDate;
+
+@property (weak, nonatomic) IBOutlet UILabel *professorName;
+@property (weak, nonatomic) IBOutlet UILabel *professorOfficeLocation;
 
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *homeworkGrade;
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *quizGrade;

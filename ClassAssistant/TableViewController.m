@@ -107,6 +107,8 @@
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
+    course1.professorName = @"Some Professor";
+    course1.professorOfficeLocation = @"Some Location";
     
     //Add course 2
     Course* course2 = [[Course alloc] init];

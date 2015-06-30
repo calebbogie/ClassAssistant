@@ -98,20 +98,12 @@
             }
         
             //Manage grade graph view
-            if (self.classToView.previousGrades.count == 0) {
-                self.zeroPercentLabel.hidden = true;
-                self.twentyFivePercentLabel.hidden = true;
-                self.fiftyPercentLabel.hidden = true;
-                self.seventyFivePercentLabel.hidden = true;
-                self.oneHundredPercentLabel.hidden = true;
-            }
-            else {
+            self.gradeGraphView.hidden = false;
                 self.zeroPercentLabel.hidden = false;
                 self.twentyFivePercentLabel.hidden = false;
                 self.fiftyPercentLabel.hidden = false;
                 self.seventyFivePercentLabel.hidden = false;
                 self.oneHundredPercentLabel.hidden = false;
-            }
             [self.gradeGraphView setNeedsDisplay];
             //End manage graph
         }
@@ -146,7 +138,12 @@
 {
     [super viewDidLoad];
     
-    [self.view addSubview:_gradeGraphView];
+    //[self.view addSubview:_gradeGraphView];
+    [self.view addSubview:_scroller];
+    [_scroller setScrollEnabled:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    //_scroller.contentSize = [self.view sizeThatFits:CGSizeZero];
+    [_scroller setContentSize:CGSizeMake(320, 740)];
     
     if (self.classToView.previousGrades.count > 0 ) {
         //[self.classToView.previousGrades addObject:self.classToView.currentGrade];
@@ -156,81 +153,62 @@
     //self.view.backgroundColor = [UIColor grayColor];
     
     //Manage grade graph view
-    if (self.classToView.previousGrades.count == 0) {
-        self.zeroPercentLabel.hidden = true;
-        self.twentyFivePercentLabel.hidden = true;
-        self.fiftyPercentLabel.hidden = true;
-        self.seventyFivePercentLabel.hidden = true;
-        self.oneHundredPercentLabel.hidden = true;
-    }
-    else {
         self.zeroPercentLabel.hidden = false;
         self.twentyFivePercentLabel.hidden = false;
         self.fiftyPercentLabel.hidden = false;
         self.seventyFivePercentLabel.hidden = false;
         self.oneHundredPercentLabel.hidden = false;
-    }
     [self.gradeGraphView setNeedsDisplay];
     
     self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    UIView *horLineOne = [[UIView alloc] initWithFrame:CGRectMake(0, 180, self.view.bounds.size.width, 1)];
+    self.professorName.text = [NSString stringWithFormat:@"Professor Name: %@", self.classToView.professorName];
+    self.professorOfficeLocation.text = [NSString stringWithFormat:@"Office Location: %@", self.classToView.professorOfficeLocation];
+    
+    UIView *horLineOne = [[UIView alloc] initWithFrame:CGRectMake(0, 180-58, self.view.bounds.size.width, 1)];
     horLineOne.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:horLineOne];
+    [_scroller addSubview:horLineOne];
     
-    UIView *vertLineOne = [[UIView alloc] initWithFrame:CGRectMake(140, 0, 1, 180)];
+    UIView *vertLineOne = [[UIView alloc] initWithFrame:CGRectMake(140, 0-58, 1, 180)];
     vertLineOne.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:vertLineOne];
+    [_scroller addSubview:vertLineOne];
     
-    UIView *horLineTwo = [[UIView alloc] initWithFrame:CGRectMake(0, 320, self.view.bounds.size.width, 1)];
+    UIView *horLineTwo = [[UIView alloc] initWithFrame:CGRectMake(0, 320-58, self.view.bounds.size.width, 1)];
     horLineTwo.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:horLineTwo];
+    [_scroller addSubview:horLineTwo];
     
-    UIView *vertLineTwo = [[UIView alloc] initWithFrame:CGRectMake(100, 320, 1, 80)];
+    UIView *vertLineTwo = [[UIView alloc] initWithFrame:CGRectMake(100, 320-58, 1, 80)];
     vertLineTwo.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:vertLineTwo];
+    [_scroller addSubview:vertLineTwo];
     
-    UIView *vertLineThree = [[UIView alloc] initWithFrame:CGRectMake(220, 320, 1, 80)];
+    UIView *vertLineThree = [[UIView alloc] initWithFrame:CGRectMake(220, 320-58, 1, 80)];
     vertLineThree.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:vertLineThree];
+    [_scroller addSubview:vertLineThree];
     
-    UIView *horLineThree = [[UIView alloc] initWithFrame:CGRectMake(0, 400, self.view.bounds.size.width, 1)];
+    UIView *horLineThree = [[UIView alloc] initWithFrame:CGRectMake(0, 400-58, self.view.bounds.size.width, 1)];
     horLineThree.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:horLineThree];
+    [_scroller addSubview:horLineThree];
     
-    UILabel *nextTestOn = [[UILabel alloc] initWithFrame:CGRectMake(6, 325, 100, 20)];
+    UILabel *nextTestOn = [[UILabel alloc] initWithFrame:CGRectMake(6, 325-58, 100, 20)];
     [nextTestOn setText:@"NEXT TEST ON"];
     [nextTestOn setFont:[UIFont systemFontOfSize:12]];
     nextTestOn.textColor = [UIColor whiteColor];
-    [self.view addSubview:nextTestOn];
+    [_scroller addSubview:nextTestOn];
     
-    UILabel *calender = [[UILabel alloc] initWithFrame:CGRectMake(125, 325, 100, 20)];
+    UILabel *calender = [[UILabel alloc] initWithFrame:CGRectMake(125, 325-58, 100, 20)];
     [calender setText:@"CALENDAR"];
     [calender setFont:[UIFont systemFontOfSize:12]];
     calender.textColor = [UIColor whiteColor];
-    [self.view addSubview:calender];
+    [_scroller addSubview:calender];
     
-    UILabel *addItem = [[UILabel alloc] initWithFrame:CGRectMake(235, 325, 100, 20)];
+    UILabel *addItem = [[UILabel alloc] initWithFrame:CGRectMake(235, 325-58, 100, 20)];
     [addItem setText:@"ADD GRADE"];
     [addItem setFont:[UIFont systemFontOfSize:12]];
     addItem.textColor = [UIColor whiteColor];
-    [self.view addSubview:addItem];
+    [_scroller addSubview:addItem];
     
     self.title = _classToView.courseName;
-    
-    //if (![_classToView.currentGrade isEqualToString:@"No data"]) {
-        //NSString *grade = [_classToView.currentGrade substringWithRange:NSMakeRange(7,1)];
-        _courseGrade.text = _classToView.currentGrade;
-        [_courseGrade setFont:[UIFont systemFontOfSize:40]];
-    //}
-    
-    //else {
-      //  _courseGrade.text = @"None";
-        //[_courseGrade setFont:[UIFont systemFontOfSize:15]];
-        
-        //NSLog(@"%@", _courseGrade.text);
-    //}
     
     _examGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
     _quizGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
