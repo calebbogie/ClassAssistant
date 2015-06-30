@@ -38,6 +38,7 @@
 @property NSMutableArray *examWeightTextFields;
 
 @property CGFloat animatedDistance;
+@property BOOL editMode;
 
 @property Course* courseToAdd;
 

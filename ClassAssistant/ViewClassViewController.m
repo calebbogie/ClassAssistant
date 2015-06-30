@@ -11,6 +11,7 @@
 #import "CalendarEventsTableViewController.h"
 #import "TableViewController.h"
 #import "ClassAssistant-Swift.h"
+#import "AddClassViewController.h"
 
 @interface ViewClassViewController ()
 
@@ -23,6 +24,10 @@
 
 - (IBAction)backToAddClassViewFromCalendarView:(UIStoryboardSegue *)segue {
     
+}
+
+- (IBAction)backToViewClassView:(UIStoryboardSegue *) segue {
+    NSLog(@"backToViewClassView!");
 }
 
 - (IBAction)backToClassView:(UIStoryboardSegue *) segue {
@@ -120,6 +125,13 @@
         NSLog(@"CalendarViewSegue triggered");
         CalendarEventsTableViewController *destController = [segue destinationViewController];
         destController.courseForEvents = self.classToView;
+    }
+    
+    else if ([segue.identifier isEqualToString:@"EditCourseSegue"]) {
+        NSLog(@"EditCourseSegue triggered!");
+        AddClassViewController *destController = [segue destinationViewController];
+        destController.courseToAdd = self.classToView;
+        destController.editMode = YES;
     }
 }
 

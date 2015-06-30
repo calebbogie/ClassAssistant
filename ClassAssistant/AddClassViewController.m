@@ -26,7 +26,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 @implementation AddClassViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+
     //Only allow the course to be created if the user has specified a name and credit hours value
     if ((self.courseNameField.text.length > 0) && (self.creditHoursLabel.text.length > 0)) {
         
@@ -42,8 +42,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         // ************************* Handle case where weights will be passed as percentages **************************
         
         self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExamsLabel text] integerValue]];
-        self.courseToAdd.homeworkWeight = [NSNumber numberWithInt:[[self.homeworkWeightLabel text] doubleValue]];
-        self.courseToAdd.quizWeight = [NSNumber numberWithInt:[[self.quizWeightLabel text] doubleValue]];
+        self.courseToAdd.homeworkWeight = [NSNumber numberWithFloat:[[self.homeworkWeightLabel text] doubleValue] / 100 ];
+        self.courseToAdd.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
+        
+        NSLog(@"Quiz weight: %@", self.courseToAdd.quizWeight);
         
         // ************************* Handle case where weights will be passed as percentages **************************
         
@@ -253,6 +255,85 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%d", (int)self.numberOfExamsSlider.value];
 }
 
+- (IBAction)numberOfExamsSliderDidEndSliding:(id)sender {
+    //Remove old text fields
+    for (UITextField *examWeight in _examWeightTextFields) {
+        NSLog(@"Removing textfield");
+        [examWeight removeFromSuperview];
+    }
+    
+    //Remove old labels
+    for (UILabel *examLabel in _examTitleLabels) {
+        [examLabel removeFromSuperview];
+    }
+    
+    //Clear arrays
+    [self.examWeightTextFields removeAllObjects];
+    [self.examTitleLabels removeAllObjects];
+    
+    //Get number of exams from text field
+    int numExams = [self.numberOfExamsLabel.text intValue];
+    
+    //Adjust size of scrollview
+    [self.scroller setContentSize:CGSizeMake(320, 1200+numExams*(SIZE_OF_EXAM_BLOCK))];
+    
+    //Initialize arrays
+    self.examTitleLabels = [[NSMutableArray alloc] init];
+    self.examWeightTextFields = [[NSMutableArray alloc] init];
+    
+    //Create text for Exam Setup title                                      //Was 710
+    UILabel *examSetupTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 800, 150, 50)];
+    
+    //Set title text
+    examSetupTitle.text = @"Exam Setup";
+    
+    //Set title font
+    examSetupTitle.font = [UIFont systemFontOfSize:25];
+    
+    //Add title to scrollview
+    [self.scroller addSubview:examSetupTitle];
+    
+    //Add items to array
+    for (int i = 0; i < numExams; i++) {
+        
+        //Create text for label
+        NSString *examNumber = [NSString stringWithFormat:@"Exam %d Weight", i+1];
+        
+        //Create label
+        UILabel *examLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 840+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
+        
+        //Set font size
+        examLabel.font = [UIFont systemFontOfSize:17];
+        
+        //Set label text
+        examLabel.text = examNumber;
+        
+        //Add label to scrollview
+        [self.scroller addSubview:examLabel];
+        
+        //Add label to array
+        [self.examTitleLabels addObject:examLabel];
+        
+        //Create exam weight text field
+        UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 840+45+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
+        
+        [examWeight becomeFirstResponder];
+        examWeight.delegate = self;
+        
+        //Setup exam weight text field
+        examWeight.borderStyle = UITextBorderStyleRoundedRect;
+        examWeight.backgroundColor = [UIColor whiteColor];
+        examWeight.keyboardType = UIKeyboardTypeDecimalPad;
+        
+        //Add text field to scrollview
+        [self.scroller addSubview:examWeight];
+        
+        //Add text field to array
+        [self.examWeightTextFields addObject:examWeight];
+    }
+
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     NSLog(@"Returning...");
@@ -268,6 +349,28 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     
     //[self.view addSubview:self.courseImage];
     [self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
+    
+    //Populate fields so they can be edited
+    if (self.editMode) {
+        self.courseNameField.text = self.courseToAdd.courseName;
+        self.courseNameField.enabled = NO;
+        self.creditHoursSlider.value = [self.courseToAdd.creditHours floatValue];
+        self.creditHoursLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.creditHours];
+        
+        if (self.courseToAdd.professorName != nil)
+            self.professorName.text = self.courseToAdd.professorName;
+        if (self.courseToAdd.professorOfficeLocation != nil)
+            self.professorOfficeLocation.text = self.courseToAdd.professorOfficeLocation;
+        if (self.courseToAdd.professorEmailAddress != nil)
+            self.professorEmailAddress.text = self.courseToAdd.professorEmailAddress;
+        
+        self.homeworkWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.homeworkWeight floatValue] * 100)];
+        self.homeworkWeightSlider.value = [self.courseToAdd.homeworkWeight floatValue] * 100;
+        self.quizWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.quizWeight floatValue] * 100)];
+        self.quizWeightSlider.value = [self.courseToAdd.quizWeight floatValue] * 100;
+        self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.numberOfExams];
+        self.numberOfExamsSlider.value = [self.courseToAdd.numberOfExams floatValue];
+    }
 }
 
 - (void)didReceiveMemoryWarning
