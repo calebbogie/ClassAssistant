@@ -250,7 +250,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (IBAction)numberOfExamsSliderChanged:(id)sender {
-    self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.numberOfExamsSlider.value];
+    self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%d", (int)self.numberOfExamsSlider.value];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
