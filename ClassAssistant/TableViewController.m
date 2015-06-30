@@ -40,8 +40,9 @@
             Course *temp = [self.studentCourses objectAtIndex:i];
             if ([temp.courseName isEqualToString:c.courseName]) {
                 //Course already exists, so replace it
-                [self.studentCourses replaceObjectAtIndex:i withObject:temp];
+                [self.studentCourses replaceObjectAtIndex:i withObject:c];
                 foundCourse = true;
+                NSLog(@"Found it!");
                 break;
             }
         }
@@ -56,6 +57,7 @@
 }
 
 - (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
+    
     AddClassViewController *source = [segue sourceViewController];
     
     Course *c = source.courseToAdd;
@@ -95,6 +97,8 @@
 }
 
 - (void)loadDummyData {
+    NSLog(@"Loading dummy data...");
+    
     //Add course 1
     Course* course1 = [[Course alloc] init];
     course1.courseName = @"MATH 151";

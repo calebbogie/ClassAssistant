@@ -31,7 +31,8 @@
 }
 
 - (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
-    
+    AddClassViewController *source = [segue sourceViewController];
+    self.classToView = source.courseToAdd;
 }
 
 - (IBAction)backToClassView:(UIStoryboardSegue *) segue {
