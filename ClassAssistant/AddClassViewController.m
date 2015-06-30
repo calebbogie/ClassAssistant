@@ -28,11 +28,11 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //Only allow the course to be created if the user has specified a name and credit hours value
-    if ((self.courseNameField.text.length > 0) && (self.creditHoursField.text.length > 0)) {
+    if ((self.courseNameField.text.length > 0) && (self.creditHoursLabel.text.length > 0)) {
         
         self.courseToAdd = [[Course alloc] init];
         self.courseToAdd.courseName = self.courseNameField.text;
-        self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursField text] integerValue]];
+        self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursLabel text] integerValue]];
         self.courseToAdd.currentGrade = @"-";
         
         self.courseToAdd.professorName = [self.professorName text];
@@ -41,9 +41,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         // ************************* Handle case where weights will be passed as percentages **************************
         
-        self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExams text] integerValue]];
-        self.courseToAdd.homeworkWeight = [NSNumber numberWithInt:[[self.homeworkWeight text] doubleValue]];
-        self.courseToAdd.quizWeight = [NSNumber numberWithInt:[[self.quizWeight text] doubleValue]];
+        self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExamsLabel text] integerValue]];
+        self.courseToAdd.homeworkWeight = [NSNumber numberWithInt:[[self.homeworkWeightLabel text] doubleValue]];
+        self.courseToAdd.quizWeight = [NSNumber numberWithInt:[[self.quizWeightLabel text] doubleValue]];
         
         // ************************* Handle case where weights will be passed as percentages **************************
         
@@ -161,7 +161,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         [self.examTitleLabels removeAllObjects];
         
         //Get number of exams from text field
-        int numExams = [self.numberOfExams.text intValue];
+        int numExams = [self.numberOfExamsLabel.text intValue];
         
         //Adjust size of scrollview
         [self.scroller setContentSize:CGSizeMake(320, 1200+numExams*(SIZE_OF_EXAM_BLOCK))];
@@ -235,6 +235,22 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [UIView commitAnimations];
     
     [textField resignFirstResponder];
+}
+
+- (IBAction)creditHoursSliderChanged:(id)sender {
+    self.creditHoursLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.creditHoursSlider.value];
+}
+
+- (IBAction)homeworkWeightSliderChanged:(id)sender {
+    self.homeworkWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.homeworkWeightSlider.value];
+}
+
+- (IBAction)quizWeightSliderChanged:(id)sender {
+    self.quizWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.quizWeightSlider.value];
+}
+
+- (IBAction)numberOfExamsSliderChanged:(id)sender {
+    self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.numberOfExamsSlider.value];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

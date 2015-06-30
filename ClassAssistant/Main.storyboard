@@ -105,15 +105,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" id="HM5-Q2-isV">
-                                        <rect key="frame" x="20" y="153" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="YWW-oB-LFO" id="EtC-2v-vkM"/>
-                                        </connections>
-                                    </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ivs-4Y-BGT">
                                         <rect key="frame" x="20" y="301" width="251" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -190,33 +181,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="numberOfExams" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CIW-7P-7rK">
-                                        <rect key="frame" x="20" y="761" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="YWW-oB-LFO" id="i8o-UF-MNN"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="fr2-Uf-fk2">
-                                        <rect key="frame" x="20" y="623" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="YWW-oB-LFO" id="Plz-LF-op4"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ykD-K8-ABO">
-                                        <rect key="frame" x="20" y="690" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="YWW-oB-LFO" id="cnS-qy-Fvf"/>
-                                        </connections>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hXi-R8-fGH">
                                         <rect key="frame" x="233" y="225" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -241,6 +205,62 @@
                                             <action selector="backwardButtonPressed:" destination="YWW-oB-LFO" eventType="touchUpInside" id="RHv-HP-lih"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="4" id="3Te-YR-fyi">
+                                        <rect key="frame" x="18" y="153" width="226" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="creditHoursSliderChanged:" destination="YWW-oB-LFO" eventType="valueChanged" id="YFY-wn-s9a"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyj-H6-b94">
+                                        <rect key="frame" x="249" y="157" width="10" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" id="q7J-w2-jwb">
+                                        <rect key="frame" x="18" y="623" width="226" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="homeworkWeightSliderChanged:" destination="YWW-oB-LFO" eventType="valueChanged" id="gBi-aN-pD0"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" id="Zw8-z2-DOm">
+                                        <rect key="frame" x="18" y="690" width="226" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="quizWeightSliderChanged:" destination="YWW-oB-LFO" eventType="valueChanged" id="Co9-cC-4In"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Owb-tg-upG">
+                                        <rect key="frame" x="249" y="627" width="51" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="31f-YS-D8J">
+                                        <rect key="frame" x="249" y="694" width="51" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mpC-Gj-xJX">
+                                        <rect key="frame" x="249" y="765" width="51" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" id="eS5-jE-ho1">
+                                        <rect key="frame" x="18" y="761" width="226" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="numberOfExamsSliderChanged:" destination="YWW-oB-LFO" eventType="valueChanged" id="hrY-SD-Cgn"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -267,15 +287,19 @@
                         <outlet property="cancelButton" destination="hca-la-UF4" id="Bed-aI-OS1"/>
                         <outlet property="courseImage" destination="Mom-Mn-Cc7" id="aXd-aL-psu"/>
                         <outlet property="courseNameField" destination="TZm-0t-WaW" id="UZ4-p5-dDE"/>
-                        <outlet property="creditHoursField" destination="HM5-Q2-isV" id="eLb-8N-unT"/>
+                        <outlet property="creditHoursLabel" destination="xyj-H6-b94" id="WGf-Xp-9x0"/>
+                        <outlet property="creditHoursSlider" destination="3Te-YR-fyi" id="Mdu-o4-bUL"/>
                         <outlet property="forwardButton" destination="hXi-R8-fGH" id="bu9-ht-rha"/>
-                        <outlet property="homeworkWeight" destination="fr2-Uf-fk2" id="KKr-DB-oxV"/>
+                        <outlet property="homeworkWeightLabel" destination="Owb-tg-upG" id="On5-qd-OOX"/>
+                        <outlet property="homeworkWeightSlider" destination="q7J-w2-jwb" id="ZZO-L0-Ndx"/>
                         <outlet property="nextButton" destination="E25-cG-sqf" id="P8P-gu-KSq"/>
-                        <outlet property="numberOfExams" destination="CIW-7P-7rK" id="4yp-qc-Ego"/>
+                        <outlet property="numberOfExamsLabel" destination="mpC-Gj-xJX" id="f7n-6b-ct4"/>
+                        <outlet property="numberOfExamsSlider" destination="eS5-jE-ho1" id="0Z1-6X-GnK"/>
                         <outlet property="professorEmailAddress" destination="Tyv-1Q-se8" id="aif-C8-XYN"/>
                         <outlet property="professorName" destination="tj3-Su-ALW" id="esM-Xj-vIl"/>
                         <outlet property="professorOfficeLocation" destination="wA8-9g-SWT" id="qEH-gE-7GU"/>
-                        <outlet property="quizWeight" destination="ykD-K8-ABO" id="ubu-ea-rUg"/>
+                        <outlet property="quizWeightLabel" destination="31f-YS-D8J" id="FLk-84-KMQ"/>
+                        <outlet property="quizWeightSlider" destination="Zw8-z2-DOm" id="sLA-WZ-aiV"/>
                         <outlet property="scroller" destination="b6H-TJ-AVy" id="bOb-86-z7V"/>
                     </connections>
                 </viewController>
@@ -616,6 +640,13 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="syH-It-4xQ">
+                                        <rect key="frame" x="145" y="597" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>

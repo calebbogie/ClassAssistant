@@ -12,13 +12,21 @@
 @interface AddClassViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *courseNameField;
-@property (weak, nonatomic) IBOutlet UITextField *creditHoursField;
+//@property (weak, nonatomic) IBOutlet UITextField *creditHoursField;
+@property (weak, nonatomic) IBOutlet UISlider *creditHoursSlider;
+@property (weak, nonatomic) IBOutlet UILabel *creditHoursLabel;
 @property (weak, nonatomic) IBOutlet UITextField *professorName;
 @property (weak, nonatomic) IBOutlet UITextField *professorEmailAddress;
 @property (weak, nonatomic) IBOutlet UITextField *professorOfficeLocation;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfExams;
-@property (weak, nonatomic) IBOutlet UITextField *homeworkWeight;
-@property (weak, nonatomic) IBOutlet UITextField *quizWeight;
+//@property (weak, nonatomic) IBOutlet UITextField *numberOfExams;
+@property (weak, nonatomic) IBOutlet UISlider *numberOfExamsSlider;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfExamsLabel;
+//@property (weak, nonatomic) IBOutlet UITextField *homeworkWeight;
+@property (weak, nonatomic) IBOutlet UISlider *homeworkWeightSlider;
+@property (weak, nonatomic) IBOutlet UILabel *homeworkWeightLabel;
+//@property (weak, nonatomic) IBOutlet UITextField *quizWeight;
+@property (weak, nonatomic) IBOutlet UISlider *quizWeightSlider;
+@property (weak, nonatomic) IBOutlet UILabel *quizWeightLabel;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *nextButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroller;
@@ -39,5 +47,9 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (IBAction)forwardButtonPressed:(id)sender;
 - (IBAction)backwardButtonPressed:(id)sender;
+- (IBAction)homeworkWeightSliderChanged:(id)sender;
+- (IBAction)quizWeightSliderChanged:(id)sender;
+- (IBAction)numberOfExamsSliderChanged:(id)sender;
+- (IBAction)creditHoursSliderChanged:(id)sender;
 
 @end
