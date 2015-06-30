@@ -53,7 +53,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         for (int i = 0; i < self.examWeightTextFields.count; i++) {
             UITextField *field = [self.examWeightTextFields objectAtIndex:i];
             //Get number from exam weight text field and add it to the examWeights array
-            [self.courseToAdd.examWeights addObject:[NSNumber numberWithDouble:[[field text] doubleValue]]];
+            [self.courseToAdd.examWeights addObject:[NSNumber numberWithDouble:[[field text] doubleValue] / 100]];
         }
         
         ////////////////////////// ADD COURSE DATA TO PARSE DATABASE /////////////////////////////////////
