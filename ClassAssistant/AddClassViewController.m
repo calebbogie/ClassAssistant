@@ -80,11 +80,11 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (IBAction)forwardButtonPressed:(id)sender {
-    
+    NSLog(@"Forward button pressed");
 }
 
 - (IBAction)backwardButtonPressed:(id)sender {
-    
+    NSLog(@"Backward button pressed");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -105,7 +105,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     
     CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
     CGFloat numerator = midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
-    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)* viewRect.size.height;
+    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
     CGFloat heightFraction = numerator / denominator;
     
     if (heightFraction < 0.0)
