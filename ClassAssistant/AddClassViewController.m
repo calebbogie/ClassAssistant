@@ -45,9 +45,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         self.courseToAdd.homeworkWeight = [NSNumber numberWithFloat:[[self.homeworkWeightLabel text] doubleValue] / 100 ];
         self.courseToAdd.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
         
-        NSLog(@"Quiz weight: %@", self.courseToAdd.quizWeight);
-        
         // ************************* Handle case where weights will be passed as percentages **************************
+        
+        NSLog(@"Exam count: %lu", self.examWeightTextFields.count);
         
         //Add all exam weights to Course object
         for (int i = 0; i < self.examWeightTextFields.count; i++) {

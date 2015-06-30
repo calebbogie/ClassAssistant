@@ -52,6 +52,7 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error;
 - (void)getDueDates;
 - (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue;
+- (IBAction)cancelledBackFromAddOrEdit:(UIStoryboardSegue *) segue;
 
 
 @end

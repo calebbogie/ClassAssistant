@@ -271,7 +271,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Pu9-Yz-6Pg"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hca-la-UF4">
                             <connections>
-                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="backFromAddOrEdit:" id="GSH-6c-ApF"/>
+                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="cancelledBackFromAddOrEdit:" id="W0j-n4-by2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="E25-cG-sqf">
@@ -641,9 +641,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="syH-It-4xQ">
-                                        <rect key="frame" x="145" y="597" width="30" height="30"/>
+                                        <rect key="frame" x="105" y="597" width="111" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Edit">
+                                        <state key="normal" title="Edit Course Info">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

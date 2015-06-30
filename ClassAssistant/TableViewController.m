@@ -56,6 +56,10 @@
     }
 }
 
+- (IBAction)cancelledBackFromAddOrEdit:(UIStoryboardSegue *) segue {
+    //Shouldn't do anything
+}
+
 - (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
     
     AddClassViewController *source = [segue sourceViewController];

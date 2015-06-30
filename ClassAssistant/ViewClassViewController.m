@@ -30,6 +30,10 @@
     NSLog(@"backToViewClassView!");
 }
 
+- (IBAction)cancelledBackFromAddOrEdit:(UIStoryboardSegue *) segue {
+    //Shouldn't do anything
+}
+
 - (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
     AddClassViewController *source = [segue sourceViewController];
     self.classToView = source.courseToAdd;
@@ -160,7 +164,7 @@
     [_scroller setScrollEnabled:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
     //_scroller.contentSize = [self.view sizeThatFits:CGSizeZero];
-    [_scroller setContentSize:CGSizeMake(320, 740)];
+    [_scroller setContentSize:CGSizeMake(320, 800)];
     
     if (self.classToView.previousGrades.count > 0 ) {
         //[self.classToView.previousGrades addObject:self.classToView.currentGrade];
