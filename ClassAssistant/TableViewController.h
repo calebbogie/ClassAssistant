@@ -12,7 +12,7 @@
 
 @property NSMutableArray* studentCourses;
 
-- (IBAction)backToTableView:(UIStoryboardSegue *) segue;
+- (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue;
 - (IBAction)backToTableViewFromClassView:(UIStoryboardSegue *) segue;
 
 - (void)loadDummyData;

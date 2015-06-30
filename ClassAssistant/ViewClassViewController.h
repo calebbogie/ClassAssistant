@@ -51,6 +51,7 @@
 - (IBAction)emailProfessor:(id)sender;
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error;
 - (void)getDueDates;
+- (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue;
 
 
 @end

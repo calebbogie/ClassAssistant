@@ -55,7 +55,7 @@
     }
 }
 
-- (IBAction)backToTableView:(UIStoryboardSegue *) segue {
+- (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
     AddClassViewController *source = [segue sourceViewController];
     
     Course *c = source.courseToAdd;

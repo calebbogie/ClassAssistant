@@ -30,6 +30,10 @@
     NSLog(@"backToViewClassView!");
 }
 
+- (IBAction)backFromAddOrEdit:(UIStoryboardSegue *) segue {
+    
+}
+
 - (IBAction)backToClassView:(UIStoryboardSegue *) segue {
     AddItemTabBarController *source = [segue sourceViewController];
     

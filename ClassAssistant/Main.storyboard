@@ -271,13 +271,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Pu9-Yz-6Pg"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hca-la-UF4">
                             <connections>
-                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="backToTableView:" id="hfL-03-akC"/>
+                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="backFromAddOrEdit:" id="GSH-6c-ApF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="E25-cG-sqf">
                             <connections>
-                                <action selector="prepareForSegue:sender:" destination="atz-je-fue" id="Uf3-sV-xFl"/>
-                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="backToTableView:" id="ZTc-wt-aew"/>
+                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="backFromAddOrEdit:" id="99p-gd-NqY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
