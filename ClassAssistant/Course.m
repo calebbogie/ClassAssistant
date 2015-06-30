@@ -40,6 +40,7 @@
     double average = 0;
     
     if ([type isEqualToString:@"exam"]) {
+        NSLog(@"examGrades.count: %lu", _examGrades.count);
         for (int i = 0; i < _examGrades.count; i++) {
             average += [[_examGrades objectAtIndex:i] doubleValue];
         }
@@ -82,7 +83,7 @@
     
     double examWeight = 0;
     
-    for (int i = 0; i < _examWeights.count; i++)
+    for (int i = 0; i < _examGrades.count; i++)
         examWeight += [[_examWeights objectAtIndex:i] doubleValue];
     
     //Add exam calculation later
