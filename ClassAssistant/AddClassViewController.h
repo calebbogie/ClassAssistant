@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Course.h"
+#import "iCarousel.h"
 
-@interface AddClassViewController : UIViewController <UITextFieldDelegate>
+@interface AddClassViewController : UIViewController <UITextFieldDelegate, iCarouselDataSource, iCarouselDelegate>
+
+//iCarousel-specific things
+@property (nonatomic, strong) IBOutlet iCarousel *carouselView;
+@property NSMutableArray *images;
 
 @property (weak, nonatomic) IBOutlet UITextField *courseNameField;
 //@property (weak, nonatomic) IBOutlet UITextField *creditHoursField;
@@ -30,9 +35,9 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *nextButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroller;
-@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
-@property (weak, nonatomic) IBOutlet UIButton *backwardButton;
-@property (weak, nonatomic) IBOutlet UIImageView *courseImage;
+//@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+//@property (weak, nonatomic) IBOutlet UIButton *backwardButton;
+//@property (weak, nonatomic) IBOutlet UIImageView *courseImage;
 
 @property NSMutableArray *examTitleLabels;
 @property NSMutableArray *examWeightTextFields;
@@ -46,8 +51,8 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
-- (IBAction)forwardButtonPressed:(id)sender;
-- (IBAction)backwardButtonPressed:(id)sender;
+//- (IBAction)forwardButtonPressed:(id)sender;
+//- (IBAction)backwardButtonPressed:(id)sender;
 - (IBAction)homeworkWeightSliderChanged:(id)sender;
 - (IBAction)quizWeightSliderChanged:(id)sender;
 - (IBAction)numberOfExamsSliderChanged:(id)sender;

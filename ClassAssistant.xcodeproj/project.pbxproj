@@ -14,6 +14,7 @@
 		05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05529D661B27B1680055ADAB /* ViewCalendarEventViewController.m */; };
 		055BC87C1B3884F700596CE0 /* GradeGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BC87B1B3884F700596CE0 /* GradeGraphView.swift */; };
 		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
+		05773E991B44847200021704 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05773E981B44847200021704 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC461B313DF900522EEA /* LoginViewController.swift */; };
 		0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC481B313E0B00522EEA /* SignUpViewController.swift */; };
 		0592CC4B1B3142F700522EEA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4A1B3142F700522EEA /* Parse.framework */; };
@@ -72,6 +73,8 @@
 		055BC87B1B3884F700596CE0 /* GradeGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeGraphView.swift; path = ../GradeGraphView.swift; sourceTree = "<group>"; };
 		056F29701B22910E001AE97C /* GradeIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeIndicatorView.h; sourceTree = "<group>"; };
 		056F29711B22910E001AE97C /* GradeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeIndicatorView.m; sourceTree = "<group>"; };
+		05773E971B44847200021704 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		05773E981B44847200021704 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		0592CC451B313DF900522EEA /* ClassAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		0592CC461B313DF900522EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		0592CC481B313E0B00522EEA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				06A43EB3194F95AA00A78D29 /* Main.storyboard */,
+				05773E971B44847200021704 /* iCarousel.h */,
+				05773E981B44847200021704 /* iCarousel.m */,
 				055BC87B1B3884F700596CE0 /* GradeGraphView.swift */,
 				056F29701B22910E001AE97C /* GradeIndicatorView.h */,
 				056F29711B22910E001AE97C /* GradeIndicatorView.m */,
@@ -417,6 +422,7 @@
 				0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */,
 				05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */,
 				05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */,
+				05773E991B44847200021704 /* iCarousel.m in Sources */,
 				0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */,
 				06A43E91194F952E00A78D29 /* main.m in Sources */,
 			);

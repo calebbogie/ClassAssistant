@@ -181,30 +181,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hXi-R8-fGH">
-                                        <rect key="frame" x="233" y="225" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="&gt;">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="forwardButtonPressed:" destination="YWW-oB-LFO" eventType="touchUpInside" id="KzH-FN-BVf"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Mom-Mn-Cc7">
-                                        <rect key="frame" x="118" y="198" width="84" height="84"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RZu-Pm-tEy">
-                                        <rect key="frame" x="54" y="225" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="&lt;">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backwardButtonPressed:" destination="YWW-oB-LFO" eventType="touchUpInside" id="RHv-HP-lih"/>
-                                        </connections>
-                                    </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="4" id="3Te-YR-fyi">
                                         <rect key="frame" x="18" y="153" width="226" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -216,7 +192,7 @@
                                         <rect key="frame" x="249" y="157" width="10" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" id="q7J-w2-jwb">
@@ -237,21 +213,21 @@
                                         <rect key="frame" x="249" y="627" width="51" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="31f-YS-D8J">
                                         <rect key="frame" x="249" y="694" width="51" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mpC-Gj-xJX">
                                         <rect key="frame" x="249" y="765" width="51" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" id="eS5-jE-ho1">
@@ -262,6 +238,15 @@
                                             <action selector="numberOfExamsSliderDidEndSliding:" destination="YWW-oB-LFO" eventType="touchUpInside" id="A3R-Zv-Hol"/>
                                         </connections>
                                     </slider>
+                                    <view contentMode="scaleToFill" id="1G3-ql-Sr7" customClass="iCarousel">
+                                        <rect key="frame" x="20" y="197" width="285" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="YWW-oB-LFO" id="uoa-bH-LZq"/>
+                                            <outlet property="delegate" destination="YWW-oB-LFO" id="qjJ-bi-70H"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -283,13 +268,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="900"/>
                     <connections>
-                        <outlet property="backwardButton" destination="RZu-Pm-tEy" id="P1c-A7-NSa"/>
                         <outlet property="cancelButton" destination="hca-la-UF4" id="Bed-aI-OS1"/>
-                        <outlet property="courseImage" destination="Mom-Mn-Cc7" id="aXd-aL-psu"/>
+                        <outlet property="carouselView" destination="1G3-ql-Sr7" id="9fI-rY-GOh"/>
                         <outlet property="courseNameField" destination="TZm-0t-WaW" id="UZ4-p5-dDE"/>
                         <outlet property="creditHoursLabel" destination="xyj-H6-b94" id="WGf-Xp-9x0"/>
                         <outlet property="creditHoursSlider" destination="3Te-YR-fyi" id="Mdu-o4-bUL"/>
-                        <outlet property="forwardButton" destination="hXi-R8-fGH" id="bu9-ht-rha"/>
                         <outlet property="homeworkWeightLabel" destination="Owb-tg-upG" id="On5-qd-OOX"/>
                         <outlet property="homeworkWeightSlider" destination="q7J-w2-jwb" id="ZZO-L0-Ndx"/>
                         <outlet property="nextButton" destination="E25-cG-sqf" id="P8P-gu-KSq"/>

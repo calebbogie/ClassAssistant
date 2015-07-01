@@ -25,6 +25,52 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 @implementation AddClassViewController
 
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    _images = [[NSMutableArray alloc] initWithObjects:@"calendar.png", @"calendar.png", @"calendar.png", nil];
+    [carousel setType:iCarouselTypeCoverFlow];
+    NSLog(@"Count: %lu", _images.count);
+    return [_images count];
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+{
+    //create a numbered view
+    view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_images objectAtIndex:index]]];
+    return view;
+}
+
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+{
+    NSLog(@"Image is selected.");
+}
+
+- (CGFloat)carouselItemWidth:(iCarousel *)carousel
+{
+    //usually this should be slightly wider than the item views
+    return 240;
+}
+
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+{
+    switch (option)
+    {
+        case iCarouselOptionWrap:
+        {
+            return YES;
+        }
+        default:
+        {
+            return value;
+        }
+    }
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     //Only allow the course to be created if the user has specified a name and credit hours value
@@ -81,13 +127,13 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     }
 }
 
-- (IBAction)forwardButtonPressed:(id)sender {
-    NSLog(@"Forward button pressed");
-}
-
-- (IBAction)backwardButtonPressed:(id)sender {
-    NSLog(@"Backward button pressed");
-}
+//- (IBAction)forwardButtonPressed:(id)sender {
+//    NSLog(@"Forward button pressed");
+//}
+//
+//- (IBAction)backwardButtonPressed:(id)sender {
+//    NSLog(@"Backward button pressed");
+//}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -277,7 +323,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [_scroller setContentSize:CGSizeMake(320, 1200)];
     
     //[self.view addSubview:self.courseImage];
-    [self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
+    //[self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
     
     //Populate fields so they can be edited
     if (self.editMode) {
