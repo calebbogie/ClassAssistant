@@ -129,7 +129,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         else {
             //Call Course member function for computing average
             average = [parentController.courseToEdit calculateAverageForType:@"exam"];
-            
+            NSLog(@"Num exams: %@", parentController.courseToEdit.numberOfExams);
             _examAvg.text = [NSString stringWithFormat:@"%.02f", average];
         }
     }

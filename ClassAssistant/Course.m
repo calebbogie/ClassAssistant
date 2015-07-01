@@ -40,7 +40,6 @@
     double average = 0;
     
     if ([type isEqualToString:@"exam"]) {
-        NSLog(@"examGrades.count: %lu", _examGrades.count);
         for (int i = 0; i < _examGrades.count; i++) {
             average += [[_examGrades objectAtIndex:i] doubleValue];
         }
