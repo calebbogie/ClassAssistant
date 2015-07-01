@@ -102,6 +102,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
     parentController.updateGraph = TRUE;
     
+    CGSize oldSize = self.scroller.contentSize;
+    [self.scroller setContentSize:CGSizeMake(320, oldSize.height + 90)];
+    
     [textField resignFirstResponder];
 }
 
@@ -161,7 +164,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 - (void)setupView:(NSString *)type
 {
     //Initialize scrollview
-    _scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 520)];
+    _scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+    [_scroller setContentSize:CGSizeMake(320, 300)];
+    [_scroller setScrollEnabled:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
     
@@ -256,7 +262,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [self.view addSubview:_scroller];
     
     //Set content size of exam scrollview
-    [_scroller setContentSize:CGSizeMake(320, 700)];
+    //[_scroller setContentSize:CGSizeMake(320, 700)];
 }
 
 - (void)makeGradeTextFieldAndLabel:(int)i forType:(NSString *)type forGradeArray:(NSMutableArray *)gradeArray {

@@ -696,17 +696,19 @@
             <objects>
                 <viewController title="Add Exam" id="EGG-Of-LEa" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DT8-Gq-f1O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="j6m-nu-Gpm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="651"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Exam" id="2y6-jW-KGd"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIE-az-NTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -724,6 +726,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="zvD-Tb-vkr">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -913,42 +917,46 @@
             <objects>
                 <viewController title="Add Homework" id="F8A-LE-Rvc" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leo-e7-2Gf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4Eb-Tk-k9F">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="651"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Homework" id="mEP-vz-Q2r"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaz-qI-a6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="2428"/>
+            <point key="canvasLocation" x="2380" y="2706"/>
         </scene>
         <!--Add Quiz-->
         <scene sceneID="X44-9m-SfO">
             <objects>
                 <viewController title="Add Quiz" id="AU6-V6-6Mf" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GyV-PS-UiT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="WYM-TU-PSn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="651"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quiz" id="gU6-Sq-cPy"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79p-y9-7Nq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="1762"/>
+            <point key="canvasLocation" x="2380" y="1881"/>
         </scene>
     </scenes>
     <resources>
@@ -960,7 +968,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="S1C-ZH-ZvJ"/>
         <segue reference="VsN-Xb-u28"/>
-        <segue reference="dbL-W8-lnN"/>
     </inferredMetricsTieBreakers>
 </document>
