@@ -266,9 +266,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    NSLog(@"Returning...");
-    [textField resignFirstResponder];
+{    [textField resignFirstResponder];
     return YES;
 }
 
