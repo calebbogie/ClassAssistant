@@ -500,7 +500,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.45490196078431372" green="0.49019607843137253" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.10980392160000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="gvX-Fh-x9t" customClass="GradeIndicatorView">
                                         <rect key="frame" x="117" y="141" width="85" height="85"/>
@@ -514,7 +514,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.45490196078431372" green="0.49019607843137253" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.10980392160000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="paE-Wa-UL1" customClass="GradeIndicatorView">
                                         <rect key="frame" x="218" y="141" width="85" height="85"/>
@@ -528,7 +528,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.45490196078431372" green="0.49019607843137253" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.10980392160000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOMEWORK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jlx-nK-liv">
                                         <rect key="frame" x="9" y="234" width="103" height="21"/>
@@ -539,13 +539,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUIZ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2sK-Yu-u3a">
                                         <rect key="frame" x="139" y="234" width="41" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pLn-1F-XPa">
-                                        <rect key="frame" x="238" y="235" width="45" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,6 +643,13 @@
                                             <segue destination="YWW-oB-LFO" kind="push" identifier="EditCourseSegue" id="dbL-W8-lnN"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAMS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pLn-1F-XPa">
+                                        <rect key="frame" x="233" y="235" width="55" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -968,7 +968,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="S1C-ZH-ZvJ"/>
         <segue reference="VsN-Xb-u28"/>
+        <segue reference="dbL-W8-lnN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -205,7 +205,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         //Create exam weight text field
         UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 840+45+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
         
-        [examWeight becomeFirstResponder];
+        [examWeight resignFirstResponder];
         examWeight.delegate = self;
         
         //Setup exam weight text field
@@ -260,6 +260,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (IBAction)numberOfExamsSliderDidEndSliding:(id)sender {
     [self createExamSetupElements];
+    [self.courseToAdd.examGrades removeAllObjects];
+    [self.courseToAdd.examWeights removeAllObjects];
 
 }
 
