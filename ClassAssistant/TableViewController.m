@@ -117,12 +117,14 @@
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     course1.professorName = @"Some Professor";
     course1.professorOfficeLocation = @"Some Location";
+    course1.imageNumber = 1;
     
     //Add course 2
     Course* course2 = [[Course alloc] init];
     course2.courseName = @"CHEM 107";
     course2.creditHours = [NSNumber numberWithInt:3];
     course2.currentGrade = @"-";
+    course2.imageNumber = 2;
     [self.studentCourses addObject:course2];
     
     ////////////////////// Retrieving all objects stored in database for user /////////////////////////
@@ -183,6 +185,7 @@
     course3.courseName = @"ENGR 112";
     course3.creditHours = [NSNumber numberWithInt:2];
     course3.currentGrade = @"-";
+    course3.imageNumber = 3;
     [self.studentCourses addObject:course3];
     
     /*PFObject *course = [PFObject objectWithClassName:@"Course"];
@@ -253,9 +256,12 @@
     self.studentCourses = [[NSMutableArray alloc] init];
     
     // ******************* Delete before final build **********************
-    //[self loadDummyData];
+    [self loadDummyData];
     
     self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
+    
+    //Allow items to be deleted in table I think
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -319,7 +325,7 @@
     cell.textLabel.text = course.courseName;
     NSLog(@"image#: %d", (int)course.imageNumber);
     
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%d.png", course.imageNumber]];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%ld.png", (long)course.imageNumber]];
     
     NSLog(@"Grade in update: %@", course.currentGrade);
     
@@ -338,6 +344,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+}
+
+// Override to support conditional editing of the table view.
+// This only needs to be implemented if you are going to be returning NO
+// for some items. By default, all items are editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.studentCourses removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
