@@ -27,16 +27,27 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    _images = [[NSMutableArray alloc] initWithObjects:@"calendar.png", @"calendar.png", @"calendar.png", nil];
+    //_images = [[NSMutableArray alloc] initWithObjects:@"calendar.png", @"calendar.png", @"calendar.png", nil];
+    _images = [[NSMutableArray alloc] init];
+    [_images removeAllObjects];
+    
+    for (int i = 1; i < 27; i++) {
+        NSString *fileName = [NSString stringWithFormat:@"CAicons-%d.png", i];
+        [_images addObject:fileName];
+    }
+    
     [carousel setType:iCarouselTypeCoverFlow];
-    NSLog(@"Count: %lu", _images.count);
     return [_images count];
 }
+
+
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     //create a numbered view
     view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_images objectAtIndex:index]]];
+    self.imageNum = index-3;
+    NSLog(@"courseToAdd.imageNumber: %ld", self.imageNum);
     return view;
 }
 
@@ -48,7 +59,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel
 {
     //usually this should be slightly wider than the item views
-    return 240;
+    return 150;
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
@@ -85,15 +96,11 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         self.courseToAdd.professorOfficeLocation = [self.professorOfficeLocation text];
         self.courseToAdd.professorEmailAddress = [self.professorEmailAddress text];
         
-        // ************************* Handle case where weights will be passed as percentages **************************
-        
         self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExamsLabel text] integerValue]];
         self.courseToAdd.homeworkWeight = [NSNumber numberWithFloat:[[self.homeworkWeightLabel text] doubleValue] / 100 ];
         self.courseToAdd.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
         
-        // ************************* Handle case where weights will be passed as percentages **************************
-        
-        NSLog(@"Exam count: %lu", self.examWeightTextFields.count);
+        self.courseToAdd.imageNumber = self.imageNum;
         
         //Add all exam weights to Course object
         for (int i = 0; i < self.examWeightTextFields.count; i++) {
@@ -318,6 +325,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (void)viewDidLoad
 {
+    //Initialize Course if not in edit mode (course is being created)
+    
     [super viewDidLoad];
     [_scroller setScrollEnabled:YES];
     [_scroller setContentSize:CGSizeMake(320, 1200)];

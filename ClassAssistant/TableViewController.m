@@ -253,7 +253,7 @@
     self.studentCourses = [[NSMutableArray alloc] init];
     
     // ******************* Delete before final build **********************
-    [self loadDummyData];
+    //[self loadDummyData];
     
     self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     
@@ -317,8 +317,9 @@
     }
     
     cell.textLabel.text = course.courseName;
+    NSLog(@"image#: %d", (int)course.imageNumber);
     
-    cell.imageView.image = [UIImage imageNamed:@"calendar.png"];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%d.png", course.imageNumber]];
     
     NSLog(@"Grade in update: %@", course.currentGrade);
     

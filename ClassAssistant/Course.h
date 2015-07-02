@@ -32,6 +32,8 @@
 @property NSMutableArray *quizGrades;
 @property NSMutableArray *homeworkGrades;
 
+@property NSInteger imageNumber;
+
 - (double)calculateAverageForType:(NSString *)type;
 - (double)calculateCurrentGrade;
 

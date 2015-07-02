@@ -46,6 +46,7 @@
 @property BOOL editMode;
 
 @property Course* courseToAdd;
+@property NSInteger imageNum;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
