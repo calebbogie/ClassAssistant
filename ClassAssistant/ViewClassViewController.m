@@ -191,7 +191,7 @@
     horLineOne.backgroundColor = [UIColor whiteColor];
     [_scroller addSubview:horLineOne];
     
-    UIView *vertLineOne = [[UIView alloc] initWithFrame:CGRectMake(140, 0-58, 1, 180)];
+    UIView *vertLineOne = [[UIView alloc] initWithFrame:CGRectMake(140, -200, 1, 322)];
     vertLineOne.backgroundColor = [UIColor whiteColor];
     [_scroller addSubview:vertLineOne];
     
