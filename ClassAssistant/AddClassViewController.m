@@ -47,13 +47,12 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     //create a numbered view
     view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_images objectAtIndex:index]]];
     self.imageNum = index-3;
-    NSLog(@"courseToAdd.imageNumber: %ld", self.imageNum);
     return view;
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    NSLog(@"Image is selected.");
+    
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel
