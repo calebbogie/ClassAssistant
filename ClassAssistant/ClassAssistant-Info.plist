@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>Caleb-Bogenschutz.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>Caleb-Bogenschutz.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -20,8 +20,29 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Caleb-Bogenschutz.ClassAssistant</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1600555063537523</string>
+			</array>
+			<key>URL Schemes</key>
+			<array>
+				<string>fb1600555063537523</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>FacebookAppID</key>
+	<string>1600555063537523</string>
+	<key>FacebookDisplayName</key>
+	<string>ClassAssistant</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

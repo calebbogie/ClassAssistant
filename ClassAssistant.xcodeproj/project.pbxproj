@@ -41,6 +41,9 @@
 		055BC87C1B3884F700596CE0 /* GradeGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BC87B1B3884F700596CE0 /* GradeGraphView.swift */; };
 		056F29721B22910E001AE97C /* GradeIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F29711B22910E001AE97C /* GradeIndicatorView.m */; };
 		05773E991B44847200021704 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05773E981B44847200021704 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0577EF321B46FD3B00EDF517 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF2F1B46FD3B00EDF517 /* FBSDKCoreKit.framework */; };
+		0577EF331B46FD3B00EDF517 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF301B46FD3B00EDF517 /* FBSDKLoginKit.framework */; };
+		0577EF341B46FD3B00EDF517 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF311B46FD3B00EDF517 /* FBSDKShareKit.framework */; };
 		0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC461B313DF900522EEA /* LoginViewController.swift */; };
 		0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC481B313E0B00522EEA /* SignUpViewController.swift */; };
 		0592CC4B1B3142F700522EEA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4A1B3142F700522EEA /* Parse.framework */; };
@@ -127,6 +130,9 @@
 		056F29711B22910E001AE97C /* GradeIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeIndicatorView.m; sourceTree = "<group>"; };
 		05773E971B44847200021704 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		05773E981B44847200021704 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		0577EF2F1B46FD3B00EDF517 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0577EF301B46FD3B00EDF517 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		0577EF311B46FD3B00EDF517 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		0592CC451B313DF900522EEA /* ClassAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		0592CC461B313DF900522EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		0592CC481B313E0B00522EEA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
@@ -186,11 +192,14 @@
 				0592CC5B1B31435600522EEA /* Security.framework in Frameworks */,
 				0592CC591B31435100522EEA /* QuartzCore.framework in Frameworks */,
 				0592CC571B31434A00522EEA /* MobileCoreServices.framework in Frameworks */,
+				0577EF321B46FD3B00EDF517 /* FBSDKCoreKit.framework in Frameworks */,
 				0592CC551B31434300522EEA /* CoreLocation.framework in Frameworks */,
 				06A43E87194F952E00A78D29 /* CoreGraphics.framework in Frameworks */,
 				0592CC531B31433600522EEA /* CFNetwork.framework in Frameworks */,
 				0592CC511B31432F00522EEA /* AudioToolbox.framework in Frameworks */,
+				0577EF341B46FD3B00EDF517 /* FBSDKShareKit.framework in Frameworks */,
 				05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */,
+				0577EF331B46FD3B00EDF517 /* FBSDKLoginKit.framework in Frameworks */,
 				0592CC4F1B31430500522EEA /* ParseUI.framework in Frameworks */,
 				06A43E89194F952E00A78D29 /* UIKit.framework in Frameworks */,
 				0592CC4D1B3142FE00522EEA /* Bolts.framework in Frameworks */,
@@ -287,6 +296,9 @@
 		06A43E83194F952E00A78D29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0577EF2F1B46FD3B00EDF517 /* FBSDKCoreKit.framework */,
+				0577EF301B46FD3B00EDF517 /* FBSDKLoginKit.framework */,
+				0577EF311B46FD3B00EDF517 /* FBSDKShareKit.framework */,
 				0592CC621B31437600522EEA /* libsqlite3.dylib */,
 				0592CC601B31436E00522EEA /* libz.dylib */,
 				0592CC5E1B31436300522EEA /* SystemConfiguration.framework */,
@@ -650,6 +662,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/calebbogie/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClassAssistant/ClassAssistant-Prefix.pch";
@@ -672,6 +685,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/calebbogie/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClassAssistant/ClassAssistant-Prefix.pch";
