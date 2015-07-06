@@ -420,15 +420,51 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd"];
         NSString *strDate = [dateFormatter stringFromDate:[exams objectAtIndex:exams.count-1]];
-        _nextTestOnDate.text = strDate;
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:exams.count-1]];
+        
+        //_nextTestOnMonth.text = strDate;
+        //NSString *monthWord = [NSString stringWithFormat:@"%ld",(long)[components month]];
+        
+        NSInteger monthNum = [components month];
+        
+        if (monthNum == 1)
+            _nextTestOnMonth.text = @"January";
+        else if (monthNum == 2)
+            _nextTestOnMonth.text = @"February";
+        else if (monthNum == 3)
+            _nextTestOnMonth.text = @"March";
+        else if (monthNum == 4)
+            _nextTestOnMonth.text = @"April";
+        else if (monthNum == 5)
+            _nextTestOnMonth.text = @"May";
+        else if (monthNum == 6)
+            _nextTestOnMonth.text = @"June";
+        else if (monthNum == 7)
+            _nextTestOnMonth.text = @"July";
+        else if (monthNum == 8)
+            _nextTestOnMonth.text = @"August";
+        else if (monthNum == 9)
+            _nextTestOnMonth.text = @"September";
+        else if (monthNum == 10)
+            _nextTestOnMonth.text = @"October";
+        else if (monthNum == 11)
+            _nextTestOnMonth.text = @"November";
+        else if (monthNum == 12)
+            _nextTestOnMonth.text = @"December";
+        
+        _nextTestOnDay.text = [NSString stringWithFormat:@"%ld",(long)[components day]];
     }
     else
-        _nextTestOnDate.text = @"-";
+        _nextTestOnDay.text = @"-";
+        _nextTestOnMonth.text = @"";
     
     if (assignments.count > 0) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd"];
         NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:assignments.count-1]];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:exams.count-1]];
         _nextAssignmentDueDate.text = strDate;
     }
     else

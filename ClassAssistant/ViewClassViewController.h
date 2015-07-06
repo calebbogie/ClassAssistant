@@ -36,7 +36,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *quizGradeNumber;
 @property (nonatomic, retain) IBOutlet UILabel *examGradeNumber;
 
-@property (nonatomic, retain) IBOutlet UILabel *nextTestOnDate;
+@property (nonatomic, retain) IBOutlet UILabel *nextTestOnMonth;
+@property (nonatomic, retain) IBOutlet UILabel *nextTestOnDay;
 @property (nonatomic, retain) IBOutlet UILabel *nextAssignmentDueDate;
 
 @property (weak, nonatomic) IBOutlet UILabel *professorName;

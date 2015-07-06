@@ -545,13 +545,6 @@
                                             <segue destination="O08-tb-ode" kind="push" identifier="AddGradeSegue" id="tdt-lx-ttW"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKx-Ce-LWu">
-                                        <rect key="frame" x="6" y="301" width="88" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wa8-A9-2Hi">
                                         <rect key="frame" x="15" y="514" width="288" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -633,6 +626,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="35u-LQ-TfC">
+                                        <rect key="frame" x="0.0" y="304" width="100" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKx-Ce-LWu">
+                                        <rect key="frame" x="0.0" y="283" width="100" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -656,7 +663,8 @@
                         <outlet property="homeworkGrade" destination="PUv-UX-ssP" id="3HL-hN-na4"/>
                         <outlet property="homeworkGradeNumber" destination="rNo-5s-TcJ" id="60t-wL-Bqg"/>
                         <outlet property="nextAssignmentDueDate" destination="Wu8-QE-zvj" id="zz6-J2-gHz"/>
-                        <outlet property="nextTestOnDate" destination="GKx-Ce-LWu" id="ZWA-If-Ewc"/>
+                        <outlet property="nextTestOnDay" destination="35u-LQ-TfC" id="ZYA-Kh-nUx"/>
+                        <outlet property="nextTestOnMonth" destination="GKx-Ce-LWu" id="Zfk-hw-NHG"/>
                         <outlet property="oneHundredPercentLabel" destination="UK3-JM-qPt" id="Ffc-sC-pCY"/>
                         <outlet property="professorName" destination="wa8-A9-2Hi" id="6Xd-fv-pvh"/>
                         <outlet property="professorOfficeLocation" destination="aWC-MO-5Ob" id="MXL-AM-seE"/>

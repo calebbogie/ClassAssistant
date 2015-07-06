@@ -104,7 +104,7 @@
     NSLog(@"Loading dummy data...");
     
     //Add course 1
-    Course* course1 = [[Course alloc] init];
+    /*Course* course1 = [[Course alloc] init];
     course1.courseName = @"MATH 151";
     course1.creditHours = [NSNumber numberWithInt:4];
     course1.currentGrade = @"-";
@@ -125,14 +125,13 @@
     course2.creditHours = [NSNumber numberWithInt:3];
     course2.currentGrade = @"-";
     course2.imageNumber = 2;
-    [self.studentCourses addObject:course2];
+    [self.studentCourses addObject:course2];*/
     
     ////////////////////// Retrieving all objects stored in database for user /////////////////////////
     
     //Move this closure to viewDidLoad and add for-loop to retrieve all classes
-    /*PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"User" equalTo:@"Test User"];
-    //[query whereKey:@"CourseName" equalTo:@"csce 121"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -163,10 +162,6 @@
                 //FLOAT OR DOUBLE??
                 courseFromServer.quizWeight = [NSNumber numberWithInteger:[[[objects objectAtIndex:i] objectForKey:@"QuizWeight"] integerValue]];
             
-                NSLog(@"Credit hours: %@", courseFromServer.creditHours);
-            
-                NSLog(@"%@", [NSString stringWithFormat:@"%@", [[objects objectAtIndex:0] objectForKey:@"CourseName"]]);
-            
                 courseFromServer.currentGrade = @"-";
             
                 [self.studentCourses addObject:courseFromServer];
@@ -178,15 +173,14 @@
             NSLog(@"Error: %@", errorString);
         }
     }];
-     */
     
     //Add course 3
-    Course* course3 = [[Course alloc] init];
+    /*Course* course3 = [[Course alloc] init];
     course3.courseName = @"ENGR 112";
     course3.creditHours = [NSNumber numberWithInt:2];
     course3.currentGrade = @"-";
     course3.imageNumber = 3;
-    [self.studentCourses addObject:course3];
+    [self.studentCourses addObject:course3];*/
     
     /*PFObject *course = [PFObject objectWithClassName:@"Course"];
     [course setObject:@"Test User" forKey:@"User"];
@@ -217,29 +211,50 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Course"];
         [query whereKey:@"User" equalTo:@"Test User"];
         [query whereKey:@"CourseName" equalTo:c.courseName];
-        
         //Look for object in database.  If it isn't found, add it.
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (object == nil) {
-                PFObject *course = [PFObject objectWithClassName:@"Course"];
-                [course setObject:c.courseName forKey:@"CourseName"];
-                [course setObject:c.creditHours forKey:@"CreditHours"];
-                [course setObject:c.examGrades forKey:@"ExamGrades"];
-                [course setObject:c.examWeights forKey:@"ExamWeights"];
-                [course setObject:c.homeworkGrades forKey:@"HomeworkGrades"];
-                [course setObject:c.homeworkWeight forKey:@"HomeworkWeight"];
-                [course setObject:c.numberOfExams forKey:@"NumberOfExams"];
-                [course setObject:c.professorEmailAddress forKey:@"ProfessorEmailAddress"];
-                [course setObject:c.professorName forKey:@"ProfessorName"];
-                [course setObject:c.professorName forKey:@"ProfessorOfficeLocation"];
-                [course setObject:c.quizGrades forKey:@"QuizGrades"];
-                [course setObject:c.quizWeight forKey:@"QuizWeight"];
-                [course setObject:@"Test User" forKey:@"User"];
-                [course save];
-            }
-            else {
-                NSLog(@"%@ is already there", c.courseName);
-            }
+            
+          //  NSLog(@"Object course name: %@", object[@"CourseName"]);
+            //if (object == nil) {
+                //PFObject *course = [PFObject objectWithClassName:@"Course"];
+//                PFObject *course = object;
+//                [object setValue:c.courseName forKey:@"CourseName"];
+//                [object setValue:c.creditHours forKey:@"CreditHours"];
+//                [object setValue:c.examGrades forKey:@"ExamGrades"];
+//                [object setValue:c.examWeights forKey:@"ExamWeights"];
+//                [object setValue:c.homeworkGrades forKey:@"HomeworkGrades"];
+//                [object setValue:c.homeworkWeight forKey:@"HomeworkWeight"];
+//                [object setValue:c.numberOfExams forKey:@"NumberOfExams"];
+//                [object setValue:c.professorEmailAddress forKey:@"ProfessorEmailAddress"];
+//                [object setValue:c.professorName forKey:@"ProfessorName"];
+//                [object setValue:c.professorName forKey:@"ProfessorOfficeLocation"];
+//                [object setValue:c.quizGrades forKey:@"QuizGrades"];
+//                [object setValue:c.quizWeight forKey:@"QuizWeight"];
+//                [object setValue:[NSNumber numberWithLong:c.imageNumber] forKey:@"ImageNumber"];
+//                [object setValue:c.previousGrades forKey:@"PreviousGrades"];
+//                [object setValue:@"Test User" forKey:@"User"];
+            
+                object[@"CourseName"] = c.courseName;
+                object[@"CreditHours"] = c.creditHours;
+                object[@"ExamGrades"] = c.examGrades;
+                object[@"ExamWeights"] = c.examWeights;
+                object[@"HomeworkGrades"] = c.homeworkGrades;
+                object[@"HomeworkWeight"] = c.homeworkWeight;
+                object[@"NumberOfExams"] = c.numberOfExams;
+                object[@"ProfessorEmailAddress"] = c.professorEmailAddress;
+                object[@"ProfessorName"] = c.professorName;
+                object[@"ProfessorOfficeLocation"] = c.professorOfficeLocation;
+                object[@"QuizGrades"] = c.quizGrades;
+                object[@"QuizWeight"] = c.quizWeight;
+                object[@"ImageNumber"] = [NSNumber numberWithLong:c.imageNumber];
+                object[@"PreviousGrades"] = c.previousGrades;
+                object[@"User"] = @"Test User";
+            
+                [object saveInBackground];
+            //}
+            //else {
+                //NSLog(@"%@ is already there", c.courseName);
+            //}
         }];
     }
     

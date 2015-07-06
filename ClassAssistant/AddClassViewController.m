@@ -110,22 +110,27 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         ////////////////////////// ADD COURSE DATA TO PARSE DATABASE /////////////////////////////////////
         
-        PFObject *course = [PFObject objectWithClassName:@"Course"];
-        [course setObject:@"Test User" forKey:@"User"];
-        [course setObject:self.courseToAdd.courseName forKey:@"CourseName"];
-        [course setObject:self.courseToAdd.creditHours forKey:@"CreditHours"];
-        [course setObject:self.courseToAdd.professorName forKey:@"ProfessorName"];
-        [course setObject:self.courseToAdd.professorEmailAddress forKey:@"ProfessorEmailAddress"];
-        [course setObject:self.courseToAdd.professorOfficeLocation forKey:@"ProfessorOfficeLocation"];
-        [course setObject:self.courseToAdd.numberOfExams forKey:@"NumberOfExams"];
-        [course addObjectsFromArray:self.courseToAdd.examWeights forKey:@"ExamWeights"];
-        [course setObject:self.courseToAdd.homeworkWeight forKey:@"HomeworkWeight"];
-        [course setObject:self.courseToAdd.quizWeight forKey:@"QuizWeight"];
-        [course addObjectsFromArray:self.courseToAdd.examGrades forKey:@"ExamGrades"];
-        [course addObjectsFromArray:self.courseToAdd.quizGrades forKey:@"QuizGrades"];
-        [course addObjectsFromArray:self.courseToAdd.homeworkGrades forKey:@"HomeworkGrades"];
+        //Only add to database when user is creating course.  Not when they are editing it.
+        if (!self.editMode) {
+            PFObject *course = [PFObject objectWithClassName:@"Course"];
+            [course setObject:@"Test User" forKey:@"User"];
+            [course setObject:self.courseToAdd.courseName forKey:@"CourseName"];
+            [course setObject:self.courseToAdd.creditHours forKey:@"CreditHours"];
+            [course setObject:self.courseToAdd.professorName forKey:@"ProfessorName"];
+            [course setObject:self.courseToAdd.professorEmailAddress forKey:@"ProfessorEmailAddress"];
+            [course setObject:self.courseToAdd.professorOfficeLocation forKey:@"ProfessorOfficeLocation"];
+            [course setObject:self.courseToAdd.numberOfExams forKey:@"NumberOfExams"];
+            [course addObjectsFromArray:self.courseToAdd.examWeights forKey:@"ExamWeights"];
+            [course setObject:self.courseToAdd.homeworkWeight forKey:@"HomeworkWeight"];
+            [course setObject:self.courseToAdd.quizWeight forKey:@"QuizWeight"];
+            [course addObjectsFromArray:self.courseToAdd.examGrades forKey:@"ExamGrades"];
+            [course addObjectsFromArray:self.courseToAdd.quizGrades forKey:@"QuizGrades"];
+            [course addObjectsFromArray:self.courseToAdd.homeworkGrades forKey:@"HomeworkGrades"];
+            [course setObject:[NSNumber numberWithLong:self.courseToAdd.imageNumber] forKey:@"ImageNumber"];
+            [course addObjectsFromArray:self.courseToAdd.previousGrades forKey:@"PreviousGrades"];
         
-        [course saveInBackground];
+            [course saveInBackground];
+        }
         
         //////////////////////////////////////////////////////////////////////////////////////////////////
         

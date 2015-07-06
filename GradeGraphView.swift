@@ -18,7 +18,6 @@ import Foundation
     var graphPoints:[Int] = []
     
     override func drawRect(rect: CGRect) {
-        println("DrawRect Count: \(graphPoints.count)");
         if (graphPoints.count > 0) {
             
             let width = rect.width + 15
