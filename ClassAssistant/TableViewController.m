@@ -104,7 +104,7 @@
     NSLog(@"Loading dummy data...");
     
     //Add course 1
-    /*Course* course1 = [[Course alloc] init];
+    Course* course1 = [[Course alloc] init];
     course1.courseName = @"MATH 151";
     course1.creditHours = [NSNumber numberWithInt:4];
     course1.currentGrade = @"-";
@@ -125,7 +125,7 @@
     course2.creditHours = [NSNumber numberWithInt:3];
     course2.currentGrade = @"-";
     course2.imageNumber = 2;
-    [self.studentCourses addObject:course2];*/
+    [self.studentCourses addObject:course2];
     
     ////////////////////// Retrieving all objects stored in database for user /////////////////////////
     
@@ -133,7 +133,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"User" equalTo:@"Test User"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    /*[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //NSLog(@"Successfully retrieved: %@", objects);
             
@@ -172,15 +172,15 @@
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             NSLog(@"Error: %@", errorString);
         }
-    }];
+    }];*/
     
     //Add course 3
-    /*Course* course3 = [[Course alloc] init];
+    Course* course3 = [[Course alloc] init];
     course3.courseName = @"ENGR 112";
     course3.creditHours = [NSNumber numberWithInt:2];
     course3.currentGrade = @"-";
     course3.imageNumber = 3;
-    [self.studentCourses addObject:course3];*/
+    [self.studentCourses addObject:course3];
     
     /*PFObject *course = [PFObject objectWithClassName:@"Course"];
     [course setObject:@"Test User" forKey:@"User"];

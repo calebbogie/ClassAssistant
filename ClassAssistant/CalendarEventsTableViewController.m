@@ -101,6 +101,11 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    //ViewClassViewController *vc = self.navigationController.topViewController;
+    [self performSegueWithIdentifier:@"backToClassViewFromCalendarView" sender:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -140,7 +145,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Populating table...");
     static NSString *cellIdentifier;
     
     UITableViewCell *cell;

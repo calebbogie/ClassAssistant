@@ -56,7 +56,6 @@
 -(IBAction)addEvent:(id)sender {
     //If done button was pressed...
     if ([sender tag] == 2) {
-        NSLog(@"Adding event...");
     
         NSString *courseName = self.courseName;
     

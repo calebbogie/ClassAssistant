@@ -782,8 +782,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="2kD-e3-b3W" kind="unwind" identifier="backToClassViewFromCalendarView" unwindAction="backToClassViewFromCalendarView:" id="bvY-kK-u3e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gy-bD-K2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2kD-e3-b3W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1343" y="2300"/>
         </scene>

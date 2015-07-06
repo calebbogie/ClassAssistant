@@ -22,8 +22,10 @@
 @synthesize classToView = _classToView;
 @synthesize courseGrade = _courseGrade;
 
-- (IBAction)backToAddClassViewFromCalendarView:(UIStoryboardSegue *)segue {
-    
+- (IBAction)backToClassViewFromCalendarView:(UIStoryboardSegue *)segue {
+    NSLog(@"Going back!");
+    //Load assignment due dates
+    [self getDueDates];
 }
 
 - (IBAction)backToViewClassView:(UIStoryboardSegue *) segue {
@@ -349,12 +351,23 @@
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
+    NSDateComponents *c = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    
+    NSInteger day = [c day];
+    NSInteger month = [c month];
+    NSInteger year = [c year];
+    
     // Create the start date components
     NSDateComponents *oneYearAgoComponents = [[NSDateComponents alloc] init];
-    oneYearAgoComponents.year = -1;
-    NSDate *oneDayAgo = [calendar dateByAddingComponents:oneYearAgoComponents
-                                                  toDate:[NSDate date]
-                                                 options:0];
+    //Was -1
+    oneYearAgoComponents.year = year;
+    oneYearAgoComponents.month = month;
+    oneYearAgoComponents.day = day;
+    
+    NSDate *startDate = [calendar dateFromComponents:oneYearAgoComponents];
+    //NSDate *oneDayAgo = [calendar dateByAddingComponents:oneYearAgoComponents
+      //                                            toDate:[NSDate date]
+        //                                         options:0];
     
     // Create the end date components
     NSDateComponents *oneYearFromNowComponents = [[NSDateComponents alloc] init];
@@ -364,7 +377,7 @@
                                                       options:0];
     
     // Create the predicate from the event store's instance method
-    NSPredicate *predicate = [store predicateForEventsWithStartDate:oneDayAgo
+    NSPredicate *predicate = [store predicateForEventsWithStartDate:startDate
                                                             endDate:oneYearFromNow
                                                           calendars:nil];
     
@@ -419,9 +432,10 @@
     if (exams.count > 0) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd"];
-        NSString *strDate = [dateFormatter stringFromDate:[exams objectAtIndex:exams.count-1]];
+        //NSString *strDate = [dateFormatter stringFromDate:[exams objectAtIndex:exams.count-1]];
         NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:exams.count-1]];
+        //NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:exams.count-1]];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:0]];
         
         //_nextTestOnMonth.text = strDate;
         //NSString *monthWord = [NSString stringWithFormat:@"%ld",(long)[components month]];
@@ -429,43 +443,73 @@
         NSInteger monthNum = [components month];
         
         if (monthNum == 1)
-            _nextTestOnMonth.text = @"January";
+            _nextTestOnMonth.text = @"JANUARY";
         else if (monthNum == 2)
-            _nextTestOnMonth.text = @"February";
+            _nextTestOnMonth.text = @"FEBRUARY";
         else if (monthNum == 3)
-            _nextTestOnMonth.text = @"March";
+            _nextTestOnMonth.text = @"MARCH";
         else if (monthNum == 4)
-            _nextTestOnMonth.text = @"April";
+            _nextTestOnMonth.text = @"APRIL";
         else if (monthNum == 5)
-            _nextTestOnMonth.text = @"May";
+            _nextTestOnMonth.text = @"MAY";
         else if (monthNum == 6)
-            _nextTestOnMonth.text = @"June";
+            _nextTestOnMonth.text = @"JUNE";
         else if (monthNum == 7)
-            _nextTestOnMonth.text = @"July";
+            _nextTestOnMonth.text = @"JULY";
         else if (monthNum == 8)
-            _nextTestOnMonth.text = @"August";
+            _nextTestOnMonth.text = @"AUGUST";
         else if (monthNum == 9)
-            _nextTestOnMonth.text = @"September";
+            _nextTestOnMonth.text = @"SEPTEMBER";
         else if (monthNum == 10)
-            _nextTestOnMonth.text = @"October";
+            _nextTestOnMonth.text = @"OCTOBER";
         else if (monthNum == 11)
-            _nextTestOnMonth.text = @"November";
+            _nextTestOnMonth.text = @"NOVEMBER";
         else if (monthNum == 12)
-            _nextTestOnMonth.text = @"December";
+            _nextTestOnMonth.text = @"DECEMBER";
         
         _nextTestOnDay.text = [NSString stringWithFormat:@"%ld",(long)[components day]];
     }
-    else
+    else {
         _nextTestOnDay.text = @"-";
         _nextTestOnMonth.text = @"";
+    }
     
     if (assignments.count > 0) {
+        NSDateComponents *component = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+        
+        NSInteger currentDay = [component day];
+        NSInteger currentMonth = [component month];
+        NSInteger currentYear = [component year];
+        
+        //NSString *string = [NSString stringWithFormat:@"%ld.%ld.%ld", (long)day, (long)week, (long)year];
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd"];
-        NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:assignments.count-1]];
+        //NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:assignments.count-1]];
+        NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:0]];
         NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:exams.count-1]];
-        _nextAssignmentDueDate.text = strDate;
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:0]];
+        
+        NSInteger assignmentDay = [components day];
+        NSInteger assignmentMonth = [components month];
+        NSInteger assignmentYear = [components year];
+        
+        NSInteger daysUntilDue = 0;
+        
+        if (assignmentYear > currentYear) {
+            NSLog(@"Years are different");
+        }
+        else if (assignmentMonth > currentMonth) {
+            _nextAssignmentDueDate.text = [NSString stringWithFormat:@"%ld MONTHS", assignmentMonth - currentMonth];
+        }
+        else if (assignmentDay > currentDay) {
+            if (assignmentDay - currentDay == 1)
+                _nextAssignmentDueDate.text = [NSString stringWithFormat:@"%ld DAY", assignmentDay - currentDay];
+            else
+                _nextAssignmentDueDate.text = [NSString stringWithFormat:@"%ld DAYS", assignmentDay - currentDay];
+        }
+        
+        //_nextAssignmentDueDate.text = strDate;
     }
     else
         _nextAssignmentDueDate.text = @"-";

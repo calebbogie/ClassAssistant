@@ -48,7 +48,7 @@
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *examGrade;
 
 - (IBAction)backToClassView:(UIStoryboardSegue *)segue;
-- (IBAction)backToAddClassViewFromCalendarView:(UIStoryboardSegue *)segue;
+- (IBAction)backToClassViewFromCalendarView:(UIStoryboardSegue *)segue;
 - (IBAction)emailProfessor:(id)sender;
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error;
 - (void)getDueDates;
