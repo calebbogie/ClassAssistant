@@ -169,10 +169,12 @@
         cell.textLabel.text = e.title;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+    [dateFormatter setDateFormat:@"MM/dd/YYYY"];
     NSString *strDate = [dateFormatter stringFromDate:e.endDate];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *strDate2 = [dateFormatter stringFromDate:e.endDate];
     
-    cell.detailTextLabel.text = strDate;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Due on %@ at %@", strDate, strDate2];
     
     //NSLog(@"cell.name.text: %@", cell.name.text);
     

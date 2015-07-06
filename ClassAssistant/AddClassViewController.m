@@ -361,7 +361,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     }
     //End populate fields so they can be edited
     
-    [self createExamSetupElements];
+    if (self.editMode)
+        [self createExamSetupElements];
 }
 
 - (void)didReceiveMemoryWarning
