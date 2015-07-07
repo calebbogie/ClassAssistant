@@ -44,6 +44,8 @@
 		0577EF321B46FD3B00EDF517 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF2F1B46FD3B00EDF517 /* FBSDKCoreKit.framework */; };
 		0577EF331B46FD3B00EDF517 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF301B46FD3B00EDF517 /* FBSDKLoginKit.framework */; };
 		0577EF341B46FD3B00EDF517 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577EF311B46FD3B00EDF517 /* FBSDKShareKit.framework */; };
+		057FD7281B4B89120038E73C /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 057FD7271B4B89120038E73C /* CustomCellBackground.m */; };
+		057FD72B1B4B8BE10038E73C /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 057FD72A1B4B8BE10038E73C /* Common.m */; };
 		0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC461B313DF900522EEA /* LoginViewController.swift */; };
 		0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592CC481B313E0B00522EEA /* SignUpViewController.swift */; };
 		0592CC4B1B3142F700522EEA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC4A1B3142F700522EEA /* Parse.framework */; };
@@ -133,6 +135,10 @@
 		0577EF2F1B46FD3B00EDF517 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		0577EF301B46FD3B00EDF517 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		0577EF311B46FD3B00EDF517 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		057FD7261B4B89120038E73C /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackground.h; sourceTree = "<group>"; };
+		057FD7271B4B89120038E73C /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackground.m; sourceTree = "<group>"; };
+		057FD7291B4B8BE10038E73C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		057FD72A1B4B8BE10038E73C /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		0592CC451B313DF900522EEA /* ClassAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		0592CC461B313DF900522EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		0592CC481B313E0B00522EEA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +404,10 @@
 				055BC87B1B3884F700596CE0 /* GradeGraphView.swift */,
 				056F29701B22910E001AE97C /* GradeIndicatorView.h */,
 				056F29711B22910E001AE97C /* GradeIndicatorView.m */,
+				057FD7261B4B89120038E73C /* CustomCellBackground.h */,
+				057FD7271B4B89120038E73C /* CustomCellBackground.m */,
+				057FD7291B4B8BE10038E73C /* Common.h */,
+				057FD72A1B4B8BE10038E73C /* Common.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -531,12 +541,14 @@
 				055BC87C1B3884F700596CE0 /* GradeGraphView.swift in Sources */,
 				06A43EBA194F98FD00A78D29 /* TableViewController.m in Sources */,
 				066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */,
+				057FD72B1B4B8BE10038E73C /* Common.m in Sources */,
 				06A43E95194F952E00A78D29 /* AppDelegate.m in Sources */,
 				06A43EB7194F989600A78D29 /* AddClassViewController.m in Sources */,
 				06A43EBD194F9C5700A78D29 /* Course.m in Sources */,
 				0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */,
 				0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */,
 				05529D641B2737DF0055ADAB /* CalendarEventsTableViewController.m in Sources */,
+				057FD7281B4B89120038E73C /* CustomCellBackground.m in Sources */,
 				05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */,
 				05773E991B44847200021704 /* iCarousel.m in Sources */,
 				0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */,

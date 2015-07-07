@@ -12,6 +12,7 @@
 #import "CustomTableCell.h"
 #import "ViewClassViewController.h"
 #import <Parse/Parse.h>
+#import "CustomCellBackground.h"
 
 @interface TableViewController ()
 
@@ -277,6 +278,7 @@
     
     //Allow items to be deleted in table I think
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    [self.tableView setAllowsSelectionDuringEditing:YES];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -327,9 +329,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *CellIdentifier = @"TableViewPrototype";
+    static NSString *cellIdentifier = @"TableViewPrototype";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell;// = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
+        cell.backgroundView = [[CustomCellBackground alloc] init];
+    }
+    
+    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
+        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+    }
     
     Course *course = [_studentCourses objectAtIndex:indexPath.row];
     
@@ -358,7 +373,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    [self performSegueWithIdentifier:@"ClassViewSegue" sender:nil];
 }
 
 // Override to support conditional editing of the table view.

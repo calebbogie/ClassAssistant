@@ -8,6 +8,7 @@
 
 #import "CalendarEventsTableViewController.h"
 #import "AddCalendarEventViewController.h"
+#import "CustomCellBackground.h"
 
 @interface CalendarEventsTableViewController ()
 
@@ -202,7 +203,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier;
+    static NSString *cellIdentifier = @"Cell";
     
     UITableViewCell *cell;
     
@@ -214,6 +215,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
+        cell.backgroundView = [[CustomCellBackground alloc] init];
+    }
+    
+    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
+        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+    }
+    
     EKEvent *e;
     
     if (indexPath.section == 0) {
