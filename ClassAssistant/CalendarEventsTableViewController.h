@@ -12,6 +12,10 @@
 @interface CalendarEventsTableViewController : UITableViewController
 
 @property NSMutableArray *matchingEvents;
+@property NSMutableArray *quizzes;
+@property NSMutableArray *homeworks;
+@property NSMutableArray *exams;
+@property NSMutableArray *other;
 @property Course *courseForEvents;
 
 - (IBAction)backToCalendarTableView:(UIStoryboardSegue *)segue;

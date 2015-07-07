@@ -96,6 +96,41 @@
         NSString *note = [e.notes substringWithRange:NSMakeRange(0, 14)];
         if ([note isEqualToString:@"ClassAssistant"] && [courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, courseName.length)]]) {
             [_matchingEvents addObject:e];
+            
+            NSLog(@"Notes: %@", e.notes);
+            
+            //Only examining first 4 letters to avoid segmentation faults
+            //Exam
+            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.courseForEvents.courseName.length) {
+                //If event title begins with course name...
+                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                    [_exams addObject:e];
+                }
+            }
+            
+            //Quiz
+            else if ([@"Quiz" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
+                //If event title begins with course name...
+                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                    [_quizzes addObject:e];
+                }
+            }
+            
+            //Homework
+            else if ([@"Home" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
+                //If event title begins with course name...
+                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                    [_homeworks addObject:e];
+                }
+            }
+            
+            //Other
+            else if ([@"Othe" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
+                //If event title begins with course name...
+                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                    [_other addObject:e];
+                }
+            }
         }
     }
 
@@ -114,6 +149,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.exams = [[NSMutableArray alloc] init];
+    self.quizzes = [[NSMutableArray alloc] init];
+    self.homeworks = [[NSMutableArray alloc] init];
+    self.other = [[NSMutableArray alloc] init];
     
     //Set up table to accept "CalenderEventsTableViewID" identifiers for cells
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CalendarEventsTableViewID"];
@@ -135,11 +175,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    
+    if (section == 0) {
+        NSLog(@"Exam count: %lu", self.exams.count);
+        return self.exams.count;
+    }
+    else if (section == 1) {
+        NSLog(@"quiz count: %lu", self.quizzes.count);
+        return self.quizzes.count;
+    }
+    else if (section == 2) {
+        NSLog(@"homework count: %lu", self.homeworks.count);
+        return self.homeworks.count;
+    }
+    else if (section == 3) {
+        NSLog(@"other count: %lu", self.other.count);
+        return self.other.count;
+    }
     return self.matchingEvents.count;
 }
 
@@ -157,8 +214,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    EKEvent *e;
     
-    EKEvent *e = [self.matchingEvents objectAtIndex:indexPath.row];
+    if (indexPath.section == 0) {
+        e = [self.exams objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 1) {
+        e = [self.quizzes objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 2) {
+        e = [self.homeworks objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 3) {
+        e = [self.other objectAtIndex:indexPath.row];
+    }
     
     if ([e.title containsString:@"-"]) {
         NSRange range = [e.title rangeOfString:@"-"];
@@ -190,6 +256,21 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Exams";
+    } else if (section == 1) {
+        return @"Quizzes";
+    } else if (section == 2) {
+        return @"Homeworks";
+    } else if (section == 3) {
+        return @"Other";
+    } else {
+        return @"";
+    }
 }
 
 
