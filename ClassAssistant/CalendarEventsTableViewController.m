@@ -9,6 +9,7 @@
 #import "CalendarEventsTableViewController.h"
 #import "AddCalendarEventViewController.h"
 #import "CustomCellBackground.h"
+#import "CustomHeader.h"
 
 @interface CalendarEventsTableViewController ()
 
@@ -151,6 +152,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //self.tableView.backgroundColor = [UIColor blackColor];
+    
     self.exams = [[NSMutableArray alloc] init];
     self.quizzes = [[NSMutableArray alloc] init];
     self.homeworks = [[NSMutableArray alloc] init];
@@ -177,6 +180,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 4;
+}
+
+-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CustomHeader *header = [[CustomHeader alloc] init];
+    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    
+    /*if (section == 1) {
+        header.lightColor = [UIColor colorWithRed:147.0/255.0 green:105.0/255.0 blue:216.0/255.0 alpha:1.0];
+        header.lightColor = [UIColor colorWithRed:72.0/255.0 green:22.0/255.0 blue:137.0/255.0 alpha:1.0];
+    }*/
+    
+    return header;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

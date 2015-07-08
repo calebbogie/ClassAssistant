@@ -183,7 +183,7 @@
         self.oneHundredPercentLabel.hidden = false;
     [self.gradeGraphView setNeedsDisplay];
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
+    //self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     self.professorName.text = [NSString stringWithFormat:@"Professor Name: %@", self.classToView.professorName];
@@ -486,7 +486,7 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd"];
         //NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:assignments.count-1]];
-        NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:0]];
+        //NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:0]];
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:0]];
         
@@ -494,7 +494,7 @@
         NSInteger assignmentMonth = [components month];
         NSInteger assignmentYear = [components year];
         
-        NSInteger daysUntilDue = 0;
+        //NSInteger daysUntilDue = 0;
         
         if (assignmentYear > currentYear) {
             NSLog(@"Years are different");

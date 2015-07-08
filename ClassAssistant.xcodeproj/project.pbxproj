@@ -61,6 +61,7 @@
 		0592CC5F1B31436300522EEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC5E1B31436300522EEA /* SystemConfiguration.framework */; };
 		0592CC611B31436E00522EEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC601B31436E00522EEA /* libz.dylib */; };
 		0592CC631B31437600522EEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC621B31437600522EEA /* libsqlite3.dylib */; };
+		05ACC5251B4C935E0051BA38 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ACC5241B4C935E0051BA38 /* CustomHeader.m */; };
 		063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */; };
 		066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066C2A5519A53A9E002982C4 /* EditGradeViewController.m */; };
 		068260EE1952828200C072C2 /* ViewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068260ED1952828200C072C2 /* ViewClassViewController.m */; };
@@ -155,6 +156,8 @@
 		0592CC5E1B31436300522EEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0592CC601B31436E00522EEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0592CC621B31437600522EEA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		05ACC5231B4C935E0051BA38 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeader.h; sourceTree = "<group>"; };
+		05ACC5241B4C935E0051BA38 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeader.m; sourceTree = "<group>"; };
 		063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTabBarController.h; sourceTree = "<group>"; };
 		063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTabBarController.m; sourceTree = "<group>"; };
 		066C2A5419A53A9E002982C4 /* EditGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGradeViewController.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				057FD7271B4B89120038E73C /* CustomCellBackground.m */,
 				057FD7291B4B8BE10038E73C /* Common.h */,
 				057FD72A1B4B8BE10038E73C /* Common.m */,
+				05ACC5231B4C935E0051BA38 /* CustomHeader.h */,
+				05ACC5241B4C935E0051BA38 /* CustomHeader.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				05529D671B27B1680055ADAB /* ViewCalendarEventViewController.m in Sources */,
 				05773E991B44847200021704 /* iCarousel.m in Sources */,
 				0592CC471B313DF900522EEA /* LoginViewController.swift in Sources */,
+				05ACC5251B4C935E0051BA38 /* CustomHeader.m in Sources */,
 				06A43E91194F952E00A78D29 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -274,7 +274,7 @@
     // ******************* Delete before final build **********************
     [self loadDummyData];
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
+    //self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     
     //Allow items to be deleted in table I think
     self.tableView.allowsMultipleSelectionDuringEditing = NO;

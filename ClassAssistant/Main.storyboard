@@ -736,7 +736,7 @@
             </objects>
             <point key="canvasLocation" x="1818" y="1436"/>
         </scene>
-        <!--Calendar Events-->
+        <!--Due Dates-->
         <scene sceneID="eBa-vk-hxy">
             <objects>
                 <tableViewController id="FGV-qu-c4K" customClass="CalendarEventsTableViewController" sceneMemberID="viewController">
@@ -774,7 +774,7 @@
                             <outlet property="delegate" destination="FGV-qu-c4K" id="JUN-hd-KVV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calendar Events" id="Vsw-5k-vwP">
+                    <navigationItem key="navigationItem" title="Due Dates" id="Vsw-5k-vwP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="UgG-Ne-DFc"/>
                         <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="L6h-g1-qdS">
                             <connections>
