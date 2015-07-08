@@ -81,10 +81,36 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ((self.courseNameField.text.length == 0) && (self.creditHoursSlider.value == 0.000000)) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Course name and/or credit hours not set!"
+                                                        message:@"Please assign these values before continuing."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    
+    if ((self.homeworkWeightSlider.value == 0.000000) && (self.quizWeightSlider.value == 0.000000) && (self.numberOfExamsSlider.value == 0.000000)) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Assignment weights not assigned!"
+                                                        message:@"Please assign grade weights to each type of assignment below."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    
+    return true;
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     //Only allow the course to be created if the user has specified a name and credit hours value
-    if ((self.courseNameField.text.length > 0) && (self.creditHoursLabel.text.length > 0)) {
+    if ((self.courseNameField.text.length > 0) && (self.creditHoursSlider.value > 0)) {
+        
+        NSLog(@"OK");
         
         self.courseToAdd = [[Course alloc] init];
         self.courseToAdd.courseName = self.courseNameField.text;

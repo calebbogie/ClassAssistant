@@ -67,8 +67,6 @@
     
     Course *c = source.courseToAdd;
     
-    NSLog(@"BackToTableView Current Grade: %@", c.currentGrade);
-    
     if (c != nil) {
         
 //        for (int i = 0; i < self.studentCourses.count; i++) {
@@ -356,8 +354,6 @@
     NSLog(@"image#: %d", (int)course.imageNumber);
     
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%ld.png", (long)course.imageNumber]];
-    
-    NSLog(@"Grade in update: %@", course.currentGrade);
     
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Grade: %@", course.currentGrade];
     //cell.detailTextLabel.text = @"Test";
