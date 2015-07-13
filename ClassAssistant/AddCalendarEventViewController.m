@@ -91,7 +91,7 @@
     }
     
     //Perform unwind segue. Segue identifier is set in storyboard on left hand side under view controller properties
-    [self performSegueWithIdentifier:@"backToCalendarTableSegue" sender:nil];
+    [self performSegueWithIdentifier:@"backToCalendarTableSegue" sender:self];
 
 }
 
@@ -122,15 +122,14 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if ([segue.identifier isEqualToString:@"backToCalendarTableSegue"]) {
+    //if ([segue.identifier isEqualToString:@"backToCalendarTableSegue"]) {
         CalendarEventsTableViewController *dc = [segue destinationViewController];
-        
         //Reread calendar data to find old events as well as new one
-        [dc fetchCalendarEvents];
+        //[dc fetchCalendarEvents];
         
         //Update table
-        [[dc tableView] reloadData];
-    }
+        //[[dc tableView] reloadData];
+    //}
 }
 
 

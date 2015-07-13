@@ -785,7 +785,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="UgG-Ne-DFc"/>
                         <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="L6h-g1-qdS">
                             <connections>
-                                <segue destination="mSc-b2-O4O" kind="modal" identifier="AddCalendarEventSegue" id="WzR-Ne-N2W"/>
+                                <segue destination="flS-MU-gUY" kind="push" identifier="AddCalendarEventSegue" id="raa-AG-DbZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -813,31 +813,12 @@
             </objects>
             <point key="canvasLocation" x="1750" y="2300"/>
         </scene>
-        <!--Event-->
-        <scene sceneID="X84-Ri-vkc">
-            <objects>
-                <navigationController id="mSc-b2-O4O" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Event" id="JAY-L1-rDh">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="cxf-pr-0wk"/>
-                    </navigationItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t61-T3-bGz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="flS-MU-gUY" kind="relationship" relationship="rootViewController" id="sI1-25-USo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EOt-AD-chR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1343" y="2989"/>
-        </scene>
         <!--Add Calendar Event View Controller-->
         <scene sceneID="YJe-O1-4SK">
             <objects>
                 <viewController id="flS-MU-gUY" customClass="AddCalendarEventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9RU-6f-0xO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="el3-s1-sQD">
@@ -891,11 +872,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Tuv-KZ-Pe9">
-                        <barButtonItem key="leftBarButtonItem" tag="1" title="Cancel" id="ync-lM-2Tc">
-                            <connections>
-                                <action selector="addEvent:" destination="flS-MU-gUY" id="w41-7c-G4W"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="2" title="Done" id="s8q-Pv-73l">
                             <connections>
                                 <action selector="addEvent:" destination="flS-MU-gUY" id="F89-LB-PQg"/>
@@ -906,13 +882,13 @@
                         <outlet property="assignmentName" destination="Yed-kr-JY8" id="aAf-OF-MiL"/>
                         <outlet property="date" destination="8PV-Sl-m5Y" id="cjn-NI-UBU"/>
                         <outlet property="type" destination="60p-5B-z9n" id="jpd-hz-aEt"/>
-                        <segue destination="R75-Sp-lPU" kind="unwind" identifier="backToCalendarTableSegue" unwindAction="backToCalendarTableView:" id="Uqz-z9-zrq"/>
+                        <segue destination="R75-Sp-lPU" kind="unwind" identifier="backToCalendarTableSegue" unwindAction="backToCalendarTableView:" id="UTT-Qy-Zbp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B6-qU-9lN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R75-Sp-lPU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1750" y="2989"/>
+            <point key="canvasLocation" x="1343" y="3106"/>
         </scene>
         <!--Homeworks-->
         <scene sceneID="ijH-Xe-qIK">

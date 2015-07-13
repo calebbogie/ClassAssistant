@@ -18,6 +18,8 @@
 @implementation CalendarEventsTableViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"Course name in prepareForSegue %@", self.courseForEvents.courseName);
+    
     //Transition from Table View to Class View
     if([segue.identifier isEqualToString:@"CalendarEventSegue"]) {
         
@@ -28,8 +30,8 @@
     }
     
     else if ([segue.identifier isEqualToString:@"AddCalendarEventSegue"]) {
-        UINavigationController *navController = [segue destinationViewController];
-        AddCalendarEventViewController *destViewController = (AddCalendarEventViewController *)([navController viewControllers][0]);
+        //UINavigationController *navController = [segue destinationViewController];
+        AddCalendarEventViewController *destViewController = (AddCalendarEventViewController *)[segue destinationViewController];
         
         destViewController.courseName = self.courseForEvents.courseName;
     }
@@ -89,8 +91,27 @@
     else
         [_matchingEvents removeAllObjects];
     
+    if (_quizzes == nil)
+        _quizzes = [[NSMutableArray alloc] init];
+    else
+        [_quizzes removeAllObjects];
+    
+    if (_homeworks == nil)
+        _homeworks = [[NSMutableArray alloc] init];
+    else
+        [_homeworks removeAllObjects];
+    
+    if (_exams == nil)
+        _exams = [[NSMutableArray alloc] init];
+    else
+        [_exams removeAllObjects];
+    
+    if (_other == nil)
+        _other = [[NSMutableArray alloc] init];
+    else
+        [_other removeAllObjects];
+    
     NSString *courseName = self.courseForEvents.courseName;
-    NSLog(@"Course Name: %@", courseName);
     
     //Populate matchingEvents array
     for (int i = 0; i < events.count; i++) {
@@ -98,8 +119,6 @@
         NSString *note = [e.notes substringWithRange:NSMakeRange(0, 14)];
         if ([note isEqualToString:@"ClassAssistant"] && [courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, courseName.length)]]) {
             [_matchingEvents addObject:e];
-            
-            NSLog(@"Notes: %@", e.notes);
             
             //Only examining first 4 letters to avoid segmentation faults
             //Exam
@@ -140,7 +159,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     //ViewClassViewController *vc = self.navigationController.topViewController;
-    [self performSegueWithIdentifier:@"backToClassViewFromCalendarView" sender:self];
+    
+    
+    //[self performSegueWithIdentifier:@"backToClassViewFromCalendarView" sender:self];
 }
 
 - (void)viewDidLoad {
@@ -164,6 +185,8 @@
     
     [self fetchCalendarEvents];
     
+    NSLog(@"Course name in load: %@", self.courseForEvents.courseName); 
+    
     }
 
 - (void)didReceiveMemoryWarning {
@@ -173,6 +196,8 @@
 
 - (IBAction)backToCalendarTableView:(UIStoryboardSegue *)segue {
     //AddCalendarEventViewController *source = [segue sourceViewController];
+    [self fetchCalendarEvents];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -204,19 +229,15 @@
     // Return the number of rows in the section.
     
     if (section == 0) {
-        NSLog(@"Exam count: %lu", self.exams.count);
         return self.exams.count;
     }
     else if (section == 1) {
-        NSLog(@"quiz count: %lu", self.quizzes.count);
         return self.quizzes.count;
     }
     else if (section == 2) {
-        NSLog(@"homework count: %lu", self.homeworks.count);
         return self.homeworks.count;
     }
     else if (section == 3) {
-        NSLog(@"other count: %lu", self.other.count);
         return self.other.count;
     }
     return self.matchingEvents.count;
