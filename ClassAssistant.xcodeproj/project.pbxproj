@@ -194,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0577EF331B46FD3B00EDF517 /* FBSDKLoginKit.framework in Frameworks */,
 				0592CC631B31437600522EEA /* libsqlite3.dylib in Frameworks */,
 				0592CC611B31436E00522EEA /* libz.dylib in Frameworks */,
 				0592CC5F1B31436300522EEA /* SystemConfiguration.framework in Frameworks */,
@@ -208,7 +209,6 @@
 				0592CC511B31432F00522EEA /* AudioToolbox.framework in Frameworks */,
 				0577EF341B46FD3B00EDF517 /* FBSDKShareKit.framework in Frameworks */,
 				05529D611B272F060055ADAB /* MessageUI.framework in Frameworks */,
-				0577EF331B46FD3B00EDF517 /* FBSDKLoginKit.framework in Frameworks */,
 				0592CC4F1B31430500522EEA /* ParseUI.framework in Frameworks */,
 				06A43E89194F952E00A78D29 /* UIKit.framework in Frameworks */,
 				0592CC4D1B3142FE00522EEA /* Bolts.framework in Frameworks */,

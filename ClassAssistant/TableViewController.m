@@ -13,7 +13,8 @@
 #import "ViewClassViewController.h"
 #import <Parse/Parse.h>
 #import "CustomCellBackground.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface TableViewController ()
 
@@ -25,6 +26,7 @@
 @implementation TableViewController
 
 - (IBAction)logout:(id)sender {
+    [FBSDKAccessToken setCurrentAccessToken:nil];
     [PFUser logOutInBackground];
     [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
 }
