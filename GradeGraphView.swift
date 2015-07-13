@@ -14,11 +14,24 @@ import Foundation
     var startColor: UIColor = UIColor.grayColor()
     var endColor: UIColor = UIColor.blackColor()
     
-    
     var graphPoints:[Int] = []
     
     override func drawRect(rect: CGRect) {
-        if (graphPoints.count > 0) {
+        
+        var tempGraphPoints:[Int] = []
+        var pointsToUse:[Int] = []
+        
+        if (graphPoints.count == 1) {
+            tempGraphPoints.append(graphPoints[0])
+            tempGraphPoints.append(graphPoints[0])
+            pointsToUse = tempGraphPoints
+        }
+        else {
+            pointsToUse = graphPoints
+        }
+        
+    
+        if (pointsToUse.count > 0) {
             
             let width = rect.width + 15
             let height = rect.height
@@ -60,11 +73,11 @@ import Foundation
                 //Calculate gap between points
                 
                 var divisor = CGFloat(1)
-                if (self.graphPoints.count == 1) {
+                if (pointsToUse.count == 1) {
                     divisor = CGFloat(1)
                 }
                 else {
-                    divisor = CGFloat((self.graphPoints.count - 1))
+                    divisor = CGFloat((pointsToUse.count - 1))
                 }
                 let spacer = (width - margin*2 - 4) / divisor
                 var x:CGFloat = CGFloat(column) * spacer
@@ -94,13 +107,13 @@ import Foundation
             var graphPath = UIBezierPath()
             //go to start of line
             graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-                y:columnYPoint(graphPoints[0])))
+                y:columnYPoint(pointsToUse[0])))
         
             //add points for each item in the graphPoints array
             //at the correct (x, y) for the point
-            for i in 1..<graphPoints.count {
+            for i in 1..<pointsToUse.count {
                 let nextPoint = CGPoint(x:columnXPoint(i),
-                    y:columnYPoint(graphPoints[i]))
+                    y:columnYPoint(pointsToUse[i]))
                 graphPath.addLineToPoint(nextPoint)
             }
         
@@ -115,7 +128,7 @@ import Foundation
             var clippingPath = graphPath.copy() as UIBezierPath
             
             clippingPath.addLineToPoint(CGPoint(
-                x: columnXPoint(graphPoints.count - 1),
+                x: columnXPoint(pointsToUse.count - 1),
                 y:height))
             clippingPath.addLineToPoint(CGPoint(
                 x:columnXPoint(0),
@@ -140,8 +153,8 @@ import Foundation
             //end temporary code
         
             //Draw the circles on top of graph stroke
-            for i in 0..<graphPoints.count {
-                var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
+            for i in 0..<pointsToUse.count {
+                var point = CGPoint(x:columnXPoint(i), y:columnYPoint(pointsToUse[i]))
                 point.x -= 5.0/2
                 point.y -= 5.0/2
             
