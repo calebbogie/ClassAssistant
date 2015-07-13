@@ -55,7 +55,9 @@
     
     [[UIColor blueColor] setStroke];
     outlinePath.lineWidth = 3.0;
-    [outlinePath stroke];
+    
+    if (_grade > 0)
+        [outlinePath stroke];
 }
 
 

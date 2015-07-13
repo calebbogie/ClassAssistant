@@ -13,6 +13,7 @@
 #import "ViewClassViewController.h"
 #import <Parse/Parse.h>
 #import "CustomCellBackground.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface TableViewController ()
 
