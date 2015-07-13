@@ -176,11 +176,11 @@
     //self.view.backgroundColor = [UIColor grayColor];
     
     //Manage grade graph view
-        self.zeroPercentLabel.hidden = false;
-        self.twentyFivePercentLabel.hidden = false;
-        self.fiftyPercentLabel.hidden = false;
-        self.seventyFivePercentLabel.hidden = false;
-        self.oneHundredPercentLabel.hidden = false;
+    self.zeroPercentLabel.hidden = false;
+    self.twentyFivePercentLabel.hidden = false;
+    self.fiftyPercentLabel.hidden = false;
+    self.seventyFivePercentLabel.hidden = false;
+    self.oneHundredPercentLabel.hidden = false;
     [self.gradeGraphView setNeedsDisplay];
     
     //self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
@@ -488,7 +488,7 @@
         //NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:assignments.count-1]];
         //NSString *strDate = [dateFormatter stringFromDate:[assignments objectAtIndex:0]];
         NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[exams objectAtIndex:0]];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[assignments objectAtIndex:0]];
         
         NSInteger assignmentDay = [components day];
         NSInteger assignmentMonth = [components month];
