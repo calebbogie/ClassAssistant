@@ -689,10 +689,10 @@
             </objects>
             <point key="canvasLocation" x="1343" y="1436"/>
         </scene>
-        <!--Add Exam-->
+        <!--Exams-->
         <scene sceneID="urU-dc-BNi">
             <objects>
-                <viewController title="Add Exam" id="EGG-Of-LEa" customClass="EditGradeViewController" sceneMemberID="viewController">
+                <viewController title="Exams" id="EGG-Of-LEa" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DT8-Gq-f1O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -914,10 +914,10 @@
             </objects>
             <point key="canvasLocation" x="1750" y="2989"/>
         </scene>
-        <!--Add Homework-->
+        <!--Homeworks-->
         <scene sceneID="ijH-Xe-qIK">
             <objects>
-                <viewController title="Add Homework" id="F8A-LE-Rvc" customClass="EditGradeViewController" sceneMemberID="viewController">
+                <viewController title="Homeworks" id="F8A-LE-Rvc" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leo-e7-2Gf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -937,10 +937,10 @@
             </objects>
             <point key="canvasLocation" x="2380" y="2706"/>
         </scene>
-        <!--Add Quiz-->
+        <!--Quizzes-->
         <scene sceneID="X44-9m-SfO">
             <objects>
-                <viewController title="Add Quiz" id="AU6-V6-6Mf" customClass="EditGradeViewController" sceneMemberID="viewController">
+                <viewController title="Quizzes" id="AU6-V6-6Mf" customClass="EditGradeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GyV-PS-UiT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

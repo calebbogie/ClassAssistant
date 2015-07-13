@@ -22,6 +22,28 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 @synthesize addQuiz = _addQuiz;
 @synthesize addExam = _addExam;
 
+- (void) awakeFromNib {
+    if([self.title isEqualToString:@"Exams"]) {
+        //[self setupExamView];
+        [self setupView:@"exam"];
+        self.title = @"Exams";
+    }
+    
+    else if ([self.title isEqualToString:@"Homeworks"]) {
+        //[self setupHomeworkView];
+        [self setupView:@"homework"];
+        self.title = @"Homeworks";
+    }
+    
+    else if ([self.title isEqualToString:@"Quizzes"]) {
+        //[self setupQuizView];
+        [self setupView:@"quiz"];
+        self.title = @"Quizzes";
+    }
+    //[self.tabBarItem setImage: [UIImage imageNamed:@"image.png"]];
+    //[self.tabBarItem setSelectedImage:[UIImage imageNamed:@"image-selected.png"]];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,24 +57,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    if([self.title isEqualToString:@"Add Exam"]) {
-        //[self setupExamView];
-        [self setupView:@"exam"];
-        self.title = @"Add Exam";
-    }
-    
-    else if ([self.title isEqualToString:@"Add Homework"]) {
-        //[self setupHomeworkView];
-        [self setupView:@"homework"];
-        self.title = @"Add Homework";
-    }
-    
-    else if ([self.title isEqualToString:@"Add Quiz"]) {
-        //[self setupQuizView];
-        [self setupView:@"quiz"];
-        self.title = @"Add Quiz";
-    }
     
     //_examAvg = [[UILabel alloc] init];
     
