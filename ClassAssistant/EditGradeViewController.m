@@ -24,20 +24,14 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (void) awakeFromNib {
     if([self.title isEqualToString:@"Exams"]) {
-        //[self setupExamView];
-        [self setupView:@"exam"];
         self.title = @"Exams";
     }
     
     else if ([self.title isEqualToString:@"Homeworks"]) {
-        //[self setupHomeworkView];
-        [self setupView:@"homework"];
         self.title = @"Homeworks";
     }
     
     else if ([self.title isEqualToString:@"Quizzes"]) {
-        //[self setupQuizView];
-        [self setupView:@"quiz"];
         self.title = @"Quizzes";
     }
     //[self.tabBarItem setImage: [UIImage imageNamed:@"image.png"]];
@@ -58,7 +52,17 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //_examAvg = [[UILabel alloc] init];
+    if([self.title isEqualToString:@"Exams"]) {
+        [self setupView:@"exam"];
+    }
+    
+    else if ([self.title isEqualToString:@"Homeworks"]) {
+        [self setupView:@"homework"];
+    }
+    
+    else if ([self.title isEqualToString:@"Quizzes"]) {
+        [self setupView:@"quiz"];
+    }
     
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
     [parentController.doneButton setEnabled:YES];
@@ -78,7 +82,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if ([self.title isEqualToString:@"Add Exam"]) {
+    if ([self.title isEqualToString:@"Exams"]) {
         [self modifyGrade:textField forType:@"exam"];
         //[self modifyExams:textField];
         
@@ -86,7 +90,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         [self addTextFieldForGrade:textField forType:@"exam"];
     }
-    else if ([self.title isEqualToString:@"Add Quiz"]) {
+    else if ([self.title isEqualToString:@"Quizzes"]) {
         [self modifyGrade:textField forType:@"quiz"];
         //[self modifyQuizzes:textField];
         
@@ -94,7 +98,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         [self addTextFieldForGrade:textField forType:@"quiz"];
     }
-    else if ([self.title isEqualToString:@"Add Homework"]) {
+    else if ([self.title isEqualToString:@"Homeworks"]) {
         [self modifyGrade:textField forType:@"homework"];
         //[self modifyHomeworks:textField];
         
@@ -199,8 +203,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         gradeArray = parentController.courseToEdit.homeworkGrades;
     }
     
+    NSLog(@"Array size: %d", arraySize);
+    
     for (int i = 0; i < gradeCount; i++) {
-        
         [self makeGradeTextFieldAndLabel:i forType:type forGradeArray:gradeArray];
     }
     
