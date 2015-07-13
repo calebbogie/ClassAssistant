@@ -82,6 +82,12 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSLog(@"ID: %@", identifier);
+    
+    if ([identifier isEqualToString:@"cancelled"]) {
+        return true;
+    }
+    
     if ((self.courseNameField.text.length == 0) && (self.creditHoursSlider.value == 0.000000)) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Course name and/or credit hours not set!"
                                                         message:@"Please assign these values before continuing."

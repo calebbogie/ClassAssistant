@@ -256,7 +256,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Pu9-Yz-6Pg"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hca-la-UF4">
                             <connections>
-                                <segue destination="EWQ-h8-xgi" kind="unwind" unwindAction="cancelledBackFromAddOrEdit:" id="W0j-n4-by2"/>
+                                <segue destination="EWQ-h8-xgi" kind="unwind" identifier="cancelled" unwindAction="cancelledBackFromAddOrEdit:" id="W0j-n4-by2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="E25-cG-sqf">

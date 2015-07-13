@@ -58,6 +58,7 @@
 }
 
 - (IBAction)cancelledBackFromAddOrEdit:(UIStoryboardSegue *) segue {
+    NSLog(@"Cancelled");
     //Shouldn't do anything
 }
 
