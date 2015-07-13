@@ -81,12 +81,23 @@
     //Convert weights to decimals
     
     double examWeight = 0;
+    double effectiveQuizWeight = 0;
+    double effectiveHomeworkWeight = 0;
+    double effectiveExamWeight = 0;
+    double effectiveOtherWeight = 0;
+    
+    if (self.homeworkGrades.count > 0) {
+        effectiveHomeworkWeight = [self.homeworkWeight doubleValue];
+    }
+    if (self.quizGrades.count > 0) {
+        effectiveQuizWeight = [self.quizWeight doubleValue];
+    }
     
     for (int i = 0; i < _examGrades.count; i++)
         examWeight += [[_examWeights objectAtIndex:i] doubleValue];
     
     //Add exam calculation later
-    return ( ([self calculateAverageForType:@"homework"] * [_homeworkWeight doubleValue]) + ([self calculateAverageForType:@"quiz"] * [_quizWeight doubleValue]) + ([self calculateAverageForType:@"exam"] * examWeight ) );
+    return ( ([self calculateAverageForType:@"homework"] * [_homeworkWeight doubleValue]) + ([self calculateAverageForType:@"quiz"] * [_quizWeight doubleValue]) + ([self calculateAverageForType:@"exam"] * examWeight ) ) / (examWeight + effectiveHomeworkWeight + effectiveQuizWeight);
     return 0;
 }
 
