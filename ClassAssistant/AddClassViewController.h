@@ -32,6 +32,8 @@
 //@property (weak, nonatomic) IBOutlet UITextField *quizWeight;
 @property (weak, nonatomic) IBOutlet UISlider *quizWeightSlider;
 @property (weak, nonatomic) IBOutlet UILabel *quizWeightLabel;
+@property (weak, nonatomic) IBOutlet UISlider *otherWeightSlider;
+@property (weak, nonatomic) IBOutlet UILabel *otherWeightLabel;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *nextButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroller;

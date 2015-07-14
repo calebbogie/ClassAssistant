@@ -252,14 +252,14 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     int numExams = [self.numberOfExamsLabel.text intValue];
     
     //Adjust size of scrollview
-    [self.scroller setContentSize:CGSizeMake(320, 1200+numExams*(SIZE_OF_EXAM_BLOCK))];
+    [self.scroller setContentSize:CGSizeMake(320, 1380+numExams*(SIZE_OF_EXAM_BLOCK))];
     
     //Initialize arrays
     self.examTitleLabels = [[NSMutableArray alloc] init];
     self.examWeightTextFields = [[NSMutableArray alloc] init];
     
     //Create text for Exam Setup title                                      //Was 710
-    UILabel *examSetupTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 800, 150, 50)];
+    UILabel *examSetupTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 860, 150, 50)];
     
     //Set title text
     examSetupTitle.text = @"Exam Setup";
@@ -276,8 +276,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         //Create text for label
         NSString *examNumber = [NSString stringWithFormat:@"Exam %d Weight", i+1];
         
-        //Create label
-        UILabel *examLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 840+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
+        //Create label          was 840
+        UILabel *examLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 910+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
         
         //Set font size
         examLabel.font = [UIFont systemFontOfSize:17];
@@ -292,7 +292,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         [self.examTitleLabels addObject:examLabel];
         
         //Create exam weight text field
-        UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 840+45+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
+        UITextField *examWeight = [[UITextField alloc] initWithFrame:CGRectMake(20, 910+45+SIZE_OF_EXAM_BLOCK*i, 280, 30)];
         
         [examWeight resignFirstResponder];
         examWeight.delegate = self;
@@ -343,6 +343,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     self.quizWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.quizWeightSlider.value];
 }
 
+- (IBAction)otherWeightSliderChanged:(id)sender {
+    self.otherWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.otherWeightSlider.value];
+}
+
 - (IBAction)numberOfExamsSliderChanged:(id)sender {
     self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%d", (int)self.numberOfExamsSlider.value];
 }
@@ -365,7 +369,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     
     [super viewDidLoad];
     [_scroller setScrollEnabled:YES];
-    [_scroller setContentSize:CGSizeMake(320, 1200)];
+    [_scroller setContentSize:CGSizeMake(320, 1370)];
     
     //[self.view addSubview:self.courseImage];
     //[self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
