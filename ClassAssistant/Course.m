@@ -114,8 +114,12 @@
         examWeight += [[_examWeights objectAtIndex:i] doubleValue];
     
     //Add exam calculation later
-    return ( ([self calculateAverageForType:@"homework"] * [_homeworkWeight doubleValue]) + ([self calculateAverageForType:@"quiz"] * [_quizWeight doubleValue]) + ([self calculateAverageForType:@"exam"] * examWeight ) ) / (examWeight + effectiveHomeworkWeight + effectiveQuizWeight);
-    return 0;
+    double result = ( ([self calculateAverageForType:@"homework"] * [_homeworkWeight doubleValue]) + ([self calculateAverageForType:@"quiz"] * [_quizWeight doubleValue]) + ([self calculateAverageForType:@"exam"] * examWeight) + ([self calculateAverageForType:@"other"] * [_quizWeight doubleValue]) ) / (examWeight + effectiveHomeworkWeight + effectiveQuizWeight + effectiveOtherWeight);
+    
+    if (isnan(result))
+        return 0.00;
+    else
+        return result;
 }
 
 @end
