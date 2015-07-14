@@ -27,7 +27,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    //_images = [[NSMutableArray alloc] initWithObjects:@"calendar.png", @"calendar.png", @"calendar.png", nil];
     _images = [[NSMutableArray alloc] init];
     [_images removeAllObjects];
     
@@ -45,9 +44,26 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     //create a numbered view
-    view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_images objectAtIndex:index]]];
-    self.imageNum = index-3;
+    
+    if (view == nil) {
+        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_images objectAtIndex:index]]];
+        //view = [[UIImageView alloc] init]; //initWithFrame:CGRectMake(20, 20, 320, 320)];
+    }
+    //else {
+        //((UIImageView *)view).image = [UIImage imageNamed:[_images objectAtIndex:index]];
+    //}
+    
+//    self.imageNum = index-3;
+//    
+//    if (self.imageNum <= 0)
+//        self.imageNum += 25;
+    
     return view;
+}
+
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
+    NSLog(@"%ld", (long)carousel.currentItemIndex);
+    self.imageNum = carousel.currentItemIndex + 1;
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
@@ -82,8 +98,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    NSLog(@"ID: %@", identifier);
-    
     if ([identifier isEqualToString:@"cancelled"]) {
         return true;
     }
@@ -116,8 +130,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     //Only allow the course to be created if the user has specified a name and credit hours value
     if ((self.courseNameField.text.length > 0) && (self.creditHoursSlider.value > 0)) {
         
-        NSLog(@"OK");
-        
         self.courseToAdd = [[Course alloc] init];
         self.courseToAdd.courseName = self.courseNameField.text;
         self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursLabel text] integerValue]];
@@ -132,6 +144,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         self.courseToAdd.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
         
         self.courseToAdd.imageNumber = self.imageNum;
+        NSLog(@"Image num: %ld", (long)self.imageNum);
         
         //Add all exam weights to Course object
         for (int i = 0; i < self.examWeightTextFields.count; i++) {
@@ -143,7 +156,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         ////////////////////////// ADD COURSE DATA TO PARSE DATABASE /////////////////////////////////////
         
         //Only add to database when user is creating course.  Not when they are editing it.
-        if (!self.editMode) {
+        /*if (!self.editMode) {
             PFObject *course = [PFObject objectWithClassName:@"Course"];
             [course setObject:@"Test User" forKey:@"User"];
             [course setObject:self.courseToAdd.courseName forKey:@"CourseName"];
@@ -162,7 +175,7 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
             [course addObjectsFromArray:self.courseToAdd.previousGrades forKey:@"PreviousGrades"];
         
             [course saveInBackground];
-        }
+        }*/
         
         //////////////////////////////////////////////////////////////////////////////////////////////////
         
@@ -368,9 +381,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [super viewDidLoad];
     [_scroller setScrollEnabled:YES];
     [_scroller setContentSize:CGSizeMake(320, 1370)];
-    
-    //[self.view addSubview:self.courseImage];
-    //[self.courseImage setImage:[UIImage imageNamed:@"calendar.png"]];
     
     //Populate fields so they can be edited
     if (self.editMode) {
