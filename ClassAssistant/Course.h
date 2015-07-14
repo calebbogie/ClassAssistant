@@ -25,12 +25,14 @@
 @property NSMutableArray* examWeights;
 @property NSNumber *quizWeight;
 @property NSNumber *homeworkWeight;
+@property NSNumber *otherWeight;
 
 //Changed from int to NSNumber
 @property NSNumber *numberOfExams;
 @property NSMutableArray *examGrades;
 @property NSMutableArray *quizGrades;
 @property NSMutableArray *homeworkGrades;
+@property NSMutableArray *otherGrades;
 
 @property NSInteger imageNumber;
 

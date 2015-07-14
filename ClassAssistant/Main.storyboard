@@ -710,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIE-az-NTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="1109"/>
+            <point key="canvasLocation" x="2380" y="853"/>
         </scene>
         <!--My Grades-->
         <scene sceneID="6sl-0w-SAV">
@@ -736,6 +736,7 @@
                         <segue destination="AU6-V6-6Mf" kind="relationship" relationship="viewControllers" id="jmD-OH-vRh"/>
                         <segue destination="F8A-LE-Rvc" kind="relationship" relationship="viewControllers" id="8iC-Sr-psl"/>
                         <segue destination="SXs-Za-zeZ" kind="unwind" unwindAction="backToClassView:" id="o3o-cM-QLh"/>
+                        <segue destination="wsc-0S-ibg" kind="relationship" relationship="viewControllers" id="GfG-dB-2Yr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhS-v1-jdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -911,7 +912,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaz-qI-a6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="2706"/>
+            <point key="canvasLocation" x="2380" y="2184"/>
+        </scene>
+        <!--Other-->
+        <scene sceneID="tHC-6n-Jsx">
+            <objects>
+                <viewController title="Other" id="wsc-0S-ibg" customClass="EditGradeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dfn-1w-uCF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yF7-oJ-4gs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="3DI-XO-4qk"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQW-gP-j4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2380" y="2897"/>
         </scene>
         <!--Quizzes-->
         <scene sceneID="X44-9m-SfO">
@@ -934,7 +957,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79p-y9-7Nq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="1881"/>
+            <point key="canvasLocation" x="2380" y="1502"/>
         </scene>
     </scenes>
     <resources>

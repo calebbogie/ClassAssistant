@@ -21,6 +21,7 @@
 @synthesize homeworkGrades = _homeworkGrades;
 @synthesize examWeights = _examWeights;
 @synthesize quizWeight = _quizWeight;
+@synthesize otherWeight = _otherWeight;
 @synthesize homeworkWeight = _homeworkWeight;
 @synthesize professorName = _professorName;
 @synthesize professorEmailAddress = _professorEmailAddress;
@@ -30,6 +31,7 @@
     _examGrades = [[NSMutableArray alloc] init];
     _quizGrades = [[NSMutableArray alloc] init];
     _homeworkGrades = [[NSMutableArray alloc] init];
+    _otherGrades = [[NSMutableArray alloc] init];
     _examWeights = [[NSMutableArray alloc] init];
     _previousGrades = [[NSMutableArray alloc] init];
     
@@ -73,6 +75,18 @@
             average = 0;
     }
     
+    else if ([type isEqualToString:@"other"]) {
+        for (int i = 0; i < _otherGrades.count; i++) {
+            average += [[_otherGrades objectAtIndex:i] doubleValue];
+        }
+        
+        if (_otherGrades.count > 0)
+            average /= _otherGrades.count;
+        else
+            average = 0;
+        
+    }
+    
     return average;
 }
 
@@ -83,7 +97,7 @@
     double examWeight = 0;
     double effectiveQuizWeight = 0;
     double effectiveHomeworkWeight = 0;
-    double effectiveExamWeight = 0;
+    //double effectiveExamWeight = 0;
     double effectiveOtherWeight = 0;
     
     if (self.homeworkGrades.count > 0) {
@@ -91,6 +105,9 @@
     }
     if (self.quizGrades.count > 0) {
         effectiveQuizWeight = [self.quizWeight doubleValue];
+    }
+    if (self.otherGrades.count > 0) {
+        effectiveOtherWeight = [self.otherWeight doubleValue];
     }
     
     for (int i = 0; i < _examGrades.count; i++)

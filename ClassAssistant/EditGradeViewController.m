@@ -34,6 +34,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     else if ([self.title isEqualToString:@"Quizzes"]) {
         self.title = @"Quizzes";
     }
+    
+    else if ([self.title isEqualToString:@"Other"]) {
+        self.title = @"Other";
+    }
     //[self.tabBarItem setImage: [UIImage imageNamed:@"image.png"]];
     //[self.tabBarItem setSelectedImage:[UIImage imageNamed:@"image-selected.png"]];
 }
@@ -62,6 +66,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     
     else if ([self.title isEqualToString:@"Quizzes"]) {
         [self setupView:@"quiz"];
+    }
+    
+    else if ([self.title isEqualToString:@"Other"]) {
+        [self setupView:@"other"];
     }
     
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
@@ -105,6 +113,14 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         [self computeAverage:@"homework"];
         
         [self addTextFieldForGrade:textField forType:@"homework"];
+    }
+    
+    else if ([self.title isEqualToString:@"Other"]) {
+        [self modifyGrade:textField forType:@"other"];
+        
+        [self computeAverage:@"other"];
+        
+        [self addTextFieldForGrade:textField forType:@"other"];
     }
     
     AddItemTabBarController *parentController = (AddItemTabBarController *)self.tabBarController;
@@ -167,6 +183,18 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
             _homeworkAvg.text = [NSString stringWithFormat:@"%.02f", average];
         }
     }
+    
+    else if ([type isEqualToString:@"other"]) {
+        //No grades yet
+        if (parentController.courseToEdit.otherGrades.count == 0)
+            _otherAvg.text = @"-";
+        else {
+            //Call Course member function for computing average
+            average = [parentController.courseToEdit calculateAverageForType:@"other"];
+            
+            _otherAvg.text = [NSString stringWithFormat:@"%.02f", average];
+        }
+    }
 }
 
 - (void)setupView:(NSString *)type
@@ -201,6 +229,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         gradeCount = (int)parentController.courseToEdit.homeworkGrades.count + 1;
         arraySize = gradeCount - 1;
         gradeArray = parentController.courseToEdit.homeworkGrades;
+    } else if ([type isEqualToString:@"other"]) {
+        gradeCount = (int)parentController.courseToEdit.otherGrades.count + 1;
+        arraySize = gradeCount - 1;
+        gradeArray = parentController.courseToEdit.otherGrades;
     }
     
     NSLog(@"Array size: %d", arraySize);
@@ -223,6 +255,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     else if ([type isEqualToString:@"homework"]) {
         _gradeAverageLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, (parentController.courseToEdit.homeworkGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 70, 280, 100)];
         _gradeAverageLabel.text = @"Homework Average";
+    }
+    else if ([type isEqualToString:@"other"]) {
+        _gradeAverageLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, (parentController.courseToEdit.otherGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 70, 280, 100)];
+        _gradeAverageLabel.text = @"Other Average";
     }
     
     
@@ -260,12 +296,16 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         //Add label to scroller
         [self.scroller addSubview:_homeworkAvg];
     }
-    
-    //_examAvg.frame = CGRectMake(145, (parentController.courseToEdit.numberOfExams + 1) * SIZE_OF_EXAM_BLOCK + 130, 280, 100);
-    
-    // ****************************** TO DO **********************************
-    // *************************** move avg calc to Course class *************************
-    //Assign exam average text
+    else if ([type isEqualToString:@"other"]) {
+        _otherAvg = [[UILabel alloc] initWithFrame:CGRectMake(145, (parentController.courseToEdit.otherGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 130, 280, 100)];
+        [self computeAverage:@"other"];
+        
+        //Change homework average font
+        _otherAvg.font = [UIFont systemFontOfSize:50];
+        
+        //Add label to scroller
+        [self.scroller addSubview:_otherAvg];
+    }
     
     //Add scrollview to view
     [self.view addSubview:_scroller];
@@ -286,6 +326,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         gradeNumber = [NSString stringWithFormat:@"Quiz %d", i+1];
     else if ([type isEqualToString:@"homework"])
         gradeNumber = [NSString stringWithFormat:@"Homework %d", i+1];
+    else if ([type isEqualToString:@"other"])
+        gradeNumber = [NSString stringWithFormat:@"Other %d", i+1];
     
     //Create label
     UILabel *gradeNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 70+SIZE_OF_EXAM_BLOCK*i, 150, 50)];
@@ -317,6 +359,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         _addQuiz = gradeTextField;
     else if ([type isEqualToString:@"homework"])
         _addHomework = gradeTextField;
+    else if ([type isEqualToString:@"other"])
+        _addOther = gradeTextField;
     
     //Setup grade text field
     gradeTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -332,6 +376,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         restID = [NSString stringWithFormat:@"Quiz %d", i+1];
     else if ([type isEqualToString:@"homework"])
         restID = [NSString stringWithFormat:@"Homework %d", i+1];
+    else if ([type isEqualToString:@"other"])
+        restID = [NSString stringWithFormat:@"Other %d", i+1];
     
     gradeTextField.restorationIdentifier = restID;
     
@@ -360,6 +406,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         gradeCount = (int)parentController.courseToEdit.homeworkGrades.count;
         gradeArray = parentController.courseToEdit.homeworkGrades;
     }
+    else if ([type isEqualToString:@"other"]) {
+        gradeCount = (int)parentController.courseToEdit.otherGrades.count;
+        gradeArray = parentController.courseToEdit.otherGrades;
+    }
     
     if (gradeCount == 0) {
         [gradeArray addObject:grade];
@@ -375,6 +425,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
                 restID = [NSString stringWithFormat:@"Quiz %d", i+1];
             else if ([type isEqualToString:@"homework"])
                 restID = [NSString stringWithFormat:@"Homework %d", i+1];
+            else if ([type isEqualToString:@"other"])
+                restID = [NSString stringWithFormat:@"Other %d", i+1];
             
             //Get number from textfield
             NSNumber *grade = [NSNumber numberWithFloat:[textField.text floatValue]];
@@ -421,6 +473,17 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         //Change position of grade average just as I did in setupView
         _gradeAverageLabel.frame = CGRectMake(105, (parentController.courseToEdit.homeworkGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 70, 280, 100);
         _homeworkAvg.frame = CGRectMake(145, (parentController.courseToEdit.homeworkGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 130, 280, 100);
+        
+        [self makeGradeTextFieldAndLabel:nextGradeNumber forType:type forGradeArray:gradeArray];
+    }
+    
+    else if ([type isEqualToString:@"other"]) {
+        gradeArray = parentController.courseToEdit.otherGrades;
+        nextGradeNumber = (int)gradeArray.count;
+        
+        //Change position of grade average just as I did in setupView
+        _gradeAverageLabel.frame = CGRectMake(105, (parentController.courseToEdit.homeworkGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 70, 280, 100);
+        _otherAvg.frame = CGRectMake(145, (parentController.courseToEdit.otherGrades.count + 1) * SIZE_OF_EXAM_BLOCK + 130, 280, 100);
         
         [self makeGradeTextFieldAndLabel:nextGradeNumber forType:type forGradeArray:gradeArray];
     }

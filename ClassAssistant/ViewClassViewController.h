@@ -35,6 +35,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *homeworkGradeNumber;
 @property (nonatomic, retain) IBOutlet UILabel *quizGradeNumber;
 @property (nonatomic, retain) IBOutlet UILabel *examGradeNumber;
+@property (nonatomic, retain) IBOutlet UILabel *otherGradeNumber;
 
 @property (nonatomic, retain) IBOutlet UILabel *nextTestOnMonth;
 @property (nonatomic, retain) IBOutlet UILabel *nextTestOnDay;
@@ -46,6 +47,7 @@
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *homeworkGrade;
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *quizGrade;
 @property (nonatomic, retain) IBOutlet GradeIndicatorView *examGrade;
+@property (nonatomic, retain) IBOutlet GradeIndicatorView *otherGrade;
 
 - (IBAction)backToClassView:(UIStoryboardSegue *)segue;
 - (IBAction)backToClassViewFromCalendarView:(UIStoryboardSegue *)segue;

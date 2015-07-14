@@ -114,6 +114,7 @@
     [self.studentCourses addObject:course1];
     course1.quizWeight = [NSNumber numberWithDouble:.2];
     course1.homeworkWeight = [NSNumber numberWithDouble:.2];
+    course1.otherWeight = [NSNumber numberWithDouble:.2];
     course1.numberOfExams = [NSNumber numberWithInt:3];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];
     [course1.examWeights addObject:[NSNumber numberWithDouble:.2]];

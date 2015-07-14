@@ -49,6 +49,7 @@
     double examAverage = 0;
     double quizAverage = 0;
     double homeworkAverage = 0;
+    double otherAverage = 0;
     
     if (c != nil) {
         
@@ -101,6 +102,22 @@
         //_homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)homeworkAverage];
         [_homeworkGrade setNeedsDisplay];
         
+        // **************************** IBOutlets need to be added to UI
+        if (c.otherGrades.count > 0) {
+            for (int i = 0; i < c.otherGrades.count; i++) {
+                homeworkAverage += [[c.otherGrades objectAtIndex:i] doubleValue];
+            }
+            
+            homeworkAverage /= c.otherGrades.count;
+        }
+        
+        _otherGrade.grade = (otherAverage == 0) ? 0 : (int)otherAverage;
+        //_homeworkGrade.grade = (int)homeworkAverage;
+        _otherGradeNumber.text = (otherAverage == 0) ? [NSString stringWithFormat:@"%d", 0] : [NSString stringWithFormat:@"%d", (int)otherAverage];
+        //_homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)homeworkAverage];
+        [_otherGrade setNeedsDisplay];
+        
+        // **************************** END IBOutlets need to be added to UI
         
         //If grade was entered...
         if (source.updateGraph == TRUE) {
@@ -115,11 +132,11 @@
         
             //Manage grade graph view
             self.gradeGraphView.hidden = false;
-                self.zeroPercentLabel.hidden = false;
-                self.twentyFivePercentLabel.hidden = false;
-                self.fiftyPercentLabel.hidden = false;
-                self.seventyFivePercentLabel.hidden = false;
-                self.oneHundredPercentLabel.hidden = false;
+            self.zeroPercentLabel.hidden = false;
+            self.twentyFivePercentLabel.hidden = false;
+            self.fiftyPercentLabel.hidden = false;
+            self.seventyFivePercentLabel.hidden = false;
+            self.oneHundredPercentLabel.hidden = false;
             [self.gradeGraphView setNeedsDisplay];
             //End manage graph
         }
@@ -236,6 +253,7 @@
     _examGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
     _quizGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
     _homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
+    _otherGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
     
     bool hasGrades = false;
     
@@ -255,6 +273,12 @@
     if (_classToView.homeworkGrades.count > 0) {
         _homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"homework"]];
         _homeworkGrade.grade = (int)[_classToView calculateAverageForType:@"homework"];
+        hasGrades = true;
+    }
+    
+    if (_classToView.otherGrades.count > 0) {
+        _otherGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"other"]];
+        _otherGrade.grade = (int)[_classToView calculateAverageForType:@"other"];
         hasGrades = true;
     }
     

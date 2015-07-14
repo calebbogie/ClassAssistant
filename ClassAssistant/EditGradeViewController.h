@@ -15,11 +15,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *addHomework;
 @property (weak, nonatomic) IBOutlet UITextField *addQuiz;
 @property (weak, nonatomic) IBOutlet UITextField *addExam;
+@property (weak, nonatomic) IBOutlet UITextField *addOther;
 
 //Could be consolidated into one
 @property (nonatomic, retain) IBOutlet UILabel *homeworkAvg;
 @property (nonatomic, retain) IBOutlet UILabel *quizAvg;
 @property (nonatomic, retain) IBOutlet UILabel *examAvg;
+@property (nonatomic, retain) IBOutlet UILabel *otherAvg;
 
 @property (nonatomic, retain) IBOutlet UILabel *gradeAverageLabel;
 
