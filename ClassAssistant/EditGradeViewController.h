@@ -25,6 +25,8 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *gradeAverageLabel;
 
+@property CGFloat animatedDistance;
+
 //- (void)setupHomeworkView;
 //- (void)setupQuizView;
 //- (void)setupExamView;

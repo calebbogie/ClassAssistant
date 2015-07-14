@@ -189,8 +189,6 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"Editing...");
-    
     CGRect textFieldRect = [self.view.window convertRect:textField.bounds fromView:textField];
     CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
     
