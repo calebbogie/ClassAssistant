@@ -179,6 +179,10 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         //////////////////////////////////////////////////////////////////////////////////////////////////
         
+        __doc.data = self.courseToAdd;
+        
+        [__doc saveData];
+        
         return;
     }
 }
@@ -381,6 +385,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [super viewDidLoad];
     [_scroller setScrollEnabled:YES];
     [_scroller setContentSize:CGSizeMake(320, 1370)];
+    
+    __doc = [[CourseDoc alloc] initWithCourse:self.courseToAdd];
     
     //Populate fields so they can be edited
     if (self.editMode) {

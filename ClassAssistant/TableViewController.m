@@ -15,6 +15,7 @@
 #import "CustomCellBackground.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "CourseDatabase.h"
 
 @interface TableViewController ()
 
@@ -36,6 +37,7 @@
     
     Course *c = source.classToView;
     
+    
     if (c != nil) {
         
         bool foundCourse = false;
@@ -51,9 +53,11 @@
             }
         }
         
+        CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
+        
         //Course didn't already exist, so add it
         if (!foundCourse) {
-            [self.studentCourses addObject:c];
+            [self.studentCourses addObject:cd];
         }
         
         [self.tableView reloadData];
@@ -85,8 +89,8 @@
         bool foundCourse = false;
         
         for (int i = 0; i < self.studentCourses.count; i++) {
-            Course *temp = [self.studentCourses objectAtIndex:i];
-            if ([temp.courseName isEqualToString:c.courseName]) {
+            CourseDoc *temp = [self.studentCourses objectAtIndex:i];
+            if ([temp.data.courseName isEqualToString:c.courseName]) {
                 //Course already exists, so replace it
                 [self.studentCourses replaceObjectAtIndex:i withObject:temp];
                 foundCourse = true;
@@ -94,9 +98,11 @@
             }
         }
         
+        CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
+        
         //Course didn't already exist, so add it
         if (!foundCourse) {
-            [self.studentCourses addObject:c];
+            [self.studentCourses addObject:cd];
         }
         
         [self.tableView reloadData];
@@ -274,8 +280,12 @@
     
     self.studentCourses = [[NSMutableArray alloc] init];
     
+    NSMutableArray *loadedCourses = [CourseDatabase loadCourseDocs];
+    
+    _studentCourses = loadedCourses;
+    
     // ******************* Delete before final build **********************
-    [self loadDummyData];
+    //[self loadDummyData];
     
     //self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     
@@ -349,18 +359,19 @@
         cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
     }
     
-    Course *course = [_studentCourses objectAtIndex:indexPath.row];
+    CourseDoc *courseDoc = [_studentCourses objectAtIndex:indexPath.row];
     
     if (!cell) {
         NSLog(@"Cell is nil");
     }
     
-    cell.textLabel.text = course.courseName;
-    NSLog(@"image#: %d", (int)course.imageNumber);
+    cell.textLabel.text = [[courseDoc getData] courseName];
     
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%ld.png", (long)course.imageNumber]];
+    NSLog(@"image#: %d", (int)[[courseDoc getData] imageNumber]);
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Grade: %@", course.currentGrade];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"CAicons-%ld.png", (long)[[courseDoc getData] imageNumber]]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Grade: %@", [[courseDoc getData] currentGrade]];
     //cell.detailTextLabel.text = @"Test";
     
     //NSLog(@"cell.name.text: %@", cell.name.text);
@@ -401,7 +412,8 @@
         self.selectedClassNumber = [self.tableView indexPathForSelectedRow].row;
         
         ViewClassViewController *destController = [segue destinationViewController];
-        destController.classToView = [self.studentCourses objectAtIndex:_selectedClassNumber];
+        CourseDoc *c = [self.studentCourses objectAtIndex:_selectedClassNumber];
+        destController.classToView = c.data;
     }
 }
 

@@ -38,6 +38,77 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    
+    NSString *courseName = [decoder decodeObjectForKey:@"CourseName"];
+    NSNumber *creditHours = [decoder decodeObjectForKey:@"CreditHours"];
+    NSString *currentGrade = [decoder decodeObjectForKey:@"CurrentGrade"];
+    NSMutableArray *previousGrades = [decoder decodeObjectForKey:@"PreviousGrades"];
+    
+    NSString *professorName = [decoder decodeObjectForKey:@"ProfessorName"];
+    NSString *professorEmailAddress = [decoder decodeObjectForKey:@"ProfessorEmailAddress"];
+    NSString *professorOfficeLocation = [decoder decodeObjectForKey:@"ProfessorOfficeLocation"];
+    
+    NSMutableArray *examWeights = [decoder decodeObjectForKey:@"ExamWeights"];
+    NSNumber *quizWeight = [decoder decodeObjectForKey:@"QuizWeight"];
+    NSNumber *homeworkWeight = [decoder decodeObjectForKey:@"HomeworkWeight"];
+    NSNumber *otherWeight = [decoder decodeObjectForKey:@"OtherWeight"];
+    
+    NSNumber *numberOfExams = [decoder decodeObjectForKey:@"NumberOfExams"];
+    NSMutableArray *examGrades = [decoder decodeObjectForKey:@"ExamGrades"];
+    NSMutableArray *quizGrades = [decoder decodeObjectForKey:@"QuizGrades"];
+    NSMutableArray *homeworkGrades = [decoder decodeObjectForKey:@"HomeworkGrades"];
+    NSMutableArray *otherGrades = [decoder decodeObjectForKey:@"OtherGrades"];
+    
+    //NSInteger imageNumber = [decoder decodeObjectForKey:@"ImageNumber"];
+    NSNumber *imageNumber = [decoder decodeObjectForKey:@"ImageNumber"];
+    
+    if ((self = [super init])) {
+        _courseName = courseName;
+        _creditHours = creditHours;
+        _currentGrade = currentGrade;
+        _previousGrades = previousGrades;
+    
+        _professorName = professorName;
+        _professorEmailAddress = professorEmailAddress;
+        _professorOfficeLocation = professorOfficeLocation;
+    
+        _examWeights = examWeights;
+        _quizWeight = quizWeight;
+        _homeworkWeight = homeworkWeight;
+        _otherWeight = otherWeight;
+        
+        _numberOfExams = numberOfExams;
+        _examGrades = examGrades;
+        _quizGrades = quizGrades;
+        _homeworkGrades = homeworkGrades;
+        _otherGrades = otherGrades;
+        
+        _imageNumber = [imageNumber integerValue];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    
+    [encoder encodeObject:_courseName forKey:@"CourseName"];
+    [encoder encodeObject:_creditHours forKey:@"CreditHours"];
+    [encoder encodeObject:_currentGrade forKey:@"CurrentGrade"];
+    [encoder encodeObject:_previousGrades forKey:@"PreviousGrades"];
+    [encoder encodeObject:_professorName forKey:@"ProfessorName"];
+    [encoder encodeObject:_professorOfficeLocation forKey:@"ProfessorOfficeLocation"];
+    [encoder encodeObject:_professorEmailAddress forKey:@"ProfessorEmailAddress"];
+    [encoder encodeObject:_examWeights forKey:@"ExamWeights"];
+    [encoder encodeObject:_quizWeight forKey:@"QuizWeight"];
+    [encoder encodeObject:_homeworkWeight forKey:@"HomeworkWeight"];
+    [encoder encodeObject:_otherWeight forKey:@"OtherWeight"];
+    [encoder encodeObject:_numberOfExams forKey:@"NumberOfExams"];
+    [encoder encodeObject:_examGrades forKey:@"ExamGrades"];
+    [encoder encodeObject:_quizGrades forKey:@"QuizGrades"];
+    [encoder encodeObject:_homeworkGrades forKey:@"HomeworkGrades"];
+    [encoder encodeObject:@(_imageNumber) forKey:@"ImageNumber"];
+}
+
 - (double)calculateAverageForType:(NSString *)type {
     double average = 0;
     

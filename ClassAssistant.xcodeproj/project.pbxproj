@@ -61,6 +61,8 @@
 		0592CC5F1B31436300522EEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC5E1B31436300522EEA /* SystemConfiguration.framework */; };
 		0592CC611B31436E00522EEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC601B31436E00522EEA /* libz.dylib */; };
 		0592CC631B31437600522EEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0592CC621B31437600522EEA /* libsqlite3.dylib */; };
+		059CE9021B5590C80038382E /* CourseDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 059CE9011B5590C80038382E /* CourseDoc.m */; };
+		059CE9051B5592140038382E /* CourseDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 059CE9041B5592140038382E /* CourseDatabase.m */; };
 		05ACC5251B4C935E0051BA38 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ACC5241B4C935E0051BA38 /* CustomHeader.m */; };
 		063FD0C91974DAB8004DFC0C /* AddItemTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FD0C81974DAB8004DFC0C /* AddItemTabBarController.m */; };
 		066C2A5619A53A9E002982C4 /* EditGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066C2A5519A53A9E002982C4 /* EditGradeViewController.m */; };
@@ -156,6 +158,10 @@
 		0592CC5E1B31436300522EEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0592CC601B31436E00522EEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0592CC621B31437600522EEA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		059CE9001B5590C80038382E /* CourseDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDoc.h; sourceTree = "<group>"; };
+		059CE9011B5590C80038382E /* CourseDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDoc.m; sourceTree = "<group>"; };
+		059CE9031B5592140038382E /* CourseDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDatabase.h; sourceTree = "<group>"; };
+		059CE9041B5592140038382E /* CourseDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDatabase.m; sourceTree = "<group>"; };
 		05ACC5231B4C935E0051BA38 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeader.h; sourceTree = "<group>"; };
 		05ACC5241B4C935E0051BA38 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeader.m; sourceTree = "<group>"; };
 		063FD0C71974DAB8004DFC0C /* AddItemTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemTabBarController.h; sourceTree = "<group>"; };
@@ -269,6 +275,10 @@
 			children = (
 				06A43EBC194F9C5700A78D29 /* Course.m */,
 				06A43EBB194F9C5700A78D29 /* Course.h */,
+				059CE9001B5590C80038382E /* CourseDoc.h */,
+				059CE9011B5590C80038382E /* CourseDoc.m */,
+				059CE9031B5592140038382E /* CourseDatabase.h */,
+				059CE9041B5592140038382E /* CourseDatabase.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -549,6 +559,8 @@
 				057FD72B1B4B8BE10038E73C /* Common.m in Sources */,
 				06A43E95194F952E00A78D29 /* AppDelegate.m in Sources */,
 				06A43EB7194F989600A78D29 /* AddClassViewController.m in Sources */,
+				059CE9021B5590C80038382E /* CourseDoc.m in Sources */,
+				059CE9051B5592140038382E /* CourseDatabase.m in Sources */,
 				06A43EBD194F9C5700A78D29 /* Course.m in Sources */,
 				0592CC491B313E0B00522EEA /* SignUpViewController.swift in Sources */,
 				0543BCC81B23FFFF006A49C5 /* AddCalendarEventViewController.m in Sources */,

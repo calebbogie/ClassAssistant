@@ -12,6 +12,7 @@
 #import "Course.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "CourseDatabase.h"
 
 @implementation AppDelegate
 
@@ -24,8 +25,6 @@
     [Parse setApplicationId:@"fohqIL48RBMbehRBBwk5Mi7ViVltcESvd4kiZW4w" clientKey:@"YpVRhvL3AX2XTYGEnBh4Y5dSmaYgNnxvjleVVRoM"];
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    //self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
     
     [FBSDKLoginButton class];
     
