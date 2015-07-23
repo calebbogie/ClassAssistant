@@ -7,6 +7,7 @@
 //
 
 #import "Course.h"
+#import "CourseDoc.h"
 #import <UIKit/UIKit.h>
 
 @interface CalendarEventsTableViewController : UITableViewController
@@ -16,7 +17,7 @@
 @property NSMutableArray *homeworks;
 @property NSMutableArray *exams;
 @property NSMutableArray *other;
-@property Course *courseForEvents;
+@property CourseDoc *courseForEvents;
 
 - (IBAction)backToCalendarTableView:(UIStoryboardSegue *)segue;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;

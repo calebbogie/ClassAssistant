@@ -35,16 +35,15 @@
 - (IBAction)backToTableViewFromClassView:(UIStoryboardSegue *) segue {
     ViewClassViewController *source = [segue sourceViewController];
     
-    Course *c = source.classToView;
-    
+    CourseDoc *c = source.classToView;
     
     if (c != nil) {
         
         bool foundCourse = false;
         
         for (int i = 0; i < self.studentCourses.count; i++) {
-            Course *temp = [self.studentCourses objectAtIndex:i];
-            if ([temp.courseName isEqualToString:c.courseName]) {
+            CourseDoc *temp = [self.studentCourses objectAtIndex:i];
+            if ([temp.data.courseName isEqualToString:c.data.courseName]) {
                 //Course already exists, so replace it
                 [self.studentCourses replaceObjectAtIndex:i withObject:c];
                 foundCourse = true;
@@ -53,11 +52,12 @@
             }
         }
         
-        CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
+        //CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
         
         //Course didn't already exist, so add it
         if (!foundCourse) {
-            [self.studentCourses addObject:cd];
+            [self.studentCourses addObject:c];
+            NSLog(@"Adding it");
         }
         
         [self.tableView reloadData];
@@ -73,7 +73,7 @@
     
     AddClassViewController *source = [segue sourceViewController];
     
-    Course *c = source.courseToAdd;
+    CourseDoc *c = source.courseToAdd;
     
     if (c != nil) {
         
@@ -90,19 +90,19 @@
         
         for (int i = 0; i < self.studentCourses.count; i++) {
             CourseDoc *temp = [self.studentCourses objectAtIndex:i];
-            if ([temp.data.courseName isEqualToString:c.courseName]) {
+            if ([temp.data.courseName isEqualToString:c.data.courseName]) {
                 //Course already exists, so replace it
-                [self.studentCourses replaceObjectAtIndex:i withObject:temp];
+                [self.studentCourses replaceObjectAtIndex:i withObject:c];
                 foundCourse = true;
                 break;
             }
         }
         
-        CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
+        //CourseDoc *cd = [[CourseDoc alloc] initWithCourse:c];
         
         //Course didn't already exist, so add it
         if (!foundCourse) {
-            [self.studentCourses addObject:cd];
+            [self.studentCourses addObject:c];
         }
         
         [self.tableView reloadData];
@@ -217,10 +217,10 @@
     NSLog(@"Count: %lu", self.studentCourses.count);
     
     for (int i = 0; i < self.studentCourses.count; i++) {
-        Course *c = [self.studentCourses objectAtIndex:i];
+        CourseDoc *c = [self.studentCourses objectAtIndex:i];
         PFQuery *query = [PFQuery queryWithClassName:@"Course"];
         [query whereKey:@"User" equalTo:@"Test User"];
-        [query whereKey:@"CourseName" equalTo:c.courseName];
+        [query whereKey:@"CourseName" equalTo:c.data.courseName];
         //Look for object in database.  If it isn't found, add it.
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             
@@ -244,20 +244,20 @@
 //                [object setValue:c.previousGrades forKey:@"PreviousGrades"];
 //                [object setValue:@"Test User" forKey:@"User"];
             
-                object[@"CourseName"] = c.courseName;
-                object[@"CreditHours"] = c.creditHours;
-                object[@"ExamGrades"] = c.examGrades;
-                object[@"ExamWeights"] = c.examWeights;
-                object[@"HomeworkGrades"] = c.homeworkGrades;
-                object[@"HomeworkWeight"] = c.homeworkWeight;
-                object[@"NumberOfExams"] = c.numberOfExams;
-                object[@"ProfessorEmailAddress"] = c.professorEmailAddress;
-                object[@"ProfessorName"] = c.professorName;
-                object[@"ProfessorOfficeLocation"] = c.professorOfficeLocation;
-                object[@"QuizGrades"] = c.quizGrades;
-                object[@"QuizWeight"] = c.quizWeight;
-                object[@"ImageNumber"] = [NSNumber numberWithLong:c.imageNumber];
-                object[@"PreviousGrades"] = c.previousGrades;
+                object[@"CourseName"] = c.data.courseName;
+                object[@"CreditHours"] = c.data.creditHours;
+                object[@"ExamGrades"] = c.data.examGrades;
+                object[@"ExamWeights"] = c.data.examWeights;
+                object[@"HomeworkGrades"] = c.data.homeworkGrades;
+                object[@"HomeworkWeight"] = c.data.homeworkWeight;
+                object[@"NumberOfExams"] = c.data.numberOfExams;
+                object[@"ProfessorEmailAddress"] = c.data.professorEmailAddress;
+                object[@"ProfessorName"] = c.data.professorName;
+                object[@"ProfessorOfficeLocation"] = c.data.professorOfficeLocation;
+                object[@"QuizGrades"] = c.data.quizGrades;
+                object[@"QuizWeight"] = c.data.quizWeight;
+                object[@"ImageNumber"] = [NSNumber numberWithLong:c.data.imageNumber];
+                object[@"PreviousGrades"] = c.data.previousGrades;
                 object[@"User"] = @"Test User";
             
                 [object saveInBackground];
@@ -413,7 +413,7 @@
         
         ViewClassViewController *destController = [segue destinationViewController];
         CourseDoc *c = [self.studentCourses objectAtIndex:_selectedClassNumber];
-        destController.classToView = c.data;
+        destController.classToView = c;
     }
 }
 

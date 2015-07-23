@@ -41,9 +41,9 @@
 @property CGFloat animatedDistance;
 @property BOOL editMode;
 
-@property Course* courseToAdd;
+@property CourseDoc* courseToAdd;
 @property NSInteger imageNum;
-@property CourseDoc *_doc;
+//@property CourseDoc *_doc;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;

@@ -43,7 +43,7 @@
 
 - (IBAction)backToClassView:(UIStoryboardSegue *) segue {
     AddItemTabBarController *source = [segue sourceViewController];
-    
+    //CHANGE
     Course* c = source.courseToEdit;
     
     double examAverage = 0;
@@ -57,8 +57,8 @@
         //[self.tableView reloadData];
         
         _courseGrade.text = [NSString stringWithFormat:@"%.02f", [c calculateCurrentGrade]];
-        _classToView.currentGrade = _courseGrade.text;
-        NSLog(@"BackToClassView Current Grade: %@", _classToView.currentGrade);
+        _classToView.data.currentGrade = _courseGrade.text;
+        NSLog(@"BackToClassView Current Grade: %@", _classToView.data.currentGrade);
         [_courseGrade setFont:[UIFont systemFontOfSize:24]];
         
         if (c.examGrades.count > 0) {
@@ -122,11 +122,11 @@
         //If grade was entered...
         if (source.updateGraph == TRUE) {
             //Manage graph
-            if ( ![self.classToView.currentGrade isEqual: @"-"] ) {
-                NSString *temp = self.classToView.currentGrade;
+            if ( ![self.classToView.data.currentGrade isEqual: @"-"] ) {
+                NSString *temp = self.classToView.data.currentGrade;
                 NSNumber *tempNum = [NSNumber numberWithInt:[temp intValue]];
-                [self.classToView.previousGrades addObject:@([tempNum intValue])];
-                self.gradeGraphView.graphPoints = self.classToView.previousGrades;
+                [self.classToView.data.previousGrades addObject:@([tempNum intValue])];
+                self.gradeGraphView.graphPoints = self.classToView.data.previousGrades;
                 NSLog(@"Count: %lu", self.gradeGraphView.graphPoints.count);
             }
         
@@ -146,7 +146,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddGradeSegue"]) {
         AddItemTabBarController *destController = [segue destinationViewController];
-        destController.courseToEdit = self.classToView;
+        destController.courseToEdit = self.classToView.data;
     }
     
     else if ([segue.identifier isEqualToString:@"CalendarViewSegue"]) {
@@ -185,9 +185,9 @@
     //_scroller.contentSize = [self.view sizeThatFits:CGSizeZero];
     [_scroller setContentSize:CGSizeMake(320, 800)];
     
-    if (self.classToView.previousGrades.count > 0 ) {
+    if (self.classToView.data.previousGrades.count > 0 ) {
         //[self.classToView.previousGrades addObject:self.classToView.currentGrade];
-        self.gradeGraphView.graphPoints = self.classToView.previousGrades;
+        self.gradeGraphView.graphPoints = self.classToView.data.previousGrades;
     }
     
     //self.view.backgroundColor = [UIColor grayColor];
@@ -203,8 +203,8 @@
     //self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    self.professorName.text = [NSString stringWithFormat:@"Professor Name: %@", self.classToView.professorName];
-    self.professorOfficeLocation.text = [NSString stringWithFormat:@"Office Location: %@", self.classToView.professorOfficeLocation];
+    self.professorName.text = [NSString stringWithFormat:@"Professor Name: %@", self.classToView.data.professorName];
+    self.professorOfficeLocation.text = [NSString stringWithFormat:@"Office Location: %@", self.classToView.data.professorOfficeLocation];
     
     UIView *horLineOne = [[UIView alloc] initWithFrame:CGRectMake(0, 180-58, self.view.bounds.size.width, 1)];
     horLineOne.backgroundColor = [UIColor whiteColor];
@@ -248,7 +248,7 @@
     addItem.textColor = [UIColor whiteColor];
     [_scroller addSubview:addItem];
     
-    self.title = _classToView.courseName;
+    self.title = _classToView.data.courseName;
     
     _examGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
     _quizGradeNumber.text = [NSString stringWithFormat:@"%d", 0];
@@ -257,33 +257,33 @@
     
     bool hasGrades = false;
     
-    if (_classToView.examGrades.count > 0) {
+    if (_classToView.data.examGrades.count > 0) {
         //Update examGradeNumber with exam average
-        _examGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"exam"]];
-        _examGrade.grade = (int)[_classToView calculateAverageForType:@"exam"];
+        _examGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[[_classToView getData] calculateAverageForType:@"exam"]];
+        _examGrade.grade = (int)[[_classToView getData] calculateAverageForType:@"exam"];
         hasGrades = true;
     }
     
-    if (_classToView.quizGrades.count > 0) {
-        _quizGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"quiz"]];
-        _quizGrade.grade = (int)[_classToView calculateAverageForType:@"quiz"];
+    if (_classToView.data.quizGrades.count > 0) {
+        _quizGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[[_classToView getData] calculateAverageForType:@"quiz"]];
+        _quizGrade.grade = (int)[[_classToView getData] calculateAverageForType:@"quiz"];
         hasGrades = true;
     }
     
-    if (_classToView.homeworkGrades.count > 0) {
-        _homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"homework"]];
-        _homeworkGrade.grade = (int)[_classToView calculateAverageForType:@"homework"];
+    if (_classToView.data.homeworkGrades.count > 0) {
+        _homeworkGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[[_classToView getData] calculateAverageForType:@"homework"]];
+        _homeworkGrade.grade = (int)[[_classToView getData] calculateAverageForType:@"homework"];
         hasGrades = true;
     }
     
-    if (_classToView.otherGrades.count > 0) {
-        _otherGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[_classToView calculateAverageForType:@"other"]];
-        _otherGrade.grade = (int)[_classToView calculateAverageForType:@"other"];
+    if (_classToView.data.otherGrades.count > 0) {
+        _otherGradeNumber.text = [NSString stringWithFormat:@"%d", (int)[[_classToView getData] calculateAverageForType:@"other"]];
+        _otherGrade.grade = (int)[[_classToView getData] calculateAverageForType:@"other"];
         hasGrades = true;
     }
     
     if (hasGrades) {
-        _courseGrade.text = [NSString stringWithFormat:@"%.02f", [_classToView calculateCurrentGrade]];
+        _courseGrade.text = [NSString stringWithFormat:@"%.02f", [[_classToView getData] calculateCurrentGrade]];
         [_courseGrade setFont:[UIFont systemFontOfSize:15]];
     }
     
@@ -305,9 +305,9 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         
-        if (_classToView.professorEmailAddress != nil) {
+        if (_classToView.data.professorEmailAddress != nil) {
             NSMutableArray *recipients = [[NSMutableArray alloc] init];
-            [recipients addObject:_classToView.professorEmailAddress];
+            [recipients addObject:_classToView.data.professorEmailAddress];
             [mailer setToRecipients:recipients];
         }
         else
@@ -419,9 +419,9 @@
             
             //Only examining first 4 letters to avoid segmentation faults
             //Exam
-            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.classToView.courseName.length) {
+            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.classToView.data.courseName.length) {
                 //If event title begins with course name...
-                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                if ([self.classToView.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.data.courseName.length)]]) {
                     [exams addObject:e.endDate];
                 }
             }
@@ -429,7 +429,7 @@
             //Quiz
             else if ([@"Quiz" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                if ([self.classToView.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.data.courseName.length)]]) {
                     [assignments addObject:e.endDate];
                 }
             }
@@ -437,7 +437,7 @@
             //Homework
             else if ([@"Home" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                if ([self.classToView.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.data.courseName.length)]]) {
                     [assignments addObject:e.endDate];
                 }
             }
@@ -445,7 +445,7 @@
             //Other
             else if ([@"Othe" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.classToView.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.courseName.length)]]) {
+                if ([self.classToView.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.classToView.data.courseName.length)]]) {
                     [assignments addObject:e.endDate];
                 }
             }

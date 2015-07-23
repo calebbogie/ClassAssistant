@@ -12,10 +12,11 @@
 #import "ClassAssistant-Swift.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
+#import "CourseDoc.h"
 
 @interface ViewClassViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
-@property Course *classToView;
+@property CourseDoc *classToView;
 
 @property (nonatomic, retain) IBOutlet UILabel *courseGrade;
 @property (nonatomic, retain) IBOutlet GradeGraphView *gradeGraphView;

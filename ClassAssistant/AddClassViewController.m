@@ -126,31 +126,36 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    NSLog(@"Segue");
     //Only allow the course to be created if the user has specified a name and credit hours value
+    
+    NSLog(@"text length: %lu", self.courseNameField.text.length);
+    NSLog(@"slider value: %f", self.creditHoursSlider.value);
+    
     if ((self.courseNameField.text.length > 0) && (self.creditHoursSlider.value > 0)) {
         
-        self.courseToAdd = [[Course alloc] init];
-        self.courseToAdd.courseName = self.courseNameField.text;
-        self.courseToAdd.creditHours = [NSNumber numberWithInteger:[[self.creditHoursLabel text] integerValue]];
-        self.courseToAdd.currentGrade = @"-";
+        self.courseToAdd = [[CourseDoc alloc] init];
+        self.courseToAdd.data = [[Course alloc] init];
+        self.courseToAdd.data.courseName = self.courseNameField.text;
+        self.courseToAdd.data.creditHours = [NSNumber numberWithInteger:[[self.creditHoursLabel text] integerValue]];
+        self.courseToAdd.data.currentGrade = @"-";
         
-        self.courseToAdd.professorName = [self.professorName text];
-        self.courseToAdd.professorOfficeLocation = [self.professorOfficeLocation text];
-        self.courseToAdd.professorEmailAddress = [self.professorEmailAddress text];
+        self.courseToAdd.data.professorName = [self.professorName text];
+        self.courseToAdd.data.professorOfficeLocation = [self.professorOfficeLocation text];
+        self.courseToAdd.data.professorEmailAddress = [self.professorEmailAddress text];
         
-        self.courseToAdd.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExamsLabel text] integerValue]];
-        self.courseToAdd.homeworkWeight = [NSNumber numberWithFloat:[[self.homeworkWeightLabel text] doubleValue] / 100 ];
-        self.courseToAdd.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
+        self.courseToAdd.data.numberOfExams = [NSNumber numberWithInteger:[[self.numberOfExamsLabel text] integerValue]];
+        self.courseToAdd.data.homeworkWeight = [NSNumber numberWithFloat:[[self.homeworkWeightLabel text] doubleValue] / 100 ];
+        self.courseToAdd.data.quizWeight = [NSNumber numberWithFloat:[[self.quizWeightLabel text] doubleValue] / 100 ];
         
-        self.courseToAdd.imageNumber = self.imageNum;
+        self.courseToAdd.data.imageNumber = self.imageNum;
         NSLog(@"Image num: %ld", (long)self.imageNum);
         
         //Add all exam weights to Course object
         for (int i = 0; i < self.examWeightTextFields.count; i++) {
             UITextField *field = [self.examWeightTextFields objectAtIndex:i];
             //Get number from exam weight text field and add it to the examWeights array
-            [self.courseToAdd.examWeights addObject:[NSNumber numberWithDouble:[[field text] doubleValue] / 100]];
+            [self.courseToAdd.data.examWeights addObject:[NSNumber numberWithDouble:[[field text] doubleValue] / 100]];
         }
         
         ////////////////////////// ADD COURSE DATA TO PARSE DATABASE /////////////////////////////////////
@@ -179,9 +184,9 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
         
         //////////////////////////////////////////////////////////////////////////////////////////////////
         
-        __doc.data = self.courseToAdd;
+        //__doc.data = self.courseToAdd;
         
-        [__doc saveData];
+        [_courseToAdd saveData];
         
         return;
     }
@@ -368,8 +373,8 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
 
 - (IBAction)numberOfExamsSliderDidEndSliding:(id)sender {
     [self createExamSetupElements];
-    [self.courseToAdd.examGrades removeAllObjects];
-    [self.courseToAdd.examWeights removeAllObjects];
+    [self.courseToAdd.data.examGrades removeAllObjects];
+    [self.courseToAdd.data.examWeights removeAllObjects];
 
 }
 
@@ -386,28 +391,29 @@ static const int SIZE_OF_EXAM_BLOCK = 75;
     [_scroller setScrollEnabled:YES];
     [_scroller setContentSize:CGSizeMake(320, 1370)];
     
-    __doc = [[CourseDoc alloc] initWithCourse:self.courseToAdd];
+    //_courseToAdd = [[CourseDoc alloc] initWithCourse:self.courseToAdd];
+    _courseToAdd = [[CourseDoc alloc] init];
     
     //Populate fields so they can be edited
     if (self.editMode) {
-        self.courseNameField.text = self.courseToAdd.courseName;
+        self.courseNameField.text = self.courseToAdd.data.courseName;
         self.courseNameField.enabled = NO;
-        self.creditHoursSlider.value = [self.courseToAdd.creditHours floatValue];
-        self.creditHoursLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.creditHours];
+        self.creditHoursSlider.value = [self.courseToAdd.data.creditHours floatValue];
+        self.creditHoursLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.data.creditHours];
         
-        if (self.courseToAdd.professorName != nil)
-            self.professorName.text = self.courseToAdd.professorName;
-        if (self.courseToAdd.professorOfficeLocation != nil)
-            self.professorOfficeLocation.text = self.courseToAdd.professorOfficeLocation;
-        if (self.courseToAdd.professorEmailAddress != nil)
-            self.professorEmailAddress.text = self.courseToAdd.professorEmailAddress;
+        if (self.courseToAdd.data.professorName != nil)
+            self.professorName.text = self.courseToAdd.data.professorName;
+        if (self.courseToAdd.data.professorOfficeLocation != nil)
+            self.professorOfficeLocation.text = self.courseToAdd.data.professorOfficeLocation;
+        if (self.courseToAdd.data.professorEmailAddress != nil)
+            self.professorEmailAddress.text = self.courseToAdd.data.professorEmailAddress;
         
-        self.homeworkWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.homeworkWeight floatValue] * 100)];
-        self.homeworkWeightSlider.value = [self.courseToAdd.homeworkWeight floatValue] * 100;
-        self.quizWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.quizWeight floatValue] * 100)];
-        self.quizWeightSlider.value = [self.courseToAdd.quizWeight floatValue] * 100;
-        self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.numberOfExams];
-        self.numberOfExamsSlider.value = [self.courseToAdd.numberOfExams floatValue];
+        self.homeworkWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.data.homeworkWeight floatValue] * 100)];
+        self.homeworkWeightSlider.value = [self.courseToAdd.data.homeworkWeight floatValue] * 100;
+        self.quizWeightLabel.text = [NSString stringWithFormat:@"%d%%", (int)([self.courseToAdd.data.quizWeight floatValue] * 100)];
+        self.quizWeightSlider.value = [self.courseToAdd.data.quizWeight floatValue] * 100;
+        self.numberOfExamsLabel.text = [NSString stringWithFormat:@"%@", self.courseToAdd.data.numberOfExams];
+        self.numberOfExamsSlider.value = [self.courseToAdd.data.numberOfExams floatValue];
     }
     //End populate fields so they can be edited
     

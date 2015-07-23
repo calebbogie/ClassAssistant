@@ -123,7 +123,6 @@
     // Pass the selected object to the new view controller.
     
     //if ([segue.identifier isEqualToString:@"backToCalendarTableSegue"]) {
-        CalendarEventsTableViewController *dc = [segue destinationViewController];
         //Reread calendar data to find old events as well as new one
         //[dc fetchCalendarEvents];
         

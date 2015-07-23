@@ -18,7 +18,7 @@
 @implementation CalendarEventsTableViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Course name in prepareForSegue %@", self.courseForEvents.courseName);
+    NSLog(@"Course name in prepareForSegue %@", self.courseForEvents.data.courseName);
     
     //Transition from Table View to Class View
     if([segue.identifier isEqualToString:@"CalendarEventSegue"]) {
@@ -33,7 +33,7 @@
         //UINavigationController *navController = [segue destinationViewController];
         AddCalendarEventViewController *destViewController = (AddCalendarEventViewController *)[segue destinationViewController];
         
-        destViewController.courseName = self.courseForEvents.courseName;
+        destViewController.courseName = self.courseForEvents.data.courseName;
     }
 }
 
@@ -111,7 +111,7 @@
     else
         [_other removeAllObjects];
     
-    NSString *courseName = self.courseForEvents.courseName;
+    NSString *courseName = self.courseForEvents.data.courseName;
     
     //Populate matchingEvents array
     for (int i = 0; i < events.count; i++) {
@@ -122,9 +122,9 @@
             
             //Only examining first 4 letters to avoid segmentation faults
             //Exam
-            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.courseForEvents.courseName.length) {
+            if ([@"Exam" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]] && e.title.length >= self.courseForEvents.data.courseName.length) {
                 //If event title begins with course name...
-                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                if ([self.courseForEvents.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.data.courseName.length)]]) {
                     [_exams addObject:e];
                 }
             }
@@ -132,7 +132,7 @@
             //Quiz
             else if ([@"Quiz" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                if ([self.courseForEvents.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.data.courseName.length)]]) {
                     [_quizzes addObject:e];
                 }
             }
@@ -140,7 +140,7 @@
             //Homework
             else if ([@"Home" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                if ([self.courseForEvents.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.data.courseName.length)]]) {
                     [_homeworks addObject:e];
                 }
             }
@@ -148,7 +148,7 @@
             //Other
             else if ([@"Othe" isEqualToString:[e.notes substringWithRange:NSMakeRange(15, 4)]]) {
                 //If event title begins with course name...
-                if ([self.courseForEvents.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.courseName.length)]]) {
+                if ([self.courseForEvents.data.courseName isEqualToString:[e.title substringWithRange:NSMakeRange(0, self.courseForEvents.data.courseName.length)]]) {
                     [_other addObject:e];
                 }
             }
@@ -185,7 +185,7 @@
     
     [self fetchCalendarEvents];
     
-    NSLog(@"Course name in load: %@", self.courseForEvents.courseName); 
+    NSLog(@"Course name in load: %@", self.courseForEvents.data.courseName);
     
     }
 
